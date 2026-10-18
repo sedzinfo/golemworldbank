@@ -141,5 +141,4 @@ git lfs ls-files
 ![Last Commit](https://img.shields.io/github/last-commit/sedzinfo/worldbankmodular)
 ![Contributors](https://img.shields.io/github/contributors/sedzinfo/worldbankmodular)
 ![License](https://img.shields.io/github/license/sedzinfo/worldbankmodular)
-![Release](https://img.shields.io/github/v/release/sedzinfo/worldbankmodular)
-![Workflow Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/worldbankmodular/main.yml)
+![Workflow Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/worldbankmodular/build-tarball.yml)
