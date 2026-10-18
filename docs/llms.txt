@@ -173,8 +173,8 @@ tab](reference/figures/worldbank7.png)
 ![Stars](https://img.shields.io/github/stars/sedzinfo/worldbankmodular)![Watchers](https://img.shields.io/github/watchers/sedzinfo/worldbankmodular)![Repo
 Size](https://img.shields.io/github/repo-size/sedzinfo/worldbankmodular)![Open
 Issues](https://img.shields.io/github/issues/sedzinfo/worldbankmodular)![Forks](https://img.shields.io/github/forks/sedzinfo/worldbankmodular)![Last
-Commit](https://img.shields.io/github/last-commit/sedzinfo/worldbankmodular)![Contributors](https://img.shields.io/github/contributors/sedzinfo/worldbankmodular)![License](https://img.shields.io/github/license/sedzinfo/worldbankmodular)![Release](https://img.shields.io/github/v/release/sedzinfo/worldbankmodular)![Workflow
-Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/worldbankmodular/main.yml)
+Commit](https://img.shields.io/github/last-commit/sedzinfo/worldbankmodular)![Contributors](https://img.shields.io/github/contributors/sedzinfo/worldbankmodular)![License](https://img.shields.io/github/license/sedzinfo/worldbankmodular)![Workflow
+Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/worldbankmodular/build-tarball.yml)
 
 # Package index
 
