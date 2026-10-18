@@ -23,7 +23,6 @@ document()
 if ("worldbankmodular" %in% rownames(installed.packages())) remove.packages("worldbankmodular")
 install()
 library(worldbankmodular)
-help(package = "worldbankmodular")
 
 pkgdown::build_site(getwd())
 system("R CMD Rd2pdf . --force --no-preview --output=worldbankmodular.pdf")
