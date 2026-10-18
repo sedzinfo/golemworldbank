@@ -11,8 +11,8 @@ correlation scatter, and choropleth map views.
 ## install R
 
 installation instructions can be found here:
-<https://cran.r-project.org/>  
-\## install RStudio IDE (optional but a good idea)  
+<https://cran.r-project.org/>\
+\## install RStudio IDE (optional but a good idea)\
 installation instructions can be found here:
 <https://posit.co/downloads/>
 
@@ -160,12 +160,13 @@ git lfs ls-files
 
 # Screenshots
 
-![Country Comparison tab](screenshot/worldbank1.png)![Indicator
-Comparison tab](screenshot/worldbank2.png)![Pyramid
-tab](screenshot/worldbank3.png)![Barplot
-tab](screenshot/worldbank4.png)![Scatterplot
-tab](screenshot/worldbank5.png)![Map
-tab](screenshot/worldbank6.png)![Index tab](screenshot/worldbank7.png)
+![Country Comparison tab](reference/figures/worldbank1.png)![Indicator
+Comparison tab](reference/figures/worldbank2.png)![Pyramid
+tab](reference/figures/worldbank3.png)![Barplot
+tab](reference/figures/worldbank4.png)![Scatterplot
+tab](reference/figures/worldbank5.png)![Map
+tab](reference/figures/worldbank6.png)![Index
+tab](reference/figures/worldbank7.png)
 
 ------------------------------------------------------------------------
 
