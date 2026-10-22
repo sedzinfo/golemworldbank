@@ -50,12 +50,12 @@ World Bank Open Data (<https://data.worldbank.org>).
 ``` r
 # \donttest{
 head(mfi_population)
-#>   Country Name                                         Indicator Name Year    value   age    unit    sex
-#> 1        Aruba Population ages 00-04, female (% of female population) 1960 14.57218 00-04 Percent Female
-#> 2        Aruba     Population ages 00-04, male (% of male population) 1960 15.63224 00-04 Percent   Male
-#> 3        Aruba Population ages 05-09, female (% of female population) 1960 14.28213 05-09 Percent Female
-#> 4        Aruba     Population ages 05-09, male (% of male population) 1960 15.23402 05-09 Percent   Male
-#> 5        Aruba Population ages 10-14, female (% of female population) 1960 12.57050 10-14 Percent Female
-#> 6        Aruba     Population ages 10-14, male (% of male population) 1960 12.77065 10-14 Percent   Male
+#>   Country Name                                                Indicator Name Year     value   age    unit    sex
+#> 1        Aruba            Population ages 40-44, male (% of male population) 1960 4.7785742 40-44 Percent   Male
+#> 2        Aruba        Population ages 40-44, female (% of female population) 1960 4.8538127 40-44 Percent Female
+#> 3        Aruba            Population ages 75-79, male (% of male population) 1960 0.3963624 75-79 Percent   Male
+#> 4        Aruba Population ages 80 and above, female (% of female population) 1960 0.4601364   80+ Percent Female
+#> 5        Aruba     Population ages 80 and above, male (% of male population) 1960 0.2704154   80+ Percent   Male
+#> 6        Aruba            Population ages 60-64, male (% of male population) 1960 1.6780575 60-64 Percent   Male
 # }
 ```

@@ -42,12 +42,12 @@ World Bank Open Data (<https://data.worldbank.org>).
 ``` r
 # \donttest{
 head(mfi)
-#>   Country Code Country Name                                                Indicator Name Year     value
-#> 1          ABW        Aruba Adolescent fertility rate (births per 1,000 women ages 15-19) 1960 44.732000
-#> 2          ABW        Aruba            Age dependency ratio (% of working-age population) 1960 83.046159
-#> 3          ABW        Aruba       Age dependency ratio, old (% of working-age population) 1960  5.229128
-#> 4          ABW        Aruba     Age dependency ratio, young (% of working-age population) 1960 77.817030
-#> 5          ABW        Aruba                          Aquaculture production (metric tons) 1960  0.000000
-#> 6          ABW        Aruba                          Birth rate, crude (per 1,000 people) 1960 32.043000
+#>   Country Code Country Name                                                Indicator Name Year       value
+#> 1          ABW        Aruba            Population ages 40-44, male (% of male population) 1960   4.7785742
+#> 2          ABW        Aruba        Population ages 40-44, female (% of female population) 1960   4.8538127
+#> 3          ABW        Aruba            Population ages 75-79, male (% of male population) 1960   0.3963624
+#> 4          ABW        Aruba Population ages 80 and above, female (% of female population) 1960   0.4601364
+#> 5          ABW        Aruba          Population ages 65 and above (% of total population) 1960   2.8558683
+#> 6          ABW        Aruba                          Population ages 65 and above, female 1960 934.0000000
 # }
 ```
