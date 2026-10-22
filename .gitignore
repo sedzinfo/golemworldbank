@@ -5,5 +5,3 @@ data/WDI_CSV.zip
 .Rbuildignore
 .RDataTmp
 .RData
-*.tar.gz
-*.tar.gz
