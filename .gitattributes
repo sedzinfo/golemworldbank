@@ -1,2 +1,4 @@
 data/*.rda filter=lfs diff=lfs merge=lfs -text
 worldbankmodular_*.tar.gz filter=lfs diff=lfs merge=lfs -text
+data-raw/*.csv filter=lfs diff=lfs merge=lfs -text
+data-raw/*.zip filter=lfs diff=lfs merge=lfs -text
