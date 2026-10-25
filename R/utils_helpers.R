@@ -7,6 +7,7 @@
 #' @keywords internal
 #' @importFrom dplyr %>%
 #' @usage lhs \%>\% rhs
+#' @export
 NULL
 
 #' Shared plotly font style
@@ -44,3 +45,11 @@ format_bignum <- function(n) {
     TRUE ~ as.character(n)
   )
 }
+##########################################################################################
+# 
+##########################################################################################
+#' @importFrom stats complete.cases reshape
+#' @importFrom utils globalVariables
+NULL
+# the packaged datasets and the data frame columns that the code refers to by name
+globalVariables(c("mfi", "mfi_population", "country_code", "Year", "value"))

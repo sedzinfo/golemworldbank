@@ -13,13 +13,15 @@ URL: https://sedzinfo.github.io/golemworldbank/, https://github.com/sedzinfo/gol
 BugReports: https://github.com/sedzinfo/golemworldbank/issues
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
 Imports:
     config,
     dplyr,
     DT,
     golem,
-    pkgload,
     plotly,
-    shiny
+    shiny,
+    stats,
+    utils
 Config/roxygen2/version: 8.1.1

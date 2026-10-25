@@ -1,0 +1,43 @@
+# Runs R CMD check on every push and pull request.
+# Derived from https://github.com/r-lib/actions/tree/v2/examples
+name: R-CMD-check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:                              # also allows a manual run from the Actions tab
+
+permissions: read-all
+
+concurrency:                                      # a newer push cancels the check still running for the same branch
+  group: R-CMD-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  R-CMD-check:
+    runs-on: ubuntu-latest                        # one OS only: every run downloads the package data from Git LFS
+    name: ubuntu-latest (R release)
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+
+    steps:
+      - uses: actions/checkout@v5
+
+      # the package data is stored in Git LFS; fetch only the .rda files the package uses
+      - name: Fetch package data from LFS
+        run: git lfs pull --include="data/*.rda"
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
+
+      - uses: r-lib/actions/check-r-package@v2      # fails on errors and warnings, not on notes
+        with:
+          build_args: 'c("--no-manual","--resave-data")'
