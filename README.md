@@ -1,4 +1,4 @@
-# worldbankmodular
+# golemworldbank
 
 A Shiny application, built as a [golem](https://thinkr-open.github.io/golem/) package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views.
 
@@ -12,7 +12,7 @@ open RStudio and type in the console:
 ```
 install.packages("devtools")
 library(devtools)
-install_github("sedzinfo/worldbankmodular")
+install_github("sedzinfo/golemworldbank")
 ```
 
 Note: `install_github()` may fail for this repository because package data files are tracked with Git LFS and GitHub source tarballs can contain LFS pointer files instead of binary `.rda` data.
@@ -24,18 +24,18 @@ Use one of the following reliable options:
 1. Clone the repository with Git LFS enabled and install locally:
 ```
 git lfs install
-git clone https://github.com/sedzinfo/worldbankmodular.git
+git clone https://github.com/sedzinfo/golemworldbank.git
 ```
 Then in R:
 ```
-devtools::install_local("worldbankmodular")
+devtools::install_local("golemworldbank")
 ```
 
 2. Download the full repository and regenerate package data locally by running `financial_indicators.R` and then `generate_package.R`.
 
 # Usage
 ```
-library(worldbankmodular)
+library(golemworldbank)
 run_app()
 ```
 
@@ -99,8 +99,8 @@ git lfs install
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/sedzinfo/worldbankmodular.git
-cd worldbankmodular
+git clone https://github.com/sedzinfo/golemworldbank.git
+cd golemworldbank
 ```
 
 ### 3. Pull the LFS files
@@ -133,12 +133,12 @@ git lfs ls-files
 
 ---
 
-![Stars](https://img.shields.io/github/stars/sedzinfo/worldbankmodular)
-![Watchers](https://img.shields.io/github/watchers/sedzinfo/worldbankmodular)
-![Repo Size](https://img.shields.io/github/repo-size/sedzinfo/worldbankmodular)
-![Open Issues](https://img.shields.io/github/issues/sedzinfo/worldbankmodular)
-![Forks](https://img.shields.io/github/forks/sedzinfo/worldbankmodular)
-![Last Commit](https://img.shields.io/github/last-commit/sedzinfo/worldbankmodular)
-![Contributors](https://img.shields.io/github/contributors/sedzinfo/worldbankmodular)
-![License](https://img.shields.io/github/license/sedzinfo/worldbankmodular)
-![Workflow Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/worldbankmodular/build-tarball.yml)
+![Stars](https://img.shields.io/github/stars/sedzinfo/golemworldbank)
+![Watchers](https://img.shields.io/github/watchers/sedzinfo/golemworldbank)
+![Repo Size](https://img.shields.io/github/repo-size/sedzinfo/golemworldbank)
+![Open Issues](https://img.shields.io/github/issues/sedzinfo/golemworldbank)
+![Forks](https://img.shields.io/github/forks/sedzinfo/golemworldbank)
+![Last Commit](https://img.shields.io/github/last-commit/sedzinfo/golemworldbank)
+![Contributors](https://img.shields.io/github/contributors/sedzinfo/golemworldbank)
+![License](https://img.shields.io/github/license/sedzinfo/golemworldbank)
+![Workflow Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)

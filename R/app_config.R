@@ -15,7 +15,7 @@
 #' app_sys("golem-config.yml")
 #' }
 app_sys <- function(...) {
-  system.file(..., package = "worldbankmodular")
+  system.file(..., package = "golemworldbank")
 }
 
 #' Read App Config

@@ -11,7 +11,7 @@
 ^\.rscignore$
 ^financial_indicators\.R$
 ^generate_package\.R$
-^worldbankmodular\.pdf$
+^golemworldbank\.pdf$
 ^.*\.tar\.gz$
 ^\.github$
 ^\.gitattributes$

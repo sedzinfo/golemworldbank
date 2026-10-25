@@ -1,4 +1,4 @@
-Package: worldbankmodular
+Package: golemworldbank
 Title: World Bank Indicators Explorer
 Version: 0.0.1
 Authors@R: person("Dimitrios", "Zacharatos", email = "dzacharatos@yahoo.com", role = c("aut", "cre"))
@@ -9,8 +9,8 @@ Description: A Shiny application, built as a golem package, for exploring
     comparison, indicator comparison, population pyramid, ranked bar chart,
     correlation scatter, and choropleth map views.
 License: GPL-3
-URL: https://sedzinfo.github.io/worldbankmodular/, https://github.com/sedzinfo/worldbankmodular
-BugReports: https://github.com/sedzinfo/worldbankmodular/issues
+URL: https://sedzinfo.github.io/golemworldbank/, https://github.com/sedzinfo/golemworldbank
+BugReports: https://github.com/sedzinfo/golemworldbank/issues
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

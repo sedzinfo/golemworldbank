@@ -1,5 +1,5 @@
 default:
-  golem_name: worldbankmodular
+  golem_name: golemworldbank
   golem_version: 0.0.1
   app_prod: no
 
