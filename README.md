@@ -142,3 +142,4 @@ git lfs ls-files
 ![Contributors](https://img.shields.io/github/contributors/sedzinfo/golemworldbank)
 ![License](https://img.shields.io/github/license/sedzinfo/golemworldbank)
 ![Workflow Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)
+![R-CMD-check](https://github.com/sedzinfo/golemworldbank/actions/workflows/R-CMD-check.yaml/badge.svg)
