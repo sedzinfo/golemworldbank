@@ -13,7 +13,7 @@ mod_index_table_server(id, mfi)
 - id:
 
   Character. Module namespace id, must match the id used in
-  [`mod_index_table_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_index_table_ui.md).
+  [`mod_index_table_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_ui.md).
 
 - mfi:
 

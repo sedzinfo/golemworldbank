@@ -14,7 +14,7 @@ mod_bar_server(id, mfi)
 - id:
 
   Character. Module namespace id, must match the id used in
-  [`mod_bar_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_bar_ui.md).
+  [`mod_bar_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_ui.md).
 
 - mfi:
 

@@ -14,7 +14,7 @@ mod_indicator_comp_server(id, mfi)
 - id:
 
   Character. Module namespace id, must match the id used in
-  [`mod_indicator_comp_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_indicator_comp_ui.md).
+  [`mod_indicator_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_ui.md).
 
 - mfi:
 

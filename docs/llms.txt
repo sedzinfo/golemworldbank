@@ -1,4 +1,4 @@
-# worldbankmodular
+# golemworldbank
 
 A Shiny application, built as a
 [golem](https://thinkr-open.github.io/golem/) package, for exploring
@@ -20,7 +20,7 @@ open RStudio and type in the console:
 
     install.packages("devtools")
     library(devtools)
-    install_github("sedzinfo/worldbankmodular")
+    install_github("sedzinfo/golemworldbank")
 
 Note: `install_github()` may fail for this repository because package
 data files are tracked with Git LFS and GitHub source tarballs can
@@ -39,18 +39,18 @@ one of the following reliable options:
 &nbsp;
 
     git lfs install
-    git clone https://github.com/sedzinfo/worldbankmodular.git
+    git clone https://github.com/sedzinfo/golemworldbank.git
 
 Then in R:
 
-    devtools::install_local("worldbankmodular")
+    devtools::install_local("golemworldbank")
 
 2.  Download the full repository and regenerate package data locally by
     running `financial_indicators.R` and then `generate_package.R`.
 
 # Usage
 
-    library(worldbankmodular)
+    library(golemworldbank)
     run_app()
 
 # Update data
@@ -94,10 +94,10 @@ Open Data](https://data.worldbank.org):
   in the Scatterplot tab.
 
 Full column-level documentation is available via
-[`?mfi`](https://sedzinfo.github.io/worldbankmodular/reference/mfi.md),
-[`?mfi_population`](https://sedzinfo.github.io/worldbankmodular/reference/mfi_population.md),
+[`?mfi`](https://sedzinfo.github.io/golemworldbank/reference/mfi.md),
+[`?mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md),
 and
-[`?country_code`](https://sedzinfo.github.io/worldbankmodular/reference/country_code.md).
+[`?country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md).
 
 ------------------------------------------------------------------------
 
@@ -134,8 +134,8 @@ git lfs install
 ### 2. Clone the repository
 
 ``` bash
-git clone https://github.com/sedzinfo/worldbankmodular.git
-cd worldbankmodular
+git clone https://github.com/sedzinfo/golemworldbank.git
+cd golemworldbank
 ```
 
 ### 3. Pull the LFS files
@@ -170,80 +170,80 @@ tab](reference/figures/worldbank7.png)
 
 ------------------------------------------------------------------------
 
-![Stars](https://img.shields.io/github/stars/sedzinfo/worldbankmodular)![Watchers](https://img.shields.io/github/watchers/sedzinfo/worldbankmodular)![Repo
-Size](https://img.shields.io/github/repo-size/sedzinfo/worldbankmodular)![Open
-Issues](https://img.shields.io/github/issues/sedzinfo/worldbankmodular)![Forks](https://img.shields.io/github/forks/sedzinfo/worldbankmodular)![Last
-Commit](https://img.shields.io/github/last-commit/sedzinfo/worldbankmodular)![Contributors](https://img.shields.io/github/contributors/sedzinfo/worldbankmodular)![License](https://img.shields.io/github/license/sedzinfo/worldbankmodular)![Workflow
-Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/worldbankmodular/build-tarball.yml)
+![Stars](https://img.shields.io/github/stars/sedzinfo/golemworldbank)![Watchers](https://img.shields.io/github/watchers/sedzinfo/golemworldbank)![Repo
+Size](https://img.shields.io/github/repo-size/sedzinfo/golemworldbank)![Open
+Issues](https://img.shields.io/github/issues/sedzinfo/golemworldbank)![Forks](https://img.shields.io/github/forks/sedzinfo/golemworldbank)![Last
+Commit](https://img.shields.io/github/last-commit/sedzinfo/golemworldbank)![Contributors](https://img.shields.io/github/contributors/sedzinfo/golemworldbank)![License](https://img.shields.io/github/license/sedzinfo/golemworldbank)![Workflow
+Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)
 
 # Package index
 
 ## Datasets
 
-- [`country_code`](https://sedzinfo.github.io/worldbankmodular/reference/country_code.md)
+- [`country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md)
   : Country and region reference table
-- [`mfi`](https://sedzinfo.github.io/worldbankmodular/reference/mfi.md)
-  : World Bank indicator values
-- [`mfi_population`](https://sedzinfo.github.io/worldbankmodular/reference/mfi_population.md)
+- [`mfi`](https://sedzinfo.github.io/golemworldbank/reference/mfi.md) :
+  World Bank indicator values
+- [`mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md)
   : Population by age, sex, and country
 
 ## UI
 
 Internal functions not meant to run independently
 
-- [`mod_bar_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_bar_ui.md)
+- [`mod_bar_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_ui.md)
   : Bar chart module - UI
-- [`mod_country_comp_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_country_comp_ui.md)
+- [`mod_country_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_ui.md)
   : Country comparison module - UI
-- [`mod_index_table_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_index_table_ui.md)
+- [`mod_index_table_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_ui.md)
   : Indicator index table module - UI
-- [`mod_indicator_comp_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_indicator_comp_ui.md)
+- [`mod_indicator_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_ui.md)
   : Indicator comparison module - UI
-- [`mod_map_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_map_ui.md)
+- [`mod_map_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_map_ui.md)
   : Choropleth map module - UI
-- [`mod_pyramid_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_pyramid_ui.md)
+- [`mod_pyramid_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_ui.md)
   : Population pyramid module - UI
-- [`mod_scatter_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_scatter_ui.md)
+- [`mod_scatter_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_ui.md)
   : Scatter correlation module - UI
 
 ## Server
 
 Internal functions not meant to run independently
 
-- [`mod_bar_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_bar_server.md)
+- [`mod_bar_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_server.md)
   : Bar chart module - server
-- [`mod_country_comp_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_country_comp_server.md)
+- [`mod_country_comp_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_server.md)
   : Country comparison module - server
-- [`mod_index_table_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_index_table_server.md)
+- [`mod_index_table_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_server.md)
   : Indicator index table module - server
-- [`mod_indicator_comp_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_indicator_comp_server.md)
+- [`mod_indicator_comp_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_server.md)
   : Indicator comparison module - server
-- [`mod_map_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_map_server.md)
+- [`mod_map_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_map_server.md)
   : Choropleth map module - server
-- [`mod_pyramid_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_pyramid_server.md)
+- [`mod_pyramid_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_server.md)
   : Population pyramid module - server
-- [`mod_scatter_server()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_scatter_server.md)
+- [`mod_scatter_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_server.md)
   : Scatter correlation module - server
 
 ## Plot
 
-- [`plot_bar()`](https://sedzinfo.github.io/worldbankmodular/reference/plot_bar.md)
+- [`plot_bar()`](https://sedzinfo.github.io/golemworldbank/reference/plot_bar.md)
   : Build an animated ranked bar chart
-- [`plot_cor()`](https://sedzinfo.github.io/worldbankmodular/reference/plot_cor.md)
+- [`plot_cor()`](https://sedzinfo.github.io/golemworldbank/reference/plot_cor.md)
   : Build an animated correlation bubble scatter plot
-- [`plot_country_comp()`](https://sedzinfo.github.io/worldbankmodular/reference/plot_country_comp.md)
+- [`plot_country_comp()`](https://sedzinfo.github.io/golemworldbank/reference/plot_country_comp.md)
   : Build a country comparison line chart
-- [`plot_indicator_comp()`](https://sedzinfo.github.io/worldbankmodular/reference/plot_indicator_comp.md)
+- [`plot_indicator_comp()`](https://sedzinfo.github.io/golemworldbank/reference/plot_indicator_comp.md)
   : Build an indicator comparison line chart
-- [`plot_map()`](https://sedzinfo.github.io/worldbankmodular/reference/plot_map.md)
+- [`plot_map()`](https://sedzinfo.github.io/golemworldbank/reference/plot_map.md)
   : Build an animated choropleth map
-- [`plot_pyramid()`](https://sedzinfo.github.io/worldbankmodular/reference/plot_pyramid.md)
+- [`plot_pyramid()`](https://sedzinfo.github.io/golemworldbank/reference/plot_pyramid.md)
   : Build an animated population pyramid
 
 ## Render
 
-- [`render_index_table()`](https://sedzinfo.github.io/worldbankmodular/reference/render_index_table.md)
+- [`render_index_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_index_table.md)
   : Build the indicator index DataTable
-- [`run_app()`](https://sedzinfo.github.io/worldbankmodular/reference/run_app.md)
+- [`run_app()`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)
   : Run the Shiny Application
 

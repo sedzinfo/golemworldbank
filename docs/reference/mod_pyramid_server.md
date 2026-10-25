@@ -14,7 +14,7 @@ mod_pyramid_server(id, mfi_population)
 - id:
 
   Character. Module namespace id, must match the id used in
-  [`mod_pyramid_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_pyramid_ui.md).
+  [`mod_pyramid_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_ui.md).
 
 - mfi_population:
 

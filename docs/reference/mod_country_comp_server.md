@@ -14,7 +14,7 @@ mod_country_comp_server(id, mfi)
 - id:
 
   Character. Module namespace id, must match the id used in
-  [`mod_country_comp_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_country_comp_ui.md).
+  [`mod_country_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_ui.md).
 
 - mfi:
 

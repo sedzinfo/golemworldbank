@@ -14,7 +14,7 @@ mod_scatter_server(id, mfi, country_code)
 - id:
 
   Character. Module namespace id, must match the id used in
-  [`mod_scatter_ui()`](https://sedzinfo.github.io/worldbankmodular/reference/mod_scatter_ui.md).
+  [`mod_scatter_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_ui.md).
 
 - mfi:
 
