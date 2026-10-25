@@ -1,4 +1,4 @@
-# golemworldbank
+# # WDI Worldbank Visualizations
 
 A Shiny application, built as a [golem](https://thinkr-open.github.io/golem/) package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views.
 
