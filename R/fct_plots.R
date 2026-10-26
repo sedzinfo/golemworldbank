@@ -231,14 +231,14 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
     plotly::layout(
       autosize = TRUE,
       title = paste0(unique(temp$`Indicator Name`)),
-      margin = list(l = 50, r = 50, b = 100, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
       # rank 1 at the top; ranks instead of names on the axis (the names are on the bars)
       yaxis = list(title = "", autorange = "reversed", dtick = 1, zeroline = FALSE),
       xaxis = list(title = "", showticklabels = FALSE, zeroline = FALSE, showgrid = FALSE),
       font = font_style,
       showlegend = FALSE
     ) %>%
-    plotly::animation_opts(frame = 700, transition = 700, easing = "linear", redraw = FALSE, mode = "afterall") %>%
+    plotly::animation_opts(frame = 1000, transition = 400, easing = "linear", redraw = TRUE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 
@@ -246,7 +246,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
   # the frame's year, big and gray in the bottom right corner (the shortest bars)
   year_label <- function(year) {
     list(list(text = year, xref = "paper", yref = "paper", x = 1, y = 0, xanchor = "right", yanchor = "bottom",
-              showarrow = FALSE, font = list(size = 120, color = "rgba(128,128,128,0.35)")))
+              showarrow = FALSE, font = list(size = 480, color = "rgba(128,128,128,0.35)")))
   }
   p$x$layout$annotations <- year_label(p$x$frames[[1]]$name)
   for (k in seq_along(p$x$frames)) {

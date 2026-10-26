@@ -39,7 +39,7 @@ font_style <- list(size = 20, color = "gray25", weight = "bold")
 #' @return A character vector of formatted values.
 #'
 #' @noRd
-#'
+#' @export
 #' @examples
 #' format_bignum(c(950, 1500, 2500000, 3200000000, 4100000000000))
 #' #> [1] "950" "2 K" "2 M" "3 Bn" "4 Tn"
@@ -73,7 +73,7 @@ globalVariables(c("mfi", "mfi_population", "country_code", "indicator_info", "Ye
 #' @return A character vector of formatted values.
 #'
 #' @noRd
-#'
+#' @export
 #' @examples
 #' format_value(c(0.0752, 950, 1520, 6020000, -5720000000, 29200000000000))
 #' #> [1] "0.0752" "950" "1.52k" "6.02M" "-5.72B" "29.2T"
@@ -98,7 +98,7 @@ format_value <- function(n) {
 #' @return A list to pass as `plotly::layout(updatemenus = ...)`.
 #'
 #' @noRd
-#'
+#' @export
 #' @examples
 #' plotly::layout(p, updatemenus = animation_buttons("1960"))
 animation_buttons <- function(first_frame) {
