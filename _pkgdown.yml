@@ -33,6 +33,7 @@ reference:
   - title: "Datasets"
     contents:
       - country_code
+      - format_bignum
       - indicator_change
       - indicator_info
       - mfi
