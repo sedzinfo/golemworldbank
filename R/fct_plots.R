@@ -166,64 +166,79 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 ##########################################################################################
 #' Build an animated ranked bar chart
 #'
-#' Plots one indicator's value per country as a horizontal bar chart,
-#' animated over `Year`, with countries ranked and ordered by their value in
-#' the most recent year. Only positive, complete-case rows are kept. Returns
-#' `NULL` when fewer than two rows remain after filtering (nothing
-#' meaningful to plot/rank).
+#' Plots one indicator's top `top_n` countries per year as a horizontal bar
+#' chart animated over `Year` (a "bar chart race"): in every frame the bars are
+#' re-ranked, so a country that overtakes another moves up, and the value axis
+#' is fitted to that year's largest value. Each bar carries the country name
+#' and its value. Only positive, complete-case rows are kept. Returns `NULL`
+#' when fewer than two rows remain after filtering.
 #'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
 #' @param indicator Character. Indicator name to plot.
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
+#' @param top_n Integer. Number of countries shown in each year.
 #'
 #' @return A `plotly` htmlwidget, or `NULL` if there is not enough data to
 #'   plot.
 #' @export
 #' @examples
 #' plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style)
-plot_bar <- function(mfi, indicator, font_style) {
+plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
   temp <- mfi[mfi$`Indicator Name` %in% indicator, ]
   temp <- temp[complete.cases(temp), ]
   temp <- temp[temp$value > 0, ]
-  temp$Year <- droplevels(temp$Year)
-  temp <- dplyr::mutate(dplyr::group_by(temp, Year),
-    rank = order(order(value, Year, decreasing = TRUE))
-  )
-  temp_factor <- data.frame(temp[temp$Year %in% max(as.character(temp$Year), na.rm = TRUE), ], check.names = FALSE)
-
-  temp$`Country Name` <- factor(temp$`Country Name`,
-    levels = temp_factor[order(temp_factor$value), "Country Name"]
-  )
   if (nrow(temp) <= 1) {
     return(NULL)
   }
-  plotly::plot_ly(temp,
-    x = ~ temp$value,
-    y = ~ temp$`Country Name`,
-    hovertext = ~ paste0(
-      "\nRank=", temp$rank,
-      "\nCountry=", temp$`Country Name`,
-      "\nValue=", format_bignum(temp$value)
-    ),
+  temp$Year <- droplevels(temp$Year)
+  # rank within each year (1 = largest), keep the top_n
+  temp <- temp[order(temp$Year, -temp$value), ]
+  temp$rank <- stats::ave(temp$value, temp$Year, FUN = seq_along)
+  temp <- data.frame(temp[temp$rank <= top_n, ], check.names = FALSE)
+  temp$label <- paste0(temp$`Country Name`, "  ", format_value(temp$value))
+
+  p <- plotly::plot_ly(temp,
+    x = ~value,
+    y = ~rank,
     frame = ~Year,
-    ids = ~ temp$`Country Name`,
+    ids = ~ `Country Name`,
+    type = "bar",
+    orientation = "h",
+    text = ~label,
+    textposition = "outside",
+    cliponaxis = FALSE,
+    hovertext = ~ paste0(
+      "Rank=", rank,
+      "\nCountry=", `Country Name`,
+      "\nValue=", format_value(value)
+    ),
     hoverinfo = "text",
-    type = "bar"
+    marker = list(color = "#4A64FF")
   ) %>%
     plotly::layout(
       autosize = TRUE,
       title = paste0(unique(temp$`Indicator Name`)),
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
-      xaxis = list(title = ""),
-      yaxis = list(title = ""),
+      margin = list(l = 50, r = 50, b = 100, t = 100, pad = 0),
+      # rank 1 at the top; ranks instead of names on the axis (the names are on the bars)
+      yaxis = list(title = "", autorange = "reversed", dtick = 1, zeroline = FALSE),
+      xaxis = list(title = "", showticklabels = FALSE, zeroline = FALSE, showgrid = FALSE),
       font = font_style,
       showlegend = FALSE
     ) %>%
-    plotly::add_text(text = paste("Rank:", format_bignum(temp$rank)), textposition = "right") %>%
-    plotly::animation_opts(frame = 1000, easing = "linear", redraw = TRUE, mode = "immediate") %>%
+    plotly::animation_opts(frame = 800, transition = 600, easing = "linear", redraw = FALSE, mode = "immediate") %>%
     plotly::config(responsive = TRUE)
+
+  # fit the value axis to each year's largest value (room on the right for the labels)
+  p <- plotly::plotly_build(p)
+  year_max <- tapply(temp$value, as.character(temp$Year), max)
+  for (k in seq_along(p$x$frames)) {
+    fmax <- year_max[[p$x$frames[[k]]$name]]
+    p$x$frames[[k]]$layout <- list(xaxis = list(range = c(0, fmax * 1.6)))
+  }
+  p$x$layout$xaxis$range <- c(0, year_max[[p$x$frames[[1]]$name]] * 1.6)
+  p
 }
 ##########################################################################################
 # 

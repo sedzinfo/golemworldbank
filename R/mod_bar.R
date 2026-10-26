@@ -17,9 +17,15 @@ mod_bar_ui <- function(id) {
   ns <- NS(id)
   tagList(
     fluidRow(column(5, selectizeInput(ns("indicator_bar"),
-      label = "",
+      label = NULL,
       choices = "GDP (current US$)",
       selected = "GDP (current US$)",
+      width = "100%"
+    )),
+    column(2, selectInput(ns("top_n_bar"),
+      label = NULL,
+      choices = c("Top 10" = 10, "Top 20" = 20, "Top 30" = 30, "Top 50" = 50),
+      selected = 20,
       width = "100%"
     ))),
     plotly::plotlyOutput(ns("plot_bar"), width = "100%", height = "95vh")
@@ -58,7 +64,7 @@ mod_bar_server <- function(id, mfi) {
     )
 
     output$plot_bar <- plotly::renderPlotly({
-      plot_bar(mfi, input$indicator_bar, font_style)
+      plot_bar(mfi, input$indicator_bar, font_style, top_n = as.integer(input$top_n_bar))
     })
   })
 }

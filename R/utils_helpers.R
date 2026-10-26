@@ -53,3 +53,26 @@ format_bignum <- function(n) {
 NULL
 # the packaged datasets and the data frame columns that the code refers to by name
 globalVariables(c("mfi", "mfi_population", "country_code", "Year", "value"))
+##########################################################################################
+# 
+##########################################################################################
+#' Format numbers compactly to 3 significant digits
+#'
+#' Like [format_bignum()] but keeps 3 significant digits, handles negative and
+#' small values, and uses the k/M/B/T suffixes (6.02M, 1.42B, 0.0752, -5.72B).
+#'
+#' @param n Numeric vector of values to format.
+#'
+#' @return A character vector of formatted values.
+#'
+#' @noRd
+#'
+#' @examples
+#' format_value(c(0.0752, 950, 1520, 6020000, -5720000000, 29200000000000))
+#' #> [1] "0.0752" "950" "1.52k" "6.02M" "-5.72B" "29.2T"
+format_value <- function(n) {
+  a <- abs(n)
+  div <- ifelse(a >= 1e12, 1e12, ifelse(a >= 1e9, 1e9, ifelse(a >= 1e6, 1e6, ifelse(a >= 1e3, 1e3, 1))))
+  suf <- ifelse(a >= 1e12, "T", ifelse(a >= 1e9, "B", ifelse(a >= 1e6, "M", ifelse(a >= 1e3, "k", ""))))
+  paste0(trimws(formatC(signif(n / div, 3), format = "fg", digits = 3)), suf)
+}

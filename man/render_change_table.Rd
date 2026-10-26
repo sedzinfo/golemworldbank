@@ -14,8 +14,9 @@ render_change_table(tab)
 A \code{DT::datatable} htmlwidget.
 }
 \description{
-Values and the absolute change are shown to 3 significant digits, the
-percent change to one decimal, coloured green (increase) or red (decrease).
+Values and the absolute change are shown compactly to 3 significant digits
+(6.02M, 1.42B, 0.0752); sorting still uses the full numbers. The percent
+change has one decimal, coloured green (increase) or red (decrease).
 }
 \examples{
 res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
