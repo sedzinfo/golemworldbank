@@ -20,3 +20,7 @@ options( "golem.app.prod" = TRUE)
 run_app() # add parameters here (if any)
 
 
+# rsconnect::deployApp(
+#   appName = "golemworldbank",
+#   forceUpdate = TRUE
+# )

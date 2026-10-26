@@ -1,10 +1,8 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' Pipe operator
-#'
+#' @title Pipe operator
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
-#'
 #' @name %>%
 #' @rdname pipe
 #' @keywords internal
@@ -15,11 +13,9 @@ NULL
 ##########################################################################################
 # 
 ##########################################################################################
-#' Shared plotly font style
-#'
-#' Applied to the `font` argument of every `plotly::layout()` call across the
+#' @title Shared plotly font style
+#' @description Applied to the `font` argument of every `plotly::layout()` call across the
 #' app's plot-building functions, so charts share one look.
-#'
 #' @keywords internal
 #' @export
 #' @examples
@@ -28,17 +24,12 @@ font_style <- list(size = 20, color = "gray25", weight = "bold")
 ##########################################################################################
 # 
 ##########################################################################################
-#' Format a large number with a magnitude suffix
-#'
-#' Abbreviates a numeric value using Tn/Bn/M/K suffixes (trillions,
+#' @title Format a large number with a magnitude suffix
+#' @description Abbreviates a numeric value using Tn/Bn/M/K suffixes (trillions,
 #' billions, millions, thousands), rounding to the nearest whole unit.
 #' Values under 1,000 are returned as-is (coerced to character).
-#'
 #' @param n Numeric vector of values to format.
-#'
 #' @return A character vector of formatted values.
-#'
-#' @noRd
 #' @export
 #' @examples
 #' format_bignum(c(950, 1500, 2500000, 3200000000, 4100000000000))
@@ -63,15 +54,11 @@ globalVariables(c("mfi", "mfi_population", "country_code", "indicator_info", "Ye
 ##########################################################################################
 # 
 ##########################################################################################
-#' Format numbers compactly to 3 significant digits
-#'
-#' Like [format_bignum()] but keeps 3 significant digits, handles negative and
+#' @title Format numbers compactly to 3 significant digits
+#' @description Like [format_bignum()] but keeps 3 significant digits, handles negative and
 #' small values, and uses the k/M/B/T suffixes (6.02M, 1.42B, 0.0752, -5.72B).
-#'
 #' @param n Numeric vector of values to format.
-#'
 #' @return A character vector of formatted values.
-#'
 #' @noRd
 #' @export
 #' @examples
@@ -86,17 +73,13 @@ format_value <- function(n) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Pause and Stop buttons for an animated plotly chart
-#'
-#' Builds the `updatemenus` entry shown next to plotly's own Play button.
+#' @title Pause and Stop buttons for an animated plotly chart
+#' @description Builds the `updatemenus` entry shown next to plotly's own Play button.
 #' Pause halts the animation on the current frame; Stop halts it and jumps
 #' back to the first frame.
-#'
 #' @param first_frame Character. Name of the first animation frame (for these
 #'   charts, the first year).
-#'
 #' @return A list to pass as `plotly::layout(updatemenus = ...)`.
-#'
 #' @noRd
 #' @export
 #' @examples

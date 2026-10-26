@@ -19,9 +19,9 @@ setwd(directory)
 # usethis::use_data_raw(name='data/mfi.rda')
 # usethis::use_data_raw(name='data/mfi_cor.rda')
 # usethis::use_data_raw(name='data/mfi_population.rda')
-document()
-if ("golemworldbank" %in% loadedNamespaces()) unloadNamespace("golemworldbank") # an old version still loaded would make the reinstalled one look corrupt
+if ("golemworldbank" %in% loadedNamespaces()) unloadNamespace("golemworldbank")
 if ("golemworldbank" %in% rownames(installed.packages())) remove.packages("golemworldbank")
+document()
 install()
 library(golemworldbank)
 
