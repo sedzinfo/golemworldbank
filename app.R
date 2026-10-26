@@ -17,7 +17,7 @@ Sys.unsetenv("RSTUDIO")
 
 pkgload::load_all(export_all = FALSE,helpers = FALSE,attach_testthat = FALSE)
 options( "golem.app.prod" = TRUE)
-run_app() # add parameters here (if any)
+run_app(analytics = TRUE) # Google Analytics, after the visitor accepts the cookie banner
 
 
 # rsconnect::deployApp(

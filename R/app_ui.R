@@ -3,6 +3,8 @@
 #' Defines the top-level navbar layout, with one tab per Shiny module.
 #'
 #' @param request Internal parameter for `{shiny}`. DO NOT REMOVE.
+#' @param analytics `TRUE` to add Google Analytics and its cookie banner,
+#'   see `analytics_resources()`.
 #'
 #' @import shiny
 #' @noRd
@@ -11,10 +13,11 @@
 #' \dontrun{
 #' shiny::shinyApp(ui = app_ui, server = app_server)
 #' }
-app_ui <- function(request) {
+app_ui <- function(request, analytics = FALSE) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
+    if (analytics) tags$head(analytics_resources()),
     # compact navbar (outside navbarPage, which expects only tabs)
     tags$head(
       tags$style(HTML('.navbar-nav > li > a, .navbar-brand {
@@ -28,6 +31,8 @@ app_ui <- function(request) {
         body > .container-fluid {flex:1; width:100%;min-height:0; display:flex; flex-direction:column;}
         .tab-content {flex:1; min-height:0; display:flex;}
         .tab-content > .tab-pane.active {flex:1; min-width:0; min-height:0; display:flex; flex-direction:column; overflow:auto;}
+        /* a Bootstrap row sticks out 15px on the right (margin-right:-15px), which would make the scrolling tab scroll sideways */
+        .tab-pane > .row {margin-right:0;}
         .tab-pane .plotly.html-widget-output {flex:1 1 0; min-height:300px;}'))
     ),
     # Application UI logic
@@ -36,6 +41,7 @@ app_ui <- function(request) {
       collapsible = TRUE,
       fluid = TRUE,
       windowTitle = "Worldbank",
+      footer = if (analytics) analytics_footer(),
       tabPanel(title = "Country Comparison", mod_country_comp_ui("country_comp")),
       tabPanel(title = "Indicator Comparison", mod_indicator_comp_ui("indicator_comp")),
       tabPanel(title = "Pyramid", mod_pyramid_ui("pyramid")),

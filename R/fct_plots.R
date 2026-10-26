@@ -39,10 +39,10 @@ plot_country_comp <- function(mfi, countries, indicator, font_style) {
     showlegend = TRUE) %>%
     plotly::layout(
       autosize = TRUE,
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 0, t = 100, pad = 0),
       legend = list(orientation = "h", xanchor = "center", x = .5, y = 1),
       title = paste("Indicator:", indicator),
-      xaxis = list(title = "Year", tickangle = -90),
+      xaxis = list(title = "", tickangle = -90),
       yaxis = list(title = indicator),
       showlegend = TRUE,
       font = font_style
@@ -84,10 +84,10 @@ plot_indicator_comp <- function(mfi, country, indicators, font_style) {
     showlegend = TRUE) %>%
     plotly::layout(
       autosize = TRUE,
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 0, t = 100, pad = 0),
       legend = list(orientation = "h", xanchor = "center", x = .5, y = 1),
       title = paste("Country:", country),
-      xaxis = list(title = "Year", tickangle = -90),
+      xaxis = list(title = "", tickangle = -90),
       yaxis = list(title = ""),
       showlegend = TRUE,
       font = font_style
@@ -137,7 +137,7 @@ plot_pyramid <- function(mfi_population, country, font_style) {
       bargap = .1,
       barmode = "overlay",
       title = paste("Country:", country),
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 100, t = 100, pad = 0),
       yaxis = list(title = "Age Group"),
       xaxis = list(
         title = list(text = "Population", standoff = 3),
@@ -220,7 +220,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
     plotly::layout(
       autosize = TRUE,
       title = paste0(unique(temp$`Indicator Name`)),
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 100, t = 100, pad = 0),
       # rank 1 at the top; ranks instead of names on the axis (the names are on the bars)
       yaxis = list(title = "", autorange = "reversed", dtick = 1, zeroline = FALSE),
       xaxis = list(title = "", showticklabels = FALSE, zeroline = FALSE, showgrid = FALSE),
@@ -292,7 +292,7 @@ plot_map <- function(mfi, indicator, font_style) {
     plotly::layout(
       autosize = TRUE,
       showlegend = TRUE,
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 100, t = 100, pad = 0),
       legend = list(orientation = "h", xanchor = "center", x = .5, y = 1),
       title = paste("Indicator:", indicator),
       xaxis = list(title = ""),
@@ -369,7 +369,7 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
     plotly::layout(
       autosize = TRUE,
       showlegend = TRUE,
-      margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
+      margin = list(l = 50, r = 50, b = 100, t = 100, pad = 0),
       title = "",
       xaxis = list(title = list(text = unique(indicator1), standoff = 3)),
       yaxis = list(title = unique(indicator2)),
