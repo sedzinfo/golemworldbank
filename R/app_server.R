@@ -5,7 +5,7 @@
 #'
 #' Rescales the UI in response to the client's `dimension` input, then wires
 #' up each tab's Shiny module server against the packaged datasets ([mfi],
-#' [mfi_population], [country_code]).
+#' [mfi_population], [country_code], [indicator_info]).
 #'
 #' @param input,output,session Internal parameters for `{shiny}`.
 #'   DO NOT REMOVE.
@@ -39,5 +39,5 @@ app_server <- function(input, output, session) {
   mod_scatter_server("scatter", mfi, country_code)
   mod_map_server("map", mfi)
   mod_change_server("change", mfi)
-  mod_index_table_server("index_table", mfi)
+  mod_index_table_server("index_table", mfi, indicator_info)
 }

@@ -24,6 +24,7 @@ country_code<-read.csv(paste0(directory,"data/WDICountry.csv"),
 ##########################################################################################
 # BARPLOTS
 ##########################################################################################
+indicator_code<-unique(df_wdi[,c("Indicator Name","Indicator Code")]) # for INDICATOR INFO below
 df_wdi$`Indicator Code`<-NULL
 df_wdi<-df_wdi[!is.nan(as.numeric(rowMeans(df_wdi[,grep("^\\d{4}$",names(df_wdi))],na.rm=TRUE))),]
 mdf<-reshape::melt(df_wdi,
@@ -81,6 +82,26 @@ mfi_population$`Country Code`<-mfi_population$Region<-NULL
 mfi_population$`2-alpha code`<-mfi_population$`Indicator Code`<-NULL
 row.names(mfi_population)<-NULL
 ##########################################################################################
+# INDICATOR INFO
+##########################################################################################
+# Topic and definition of each indicator, for the Index tab. Joined on the code,
+# not the name: WDISeries.csv words ~100 names differently from WDICSV.csv
+# ("Adjusted savings, ..." vs "Adjusted savings: ...").
+series<-read.csv(unz(paste0(directory,"data/WDI_CSV.zip"),"WDISeries.csv",encoding="UTF-8-BOM"),
+                 stringsAsFactors=FALSE,
+                 check.names=FALSE,
+                 na.strings="")
+indicator_info<-indicator_code[indicator_code$`Indicator Name`%in%mfi$`Indicator Name`,]
+indicator_info<-merge(indicator_info,
+                      series[,c("Series Code","Topic","Short definition")],
+                      by.x="Indicator Code",
+                      by.y="Series Code",
+                      all.x=TRUE)
+names(indicator_info)[names(indicator_info)=="Short definition"]<-"Definition"
+indicator_info$`Indicator Code`<-NULL
+indicator_info<-indicator_info[order(indicator_info$`Indicator Name`),]
+row.names(indicator_info)<-NULL
+##########################################################################################
 # SAVE
 ##########################################################################################
 mfi$Region<-NULL
@@ -91,6 +112,7 @@ row.names(mfi)<-NULL
 save(mfi,file=paste0(directory,"data/mfi.rda"),version=3)
 save(country_code,file=paste0(directory,"data/country_code.rda"),version=3)
 save(mfi_population,file=paste0(directory,"data/mfi_population.rda"),version=3)
+save(indicator_info,file=paste0(directory,"data/indicator_info.rda"),version=3)
 
 # rwf::cdf(mfi)
 # rwf::cdf(mfi_cor)

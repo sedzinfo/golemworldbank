@@ -4,7 +4,7 @@
 \alias{mod_index_table_server}
 \title{Indicator index table module - server}
 \usage{
-mod_index_table_server(id, mfi)
+mod_index_table_server(id, mfi, indicator_info)
 }
 \arguments{
 \item{id}{Character. Module namespace id, must match the id used in
@@ -12,18 +12,22 @@ mod_index_table_server(id, mfi)
 
 \item{mfi}{Data frame of World Bank indicator values, with an
 \verb{Indicator Name} column.}
+
+\item{indicator_info}{Data frame of indicator topics and definitions (see
+\link{indicator_info}).}
 }
 \value{
 None. Called for its side effect of registering the module server.
 }
 \description{
-Renders the datatable listing every distinct indicator present in \code{mfi}.
+Renders the datatable listing every distinct indicator present in \code{mfi},
+with its topic and definition.
 }
 \examples{
 \dontrun{
 # inside app_server():
 function(input, output, session) {
-  mod_index_table_server("index_table", mfi)
+  mod_index_table_server("index_table", mfi, indicator_info)
 }
 }
 }

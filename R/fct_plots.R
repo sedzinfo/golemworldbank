@@ -377,18 +377,25 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
 ##########################################################################################
 #' Build the indicator index DataTable
 #'
-#' Builds a single-column, non-paginated `DT::datatable` listing every
-#' distinct indicator name present in `mfi`.
+#' Builds a non-paginated `DT::datatable` listing every distinct indicator
+#' name present in `mfi`, with its World Bank topic and definition.
 #'
 #' @param mfi Data frame of World Bank indicator values, with an
 #'   `Indicator Name` column.
+#' @param indicator_info Data frame with `Indicator Name`, `Topic` and
+#'   `Definition` columns (see [indicator_info]).
 #'
 #' @return A `DT::datatable` htmlwidget.
 #' @export
 #' @examples
-#' render_index_table(mfi)
-render_index_table <- function(mfi) {
-  data <- data.frame(Indicator = unique(mfi$`Indicator Name`))
-  result <- DT::datatable(data, options = list(paging = FALSE))
-  DT::formatStyle(result, names(result), 0, target = "row", lineHeight = "80%")
+#' render_index_table(mfi, indicator_info)
+render_index_table <- function(mfi, indicator_info) {
+  indicator <- unique(mfi$`Indicator Name`)
+  info <- indicator_info[match(indicator, indicator_info$`Indicator Name`), ]
+  data <- data.frame(Indicator = indicator, Topic = info$Topic, Definition = info$Definition)
+  # column 0 is the row numbers; the definition takes whatever width is left
+  result <- DT::datatable(data, options = list(paging = FALSE, autoWidth = TRUE,
+                                               columnDefs = list(list(width = "25%", targets = 1),
+                                                                 list(width = "15%", targets = 2))))
+  DT::formatStyle(result, "Definition", fontSize = "85%", lineHeight = "1.3")
 }

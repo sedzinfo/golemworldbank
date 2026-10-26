@@ -4,19 +4,22 @@
 \alias{render_index_table}
 \title{Build the indicator index DataTable}
 \usage{
-render_index_table(mfi)
+render_index_table(mfi, indicator_info)
 }
 \arguments{
 \item{mfi}{Data frame of World Bank indicator values, with an
 \verb{Indicator Name} column.}
+
+\item{indicator_info}{Data frame with \verb{Indicator Name}, \code{Topic} and
+\code{Definition} columns (see \link{indicator_info}).}
 }
 \value{
 A \code{DT::datatable} htmlwidget.
 }
 \description{
-Builds a single-column, non-paginated \code{DT::datatable} listing every
-distinct indicator name present in \code{mfi}.
+Builds a non-paginated \code{DT::datatable} listing every distinct indicator
+name present in \code{mfi}, with its World Bank topic and definition.
 }
 \examples{
-render_index_table(mfi)
+render_index_table(mfi, indicator_info)
 }

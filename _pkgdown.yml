@@ -33,6 +33,7 @@ reference:
   - title: "Datasets"
     contents:
       - country_code
+      - indicator_info
       - mfi
       - mfi_population
 

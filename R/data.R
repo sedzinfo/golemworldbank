@@ -64,3 +64,24 @@
 #' head(country_code)
 #' }
 "country_code"
+##########################################################################################
+#
+##########################################################################################
+#' Indicator topics and definitions
+#'
+#' World Bank topic and definition of every indicator in [mfi], shown in the
+#' Index tab.
+#'
+#' @format A data frame with 1,497 rows and 3 columns:
+#' \describe{
+#'   \item{Indicator Name}{World Bank indicator name, as in [mfi].}
+#'   \item{Topic}{World Bank topic, e.g. "Health: Population: Structure".}
+#'   \item{Definition}{Short definition of the indicator.}
+#' }
+#' @source World Bank Open Data (\url{https://data.worldbank.org}), WDISeries.csv.
+#'
+#' @examples
+#' \donttest{
+#' head(indicator_info)
+#' }
+"indicator_info"

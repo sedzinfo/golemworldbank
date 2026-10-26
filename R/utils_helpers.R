@@ -59,7 +59,7 @@ format_bignum <- function(n) {
 #' @importFrom utils globalVariables
 NULL
 # the packaged datasets and the data frame columns that the code refers to by name
-globalVariables(c("mfi", "mfi_population", "country_code", "Year", "value"))
+globalVariables(c("mfi", "mfi_population", "country_code", "indicator_info", "Year", "value"))
 ##########################################################################################
 # 
 ##########################################################################################
