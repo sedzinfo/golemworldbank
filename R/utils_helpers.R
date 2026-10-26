@@ -1,3 +1,6 @@
+##########################################################################################
+# 
+##########################################################################################
 #' Pipe operator
 #'
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
@@ -9,7 +12,9 @@
 #' @usage lhs \%>\% rhs
 #' @export
 NULL
-
+##########################################################################################
+# 
+##########################################################################################
 #' Shared plotly font style
 #'
 #' Applied to the `font` argument of every `plotly::layout()` call across the
@@ -20,7 +25,9 @@ NULL
 #' @examples
 #' plotly::layout(plotly::plot_ly(), font = font_style)
 font_style <- list(size = 20, color = "gray25", weight = "bold")
-
+##########################################################################################
+# 
+##########################################################################################
 #' Format a large number with a magnitude suffix
 #'
 #' Abbreviates a numeric value using Tn/Bn/M/K suffixes (trillions,
@@ -75,4 +82,39 @@ format_value <- function(n) {
   div <- ifelse(a >= 1e12, 1e12, ifelse(a >= 1e9, 1e9, ifelse(a >= 1e6, 1e6, ifelse(a >= 1e3, 1e3, 1))))
   suf <- ifelse(a >= 1e12, "T", ifelse(a >= 1e9, "B", ifelse(a >= 1e6, "M", ifelse(a >= 1e3, "k", ""))))
   paste0(trimws(formatC(signif(n / div, 3), format = "fg", digits = 3)), suf)
+}
+##########################################################################################
+# 
+##########################################################################################
+#' Pause and Stop buttons for an animated plotly chart
+#'
+#' Builds the `updatemenus` entry shown next to plotly's own Play button.
+#' Pause halts the animation on the current frame; Stop halts it and jumps
+#' back to the first frame.
+#'
+#' @param first_frame Character. Name of the first animation frame (for these
+#'   charts, the first year).
+#'
+#' @return A list to pass as `plotly::layout(updatemenus = ...)`.
+#'
+#' @noRd
+#'
+#' @examples
+#' plotly::layout(p, updatemenus = animation_buttons("1960"))
+animation_buttons <- function(first_frame) {
+  # duration 0 makes plotly drop the queued frames instead of finishing them
+  halt <- list(mode = "immediate", frame = list(duration = 0, redraw = TRUE), transition = list(duration = 0))
+  list(
+    list(
+      type = "buttons",
+      direction = "right",
+      x = 0,
+      y = 0,
+      showactive = FALSE,
+      buttons = list(
+        list(label = "Pause", method = "animate", args = list(list(NULL), halt)),
+        list(label = "Stop", method = "animate", args = list(list(first_frame), halt))
+      )
+    )
+  )
 }

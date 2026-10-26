@@ -27,11 +27,11 @@ mod_bar_ui <- function(id) {
     )),
     column(2, selectInput(ns("top_n_bar"),
       label = NULL,
-      choices = c("Top 10" = 10, "Top 20" = 20, "Top 30" = 30, "Top 50" = 50),
-      selected = 20,
+      choices = c("Top 30" = 30, "Top 50" = 50, "Top 100" = 100),
+      selected = 30,
       width = "100%"
     ))),
-    plotly::plotlyOutput(ns("plot_bar"), width = "100%", height = "95vh")
+    plotly::plotlyOutput(ns("plot_bar"), width = "100%", height = "100%")
   )
 }
 ##########################################################################################

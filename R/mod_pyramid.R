@@ -25,7 +25,7 @@ mod_pyramid_ui <- function(id) {
       selected = "Greece",
       width = "100%"
     ),
-    plotly::plotlyOutput(ns("plot_pyramid"), width = "100%", height = "95vh")
+    plotly::plotlyOutput(ns("plot_pyramid"), width = "100%", height = "100%")
   )
 }
 ##########################################################################################

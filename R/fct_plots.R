@@ -233,6 +233,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
       showlegend = FALSE
     ) %>%
     plotly::animation_opts(frame = 700, transition = 700, easing = "linear", redraw = FALSE, mode = "afterall") %>%
+    plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 
   p <- plotly::plotly_build(p)
@@ -368,29 +369,7 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
       font = font_style
     ) %>%
     plotly::animation_opts(frame = 500, easing = "linear", redraw = TRUE, mode = "afterall") %>%
-    plotly::layout(
-      updatemenus = list(
-        list(
-          type = "buttons",
-          direction = "right",
-          x = 0,
-          y = 0,
-          showactive = FALSE,
-          buttons = list(
-            list(
-              label = "Pause",
-              method = "animate",
-              args = list(NULL, list(mode = "none"))
-            ),
-            list(
-              label = "Stop",
-              method = "animate",
-              args = list(NULL, list(mode = "immediate"))
-            )
-          )
-        )
-      )
-    ) %>%
+    plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 }
 ##########################################################################################

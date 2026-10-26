@@ -22,7 +22,7 @@ mod_map_ui <- function(id) {
       selected = "Population, total",
       width = "100%"
     ),
-    plotly::plotlyOutput(ns("plot_map"), width = "100%", height = "95vh")
+    plotly::plotlyOutput(ns("plot_map"), width = "100%", height = "100%")
   )
 }
 

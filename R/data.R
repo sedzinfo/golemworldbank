@@ -1,3 +1,6 @@
+##########################################################################################
+# 
+##########################################################################################
 #' World Bank indicator values
 #'
 #' Long-format World Bank development indicator values, one row per
@@ -18,7 +21,9 @@
 #' head(mfi)
 #' }
 "mfi"
-
+##########################################################################################
+# 
+##########################################################################################
 #' Population by age, sex, and country
 #'
 #' Long-format population counts by five-year age group and sex, used to
@@ -41,7 +46,9 @@
 #' head(mfi_population)
 #' }
 "mfi_population"
-
+##########################################################################################
+# 
+##########################################################################################
 #' Country and region reference table
 #'
 #' Reference metadata mapping each country to its region, income group, and

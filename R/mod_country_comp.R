@@ -35,7 +35,7 @@ mod_country_comp_ui <- function(id) {
       size = 50,
       width = "100%"
     ),
-    plotly::plotlyOutput(ns("plot_country_comp"), width = "100%", height = "95vh")
+    plotly::plotlyOutput(ns("plot_country_comp"), width = "100%", height = "100%")
   )
 }
 

@@ -22,7 +22,13 @@ app_ui <- function(request) {
         padding-bottom:4px;
         height: 25px;
         }
-        .navbar {min-height:20px;}'))
+        .navbar {min-height:20px;}
+        /* plots fill the space left under the navbar and inputs */
+        body {display:flex; flex-direction:column; height:100vh; margin:0;}
+        body > .container-fluid {flex:1; width:100%;min-height:0; display:flex; flex-direction:column;}
+        .tab-content {flex:1; min-height:0; display:flex;}
+        .tab-content > .tab-pane.active {flex:1; min-width:0; min-height:0; display:flex; flex-direction:column; overflow:auto;}
+        .tab-pane .plotly.html-widget-output {flex:1 1 0; min-height:300px;}'))
     ),
     # Application UI logic
     navbarPage(

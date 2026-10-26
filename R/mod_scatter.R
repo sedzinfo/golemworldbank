@@ -40,7 +40,7 @@ mod_scatter_ui <- function(id) {
         style = "display:inline-block"
       )
     ),
-    plotly::plotlyOutput(ns("plot_cor"), width = "100%", height = "95vh")
+    plotly::plotlyOutput(ns("plot_cor"), width = "100%", height = "100%")
   )
 }
 ##########################################################################################
