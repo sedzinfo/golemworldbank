@@ -219,13 +219,8 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
     text = ~label,
     textposition = "outside",
     cliponaxis = FALSE,
-    hovertext = ~ paste0(
-      "Rank=", rank,
-      "\nCountry=", `Country Name`,
-      "\nValue=", format_value(value)
-    ),
+    hovertext = ~ paste0("Rank=", rank,"\nCountry=", `Country Name`,"\nValue=", format_value(value)),
     hoverinfo = "text"
-    # marker = list(color = "#4A64FF")
   ) %>%
     plotly::layout(
       autosize = TRUE,
@@ -237,20 +232,17 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
       font = font_style,
       showlegend = FALSE
     ) %>%
-    # transition as long as the frame: continuous motion, no pause between years
-    plotly::animation_opts(frame = 700, transition = 1, easing = "linear", redraw = TRUE, mode = "immediate") %>%
+    plotly::animation_opts(frame = 700, transition = 700, easing = "linear", redraw = FALSE, mode = "afterall") %>%
     plotly::config(responsive = TRUE)
 
-  # value axis per year = largest value seen so far (only grows: no jump back),
-  # with room on the right for the labels
   p <- plotly::plotly_build(p)
   year_max <- tapply(temp$value, as.character(temp$Year), max)
   year_max[] <- cummax(year_max[order(as.numeric(names(year_max)))])[rank(as.numeric(names(year_max)))]
-  for (k in seq_along(p$x$frames)) {
-    fmax <- year_max[[p$x$frames[[k]]$name]]
-    p$x$frames[[k]]$layout <- list(xaxis = list(range = c(0, fmax * 1.6)))
-  }
-  p$x$layout$xaxis$range <- c(0, year_max[[p$x$frames[[1]]$name]] * 1.6)
+  # for (k in seq_along(p$x$frames)) {
+  #   fmax <- year_max[[p$x$frames[[k]]$name]]
+  #   p$x$frames[[k]]$layout <- list(xaxis = list(range = c(0, fmax * 1.6)))
+  # }
+  # p$x$layout$xaxis$range <- c(0, year_max[[p$x$frames[[1]]$name]] * 1.6)
   p
 }
 ##########################################################################################
