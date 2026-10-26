@@ -1,6 +1,7 @@
 # Bar chart module - UI
 
-Renders an indicator picker and an animated ranked bar chart (races
+Renders an indicator picker, a top-n picker, a picker for the country to
+follow (its bar is red) and an animated ranked bar chart (races
 countries by value, one animation frame per year).
 
 ## Usage

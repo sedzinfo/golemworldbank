@@ -6,10 +6,14 @@
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/country_code.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/font_style.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/index.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/reference/indicator_change.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/reference/indicator_info.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mfi.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mfi_population.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_bar_server.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_bar_ui.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_change_server.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_change_ui.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_server.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_ui.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_server.html</loc></url>
@@ -29,6 +33,7 @@
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/plot_indicator_comp.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/plot_map.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/plot_pyramid.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/reference/render_change_table.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/render_index_table.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/run_app.html</loc></url>
 </urlset>

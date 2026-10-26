@@ -1,4 +1,4 @@
-# golemworldbank
+# WDI Worldbank Visualizations
 
 A Shiny application, built as a
 [golem](https://thinkr-open.github.io/golem/) package, for exploring
@@ -174,4 +174,4 @@ tab](reference/figures/worldbank7.png)
 Size](https://img.shields.io/github/repo-size/sedzinfo/golemworldbank)![Open
 Issues](https://img.shields.io/github/issues/sedzinfo/golemworldbank)![Forks](https://img.shields.io/github/forks/sedzinfo/golemworldbank)![Last
 Commit](https://img.shields.io/github/last-commit/sedzinfo/golemworldbank)![Contributors](https://img.shields.io/github/contributors/sedzinfo/golemworldbank)![License](https://img.shields.io/github/license/sedzinfo/golemworldbank)![Workflow
-Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)
+Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)![R-CMD-check](https://github.com/sedzinfo/golemworldbank/actions/workflows/R-CMD-check.yaml/badge.svg)

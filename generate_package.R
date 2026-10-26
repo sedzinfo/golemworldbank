@@ -30,4 +30,4 @@ system("R CMD Rd2pdf . --force --no-preview --output=golemworldbank.pdf")
 if (.Platform$OS.type == "windows") shell.exec("golemworldbank.pdf") else system("evince golemworldbank.pdf")
 system("R CMD build . --resave-data")
 
-golemworldbank::run_app() # starts the app: the console stays busy until you close it
+golemworldbank::run_app()

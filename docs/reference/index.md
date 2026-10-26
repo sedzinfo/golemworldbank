@@ -4,6 +4,10 @@
 
 - [`country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md)
   : Country and region reference table
+- [`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
+  : Indicators that rose or fell between two years for one country
+- [`indicator_info`](https://sedzinfo.github.io/golemworldbank/reference/indicator_info.md)
+  : Indicator topics and definitions
 - [`mfi`](https://sedzinfo.github.io/golemworldbank/reference/mfi.md) :
   World Bank indicator values
 - [`mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md)
@@ -66,5 +70,13 @@ Internal functions not meant to run independently
 
 - [`render_index_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_index_table.md)
   : Build the indicator index DataTable
+
+- [`render_change_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_change_table.md)
+  :
+
+  Render one table of
+  [`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
+  as a DataTable
+
 - [`run_app()`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)
   : Run the Shiny Application

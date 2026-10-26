@@ -1,11 +1,12 @@
 # Indicator index table module - server
 
-Renders the datatable listing every distinct indicator present in `mfi`.
+Renders the datatable listing every distinct indicator present in `mfi`,
+with its topic and definition.
 
 ## Usage
 
 ``` r
-mod_index_table_server(id, mfi)
+mod_index_table_server(id, mfi, indicator_info)
 ```
 
 ## Arguments
@@ -20,6 +21,11 @@ mod_index_table_server(id, mfi)
   Data frame of World Bank indicator values, with an `Indicator Name`
   column.
 
+- indicator_info:
+
+  Data frame of indicator topics and definitions (see
+  [indicator_info](https://sedzinfo.github.io/golemworldbank/reference/indicator_info.md)).
+
 ## Value
 
 None. Called for its side effect of registering the module server.
@@ -30,7 +36,7 @@ None. Called for its side effect of registering the module server.
 if (FALSE) { # \dontrun{
 # inside app_server():
 function(input, output, session) {
-  mod_index_table_server("index_table", mfi)
+  mod_index_table_server("index_table", mfi, indicator_info)
 }
 } # }
 ```

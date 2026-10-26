@@ -1,4 +1,4 @@
-# golemworldbank
+# WDI Worldbank Visualizations
 
 A Shiny application, built as a
 [golem](https://thinkr-open.github.io/golem/) package, for exploring
@@ -174,7 +174,7 @@ tab](reference/figures/worldbank7.png)
 Size](https://img.shields.io/github/repo-size/sedzinfo/golemworldbank)![Open
 Issues](https://img.shields.io/github/issues/sedzinfo/golemworldbank)![Forks](https://img.shields.io/github/forks/sedzinfo/golemworldbank)![Last
 Commit](https://img.shields.io/github/last-commit/sedzinfo/golemworldbank)![Contributors](https://img.shields.io/github/contributors/sedzinfo/golemworldbank)![License](https://img.shields.io/github/license/sedzinfo/golemworldbank)![Workflow
-Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)
+Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml)![R-CMD-check](https://github.com/sedzinfo/golemworldbank/actions/workflows/R-CMD-check.yaml/badge.svg)
 
 # Package index
 
@@ -182,6 +182,10 @@ Status](https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworl
 
 - [`country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md)
   : Country and region reference table
+- [`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
+  : Indicators that rose or fell between two years for one country
+- [`indicator_info`](https://sedzinfo.github.io/golemworldbank/reference/indicator_info.md)
+  : Indicator topics and definitions
 - [`mfi`](https://sedzinfo.github.io/golemworldbank/reference/mfi.md) :
   World Bank indicator values
 - [`mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md)
@@ -244,6 +248,14 @@ Internal functions not meant to run independently
 
 - [`render_index_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_index_table.md)
   : Build the indicator index DataTable
+
+- [`render_change_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_change_table.md)
+  :
+
+  Render one table of
+  [`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
+  as a DataTable
+
 - [`run_app()`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)
   : Run the Shiny Application
 

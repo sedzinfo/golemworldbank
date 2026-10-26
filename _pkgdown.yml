@@ -33,6 +33,7 @@ reference:
   - title: "Datasets"
     contents:
       - country_code
+      - indicator_change
       - indicator_info
       - mfi
       - mfi_population
@@ -58,6 +59,7 @@ reference:
       - mod_map_server
       - mod_pyramid_server
       - mod_scatter_server
+
   - title: "Plot"
     contents:
       - plot_bar
@@ -68,6 +70,7 @@ reference:
       - plot_pyramid
   - title: "Render"
     contents:
+      - render_change_table
       - render_index_table
       - run_app
   
