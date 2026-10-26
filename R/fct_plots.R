@@ -1,19 +1,16 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build a country comparison line chart
-#'
-#' Plots one indicator's value over time as one line per selected country.
+#' @title Build a country comparison line chart
+#' @description Plots one indicator's value over time as one line per selected country.
 #' Rows with missing values for the given filters are dropped before
 #' plotting.
-#'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
 #' @param countries Character vector of country names to plot.
 #' @param indicator Character. Indicator name to plot.
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
-#'
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
@@ -55,19 +52,16 @@ plot_country_comp <- function(mfi, countries, indicator, font_style) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build an indicator comparison line chart
-#'
-#' Plots several indicators' values over time, for a single country, as one
+#' @title Build an indicator comparison line chart
+#' @description Plots several indicators' values over time, for a single country, as one
 #' line per indicator. Rows with missing values for the given filters are
 #' dropped before plotting.
-#'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
 #' @param country Character. Country name to plot.
 #' @param indicators Character vector of indicator names to plot.
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
-#'
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
@@ -103,19 +97,16 @@ plot_indicator_comp <- function(mfi, country, indicators, font_style) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build an animated population pyramid
-#'
-#' Plots male (negative, left) and female (positive, right) population
+#' @title Build an animated population pyramid
+#' @description Plots male (negative, left) and female (positive, right) population
 #' counts by age group as horizontal bars, animated over `Year`. Male values
 #' are negated internally so the two sexes render back-to-back, while
 #' `display_value` keeps the original (positive) counts for hover/axis text.
-#'
 #' @param mfi_population Data frame of population-by-age/sex values (long
 #'   format, with `Country Name`, `sex`, `age`, `Year`, `value` columns).
 #' @param country Character. Country name to plot.
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
-#'
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
@@ -163,9 +154,8 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build an animated ranked bar chart
-#'
-#' Plots one indicator's top `top_n` countries per year as a horizontal bar
+#' @title Build an animated ranked bar chart
+#' @description Plots one indicator's top `top_n` countries per year as a horizontal bar
 #' chart animated over `Year` (a "bar chart race"): in every frame the bars are
 #' re-ranked, so a country that overtakes another moves up. For a smooth
 #' animation the value axis only grows (it follows the largest value seen so
@@ -176,7 +166,6 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #' can be followed through the race, and the current year is printed large and
 #' gray in the bottom right corner. Only positive, complete-case rows are kept.
 #' Returns `NULL` when fewer than two rows remain after filtering.
-#'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
 #' @param indicator Character. Indicator name to plot.
@@ -184,7 +173,6 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #'   "gray25")`) applied to the chart's layout.
 #' @param top_n Integer. Number of countries shown in each year.
 #' @param country Character. Country whose bar is drawn red (`NULL` for none).
-#'
 #' @return A `plotly` htmlwidget, or `NULL` if there is not enough data to
 #'   plot.
 #' @export
@@ -273,18 +261,15 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build an animated choropleth map
-#'
-#' Plots one indicator's value per country as a world choropleth, animated
+#' @title Build an animated choropleth map
+#' @description Plots one indicator's value per country as a world choropleth, animated
 #' over `Year`. Rows with missing values are dropped before plotting.
-#'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Country Code`, `Indicator Name`, `Year`, `value`
 #'   columns).
 #' @param indicator Character. Indicator name to plot.
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
-#'
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
@@ -322,14 +307,12 @@ plot_map <- function(mfi, indicator, font_style) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build an animated correlation bubble scatter plot
-#'
-#' Reshapes `mfi` from long to wide so `indicator1` and `indicator2` become
+#' @title Build an animated correlation bubble scatter plot
+#' @description Reshapes `mfi` from long to wide so `indicator1` and `indicator2` become
 #' plottable x/y columns, joins in `Region` from `country_code`, and plots a
 #' bubble scatter (bubble size = population, color = region), animated over
 #' `Year`, with play/pause controls. Rows with missing values or no region
 #' are dropped before plotting.
-#'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns). Must also
 #'   contain a `"Population, total"` indicator, used for bubble sizing.
@@ -339,7 +322,6 @@ plot_map <- function(mfi, indicator, font_style) {
 #' @param indicator2 Character. Indicator name plotted on the y-axis.
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
-#'
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
@@ -400,16 +382,13 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Build the indicator index DataTable
-#'
-#' Builds a non-paginated `DT::datatable` listing every distinct indicator
+#' @title Build the indicator index DataTable
+#' @description Builds a non-paginated `DT::datatable` listing every distinct indicator
 #' name present in `mfi`, with its World Bank topic and definition.
-#'
 #' @param mfi Data frame of World Bank indicator values, with an
 #'   `Indicator Name` column.
 #' @param indicator_info Data frame with `Indicator Name`, `Topic` and
 #'   `Definition` columns (see [indicator_info]).
-#'
 #' @return A `DT::datatable` htmlwidget.
 #' @export
 #' @examples
