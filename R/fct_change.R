@@ -84,3 +84,41 @@ indicator_change <- function(mfi, country, year1, year2, include_rates = FALSE,
     sign_change = sign_change
   )
 }
+##########################################################################################
+# 
+##########################################################################################
+#' Render one table of [indicator_change()] as a DataTable
+#'
+#' Values and the absolute change are shown compactly to 3 significant digits
+#' (6.02M, 1.42B, 0.0752); sorting still uses the full numbers. The percent
+#' change has one decimal, coloured green (increase) or red (decrease).
+#'
+#' @param tab One of the data frames returned by [indicator_change()]
+#'   (`increased` or `decreased`).
+#'
+#' @return A `DT::datatable` htmlwidget.
+#' @export
+#' @examples
+#' res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
+#' render_change_table(res$increased)
+render_change_table <- function(tab) {
+  # display-only formatting: the cells keep their numbers, so sorting is numeric
+  compact <- DT::JS(
+    "function(data, type) {",
+    "  if (type !== 'display' || data === null) return data;",
+    "  return new Intl.NumberFormat('en', {notation: 'compact', maximumSignificantDigits: 3}).format(data);",
+    "}"
+  )
+  result <- DT::datatable(tab,
+    rownames = FALSE,
+    options = list(
+      paging = FALSE, scrollY = "65vh", scrollCollapse = TRUE,
+      columnDefs = list(list(targets = 1:3, render = compact, className = "dt-right"))
+    )
+  )
+  result <- DT::formatRound(result, "Change %", digits = 1)
+  DT::formatStyle(result, "Change %",
+    color = DT::styleInterval(0, c("#B3261E", "#1E7B34")),
+    fontWeight = "bold"
+  )
+}

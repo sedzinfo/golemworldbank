@@ -35,6 +35,7 @@ app_ui <- function(request) {
       tabPanel(title = "Barplot", mod_bar_ui("bar")),
       tabPanel(title = "Scatterplot", mod_scatter_ui("scatter")),
       tabPanel(title = "Map", mod_map_ui("map")),
+      tabPanel(title = "What changed", mod_change_ui("change")),
       tabPanel(title = "Index", mod_index_table_ui("index_table"))
     )
   )

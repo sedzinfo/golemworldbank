@@ -35,5 +35,6 @@ app_server <- function(input, output, session) {
   mod_bar_server("bar", mfi)
   mod_scatter_server("scatter", mfi, country_code)
   mod_map_server("map", mfi)
+  mod_change_server("change", mfi)
   mod_index_table_server("index_table", mfi)
 }
