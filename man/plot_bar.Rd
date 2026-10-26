@@ -4,7 +4,7 @@
 \alias{plot_bar}
 \title{Build an animated ranked bar chart}
 \usage{
-plot_bar(mfi, indicator, font_style, top_n = 20)
+plot_bar(mfi, indicator, font_style, top_n = 20, country = NULL)
 }
 \arguments{
 \item{mfi}{Data frame of World Bank indicator values (long format, with
@@ -15,6 +15,8 @@ plot_bar(mfi, indicator, font_style, top_n = 20)
 \item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
 
 \item{top_n}{Integer. Number of countries shown in each year.}
+
+\item{country}{Character. Country whose bar is drawn red (\code{NULL} for none).}
 }
 \value{
 A \code{plotly} htmlwidget, or \code{NULL} if there is not enough data to
@@ -28,9 +30,11 @@ animation the value axis only grows (it follows the largest value seen so
 far, so bars never jump back when the maximum drops), and a country's
 missing years between two observed ones are filled by linear interpolation
 (so it does not drop out of the ranking for a year and come back). Each bar
-carries the country name and its value. Only positive, complete-case rows
-are kept. Returns \code{NULL} when fewer than two rows remain after filtering.
+carries the country name and its value; the bar of \code{country} is red so it
+can be followed through the race, and the current year is printed large and
+gray in the bottom right corner. Only positive, complete-case rows are kept.
+Returns \code{NULL} when fewer than two rows remain after filtering.
 }
 \examples{
-plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style)
+plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece")
 }

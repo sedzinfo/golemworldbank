@@ -13,8 +13,9 @@ mod_bar_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders an indicator picker and an animated ranked bar chart (races
-countries by value, one animation frame per year).
+Renders an indicator picker, a top-n picker, a picker for the country to
+follow (its bar is red) and an animated ranked bar chart (races countries
+by value, one animation frame per year).
 }
 \examples{
 \dontrun{

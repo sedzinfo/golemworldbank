@@ -171,8 +171,10 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #' far, so bars never jump back when the maximum drops), and a country's
 #' missing years between two observed ones are filled by linear interpolation
 #' (so it does not drop out of the ranking for a year and come back). Each bar
-#' carries the country name and its value. Only positive, complete-case rows
-#' are kept. Returns `NULL` when fewer than two rows remain after filtering.
+#' carries the country name and its value; the bar of `country` is red so it
+#' can be followed through the race, and the current year is printed large and
+#' gray in the bottom right corner. Only positive, complete-case rows are kept.
+#' Returns `NULL` when fewer than two rows remain after filtering.
 #'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
@@ -180,13 +182,14 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #' @param font_style A `plotly` font list (e.g. `list(size = 20, color =
 #'   "gray25")`) applied to the chart's layout.
 #' @param top_n Integer. Number of countries shown in each year.
+#' @param country Character. Country whose bar is drawn red (`NULL` for none).
 #'
 #' @return A `plotly` htmlwidget, or `NULL` if there is not enough data to
 #'   plot.
 #' @export
 #' @examples
-#' plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style)
-plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
+#' plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece")
+plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
   temp <- mfi[mfi$`Indicator Name` %in% indicator, ]
   temp <- temp[complete.cases(temp), ]
   temp <- temp[temp$value > 0, ]
@@ -208,6 +211,8 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
   temp$rank <- stats::ave(temp$value, temp$Year, FUN = seq_along)
   temp <- data.frame(temp[temp$rank <= top_n, ], check.names = FALSE)
   temp$label <- paste0(temp$`Country Name`, "  ", format_value(temp$value))
+  # plotly's default blue for every bar, red for the followed country
+  temp$color <- ifelse(temp$`Country Name` %in% country, "#d62728", "#1f77b4")
 
   p <- plotly::plot_ly(temp,
     x = ~value,
@@ -216,6 +221,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
     ids = ~ `Country Name`,
     type = "bar",
     orientation = "h",
+    marker = list(color = ~color),
     text = ~label,
     textposition = "outside",
     cliponaxis = FALSE,
@@ -237,6 +243,15 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
     plotly::config(responsive = TRUE)
 
   p <- plotly::plotly_build(p)
+  # the frame's year, big and gray in the bottom right corner (the shortest bars)
+  year_label <- function(year) {
+    list(list(text = year, xref = "paper", yref = "paper", x = 1, y = 0, xanchor = "right", yanchor = "bottom",
+              showarrow = FALSE, font = list(size = 120, color = "rgba(128,128,128,0.35)")))
+  }
+  p$x$layout$annotations <- year_label(p$x$frames[[1]]$name)
+  for (k in seq_along(p$x$frames)) {
+    p$x$frames[[k]]$layout <- list(annotations = year_label(p$x$frames[[k]]$name))
+  }
   year_max <- tapply(temp$value, as.character(temp$Year), max)
   year_max[] <- cummax(year_max[order(as.numeric(names(year_max)))])[rank(as.numeric(names(year_max)))]
   # for (k in seq_along(p$x$frames)) {
@@ -244,7 +259,15 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
   #   p$x$frames[[k]]$layout <- list(xaxis = list(range = c(0, fmax * 1.6)))
   # }
   # p$x$layout$xaxis$range <- c(0, year_max[[p$x$frames[[1]]$name]] * 1.6)
-  p
+  # plotly draws a frame's layout (the year) only on a redraw, and the race
+  # plays with redraw = FALSE: write the year into the drawn annotation as each
+  # frame starts. The frames still carry it for Pause/Stop, which redraw.
+  htmlwidgets::onRender(p, "function(el) {
+    el.on('plotly_animatingframe', function(e) {
+      var year = el.querySelector('.annotation-text');
+      if (year) year.textContent = e.name;
+    });
+  }")
 }
 ##########################################################################################
 # 

@@ -3,8 +3,9 @@
 ##########################################################################################
 #' Bar chart module - UI
 #'
-#' Renders an indicator picker and an animated ranked bar chart (races
-#' countries by value, one animation frame per year).
+#' Renders an indicator picker, a top-n picker, a picker for the country to
+#' follow (its bar is red) and an animated ranked bar chart (races countries
+#' by value, one animation frame per year).
 #'
 #' @param id Character. Module namespace id.
 #'
@@ -29,6 +30,13 @@ mod_bar_ui <- function(id) {
       label = NULL,
       choices = c("Top 30" = 30, "Top 50" = 50, "Top 100" = 100),
       selected = 30,
+      width = "100%"
+    )),
+    # the country whose bar is drawn red
+    column(3, selectizeInput(ns("country_bar"),
+      label = NULL,
+      choices = sort(unique(as.character(mfi$`Country Name`))),
+      selected = "Greece",
       width = "100%"
     ))),
     plotly::plotlyOutput(ns("plot_bar"), width = "100%", height = "100%")
@@ -69,7 +77,8 @@ mod_bar_server <- function(id, mfi) {
     )
     output$plot_bar <- plotly::renderPlotly({
       req(input$indicator_bar, input$top_n_bar, cancelOutput = TRUE)
-      plot_bar(mfi, input$indicator_bar, font_style, top_n = as.integer(input$top_n_bar))
+      plot_bar(mfi, input$indicator_bar, font_style, top_n = as.integer(input$top_n_bar),
+               country = input$country_bar)
     })
   })
 }

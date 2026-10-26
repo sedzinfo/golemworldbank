@@ -20,6 +20,7 @@ Imports:
     dplyr,
     DT,
     golem,
+    htmlwidgets,
     plotly,
     shiny,
     stats,
