@@ -224,8 +224,8 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
       "\nCountry=", `Country Name`,
       "\nValue=", format_value(value)
     ),
-    hoverinfo = "text",
-    marker = list(color = "#4A64FF")
+    hoverinfo = "text"
+    # marker = list(color = "#4A64FF")
   ) %>%
     plotly::layout(
       autosize = TRUE,
@@ -238,7 +238,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
       showlegend = FALSE
     ) %>%
     # transition as long as the frame: continuous motion, no pause between years
-    plotly::animation_opts(frame = 700, transition = 700, easing = "linear", redraw = FALSE, mode = "immediate") %>%
+    plotly::animation_opts(frame = 700, transition = 1, easing = "linear", redraw = TRUE, mode = "immediate") %>%
     plotly::config(responsive = TRUE)
 
   # value axis per year = largest value seen so far (only grows: no jump back),
