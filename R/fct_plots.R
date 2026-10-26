@@ -397,9 +397,10 @@ render_index_table <- function(mfi, indicator_info) {
   indicator <- unique(mfi$`Indicator Name`)
   info <- indicator_info[match(indicator, indicator_info$`Indicator Name`), ]
   data <- data.frame(Indicator = indicator, Topic = info$Topic, Definition = info$Definition)
-  # column 0 is the row numbers; the definition takes whatever width is left
-  result <- DT::datatable(data, options = list(paging = FALSE, autoWidth = TRUE,
-                                               columnDefs = list(list(width = "25%", targets = 1),
-                                                                 list(width = "15%", targets = 2))))
-  DT::formatStyle(result, "Definition", fontSize = "85%", lineHeight = "1.3")
+  result <- DT::datatable(data,
+                          options = list(paging = FALSE, autoWidth = FALSE,
+                                         columnDefs = list(list(width = "20%", targets = 1),
+                                                           list(width = "10%", targets = 2))))
+  # DT::formatStyle(result, "Topic", fontSize = "80%", lineHeight = "1")
+  # DT::formatStyle(result, "Definition", fontSize = "80%", lineHeight = "1")
 }
