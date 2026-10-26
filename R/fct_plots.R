@@ -168,10 +168,13 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #'
 #' Plots one indicator's top `top_n` countries per year as a horizontal bar
 #' chart animated over `Year` (a "bar chart race"): in every frame the bars are
-#' re-ranked, so a country that overtakes another moves up, and the value axis
-#' is fitted to that year's largest value. Each bar carries the country name
-#' and its value. Only positive, complete-case rows are kept. Returns `NULL`
-#' when fewer than two rows remain after filtering.
+#' re-ranked, so a country that overtakes another moves up. For a smooth
+#' animation the value axis only grows (it follows the largest value seen so
+#' far, so bars never jump back when the maximum drops), and a country's
+#' missing years between two observed ones are filled by linear interpolation
+#' (so it does not drop out of the ranking for a year and come back). Each bar
+#' carries the country name and its value. Only positive, complete-case rows
+#' are kept. Returns `NULL` when fewer than two rows remain after filtering.
 #'
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
@@ -193,6 +196,15 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
     return(NULL)
   }
   temp$Year <- droplevels(temp$Year)
+  years <- as.numeric(levels(temp$Year))
+  # fill each country's gaps between its first and last observed year (no extrapolation)
+  temp <- do.call(rbind, lapply(split(temp, temp$`Country Name`), function(d) {
+    y <- as.numeric(as.character(d$Year))
+    span <- years[years >= min(y) & years <= max(y)]
+    v <- if (length(y) < 2) d$value else stats::approx(y, d$value, xout = span)$y
+    data.frame(`Country Name` = d$`Country Name`[1], `Indicator Name` = d$`Indicator Name`[1],
+               Year = factor(span, levels = levels(temp$Year)), value = v, check.names = FALSE)
+  }))
   # rank within each year (1 = largest), keep the top_n
   temp <- temp[order(temp$Year, -temp$value), ]
   temp$rank <- stats::ave(temp$value, temp$Year, FUN = seq_along)
@@ -227,12 +239,15 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20) {
       font = font_style,
       showlegend = FALSE
     ) %>%
-    plotly::animation_opts(frame = 800, transition = 600, easing = "linear", redraw = FALSE, mode = "immediate") %>%
+    # transition as long as the frame: continuous motion, no pause between years
+    plotly::animation_opts(frame = 700, transition = 700, easing = "linear", redraw = FALSE, mode = "immediate") %>%
     plotly::config(responsive = TRUE)
 
-  # fit the value axis to each year's largest value (room on the right for the labels)
+  # value axis per year = largest value seen so far (only grows: no jump back),
+  # with room on the right for the labels
   p <- plotly::plotly_build(p)
   year_max <- tapply(temp$value, as.character(temp$Year), max)
+  year_max[] <- cummax(year_max[order(as.numeric(names(year_max)))])[rank(as.numeric(names(year_max)))]
   for (k in seq_along(p$x$frames)) {
     fmax <- year_max[[p$x$frames[[k]]$name]]
     p$x$frames[[k]]$layout <- list(xaxis = list(range = c(0, fmax * 1.6)))
