@@ -11,6 +11,12 @@
 #' names are kept in the `zero_base` element). Indicators that did not change
 #' are in neither table.
 #'
+#' Rates of change ("annual %", "% change", "growth", e.g. "GDP growth (annual
+#' %)", "Inflation, consumer prices (annual %)", "... (% change from 1990)") are
+#' left out by default: a percent
+#' change of a growth rate is not meaningful (a rate going from -0.01 to 1.7
+#' reads as +17,000%). `include_rates = TRUE` keeps them.
+#'
 #' For indicators that are themselves percentages (e.g. "Urban population (% of
 #' total population)") the percent change is relative to the old percentage, not
 #' a difference in percentage points; the `Change` column gives the plain
@@ -20,16 +26,26 @@
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
 #' @param country Character. Country name, as in `Country Name`.
 #' @param year1,year2 Numeric or character. The two years to compare.
+#' @param include_sign_change Logical. Keep indicators whose value changed sign
+#'   between the two years (e.g. net FDI inflows from -8 million to +6.7
+#'   billion): their percent change is not meaningful (+82,000%). `FALSE`
+#'   (default) leaves them out and lists them in `sign_change`.
+#' @param include_rates Logical. Keep the rate-of-change indicators (names
+#'   containing "annual %", "% change" or "growth"); `FALSE` (default) leaves
+#'   them out.
 #'
 #' @return A list with `increased` and `decreased` (data frames with columns
-#'   `Indicator`, the two years' values, `Change` and `Change %`) and
-#'   `zero_base` (indicators left out because their `year1` value is 0).
+#'   `Indicator`, the two years' values, `Change` and `Change %`),
+#'   `zero_base` (indicators left out because their `year1` value is 0) and
+#'   `sign_change` (indicators whose value changed sign; left out unless
+#'   `include_sign_change = TRUE`).
 #' @export
 #' @examples
-#' res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2024)
+#' res <- indicator_change(mfi, country = "Greece", year1 = 2024, year2 = 2025)
 #' head(res$increased)
 #' head(res$decreased)
-indicator_change <- function(mfi, country, year1, year2) {
+indicator_change <- function(mfi, country, year1, year2, include_rates = FALSE,
+                             include_sign_change = FALSE) {
   temp <- mfi[mfi$`Country Name` %in% country &
                 as.character(mfi$Year) %in% as.character(c(year1, year2)), ]
   if (nrow(temp) == 0) stop("No data for ", country, " in ", year1, " or ", year2, call. = FALSE)
@@ -37,9 +53,18 @@ indicator_change <- function(mfi, country, year1, year2) {
   v2 <- temp[as.character(temp$Year) == as.character(year2), c("Indicator Name", "value")]
   both <- merge(v1, v2, by = "Indicator Name", suffixes = c("_1", "_2"))
   both <- both[complete.cases(both), ]
+  if (!include_rates) {
+    is_rate <- grepl("annual %", both$`Indicator Name`, fixed = TRUE) |
+      grepl("% change", both$`Indicator Name`, fixed = TRUE) |
+      grepl("growth", both$`Indicator Name`, ignore.case = TRUE)
+    both <- both[!is_rate, ]
+  }
 
   zero_base <- both$`Indicator Name`[both$value_1 == 0]
   both <- both[both$value_1 != 0, ]
+  flipped <- sign(both$value_1) != sign(both$value_2) & both$value_2 != 0
+  sign_change <- both$`Indicator Name`[flipped]
+  if (!include_sign_change) both <- both[!flipped, ]
   both$change <- both$value_2 - both$value_1
   both$pct <- both$change / abs(both$value_1) * 100
 
@@ -55,6 +80,7 @@ indicator_change <- function(mfi, country, year1, year2) {
   list(
     increased = as_table(increased[order(-increased$pct), ]),
     decreased = as_table(decreased[order(decreased$pct), ]),
-    zero_base = zero_base
+    zero_base = zero_base,
+    sign_change = sign_change
   )
 }
