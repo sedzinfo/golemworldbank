@@ -1,3 +1,6 @@
+##########################################################################################
+# 
+##########################################################################################
 #' Bar chart module - UI
 #'
 #' Renders an indicator picker and an animated ranked bar chart (races
@@ -31,7 +34,9 @@ mod_bar_ui <- function(id) {
     plotly::plotlyOutput(ns("plot_bar"), width = "100%", height = "95vh")
   )
 }
-
+##########################################################################################
+# 
+##########################################################################################
 #' Bar chart module - server
 #'
 #' Populates the indicator choices from `mfi` and renders the animated bar
@@ -62,7 +67,6 @@ mod_bar_server <- function(id, mfi) {
       selected = "GDP (current US$)",
       server = TRUE
     )
-
     output$plot_bar <- plotly::renderPlotly({
       plot_bar(mfi, input$indicator_bar, font_style, top_n = as.integer(input$top_n_bar))
     })

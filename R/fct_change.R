@@ -112,13 +112,15 @@ render_change_table <- function(tab) {
   result <- DT::datatable(tab,
     rownames = FALSE,
     options = list(
-      paging = FALSE, scrollY = "65vh", scrollCollapse = TRUE,
+      paging = FALSE,   # one long page, like the Index table (no inner scroll box)
       columnDefs = list(list(targets = 1:3, render = compact, className = "dt-right"))
     )
   )
   result <- DT::formatRound(result, "Change %", digits = 1)
-  DT::formatStyle(result, "Change %",
+  result <- DT::formatStyle(result, "Change %",
     color = DT::styleInterval(0, c("#B3261E", "#1E7B34")),
     fontWeight = "bold"
   )
+  # same compact rows as the Index table
+  DT::formatStyle(result, names(tab), 0, target = "row", lineHeight = "80%")
 }

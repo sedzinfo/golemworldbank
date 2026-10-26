@@ -39,8 +39,7 @@ plot_country_comp <- function(mfi, countries, indicator, font_style) {
     color = ~ temp$`Country Name`,
     mode = "lines+markers",
     type = "scatter",
-    showlegend = TRUE
-  ) %>%
+    showlegend = TRUE) %>%
     plotly::layout(
       autosize = TRUE,
       margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),
@@ -88,8 +87,7 @@ plot_indicator_comp <- function(mfi, country, indicators, font_style) {
     color = ~ temp$`Indicator Name`,
     mode = "lines+markers",
     type = "scatter",
-    showlegend = TRUE
-  ) %>%
+    showlegend = TRUE) %>%
     plotly::layout(
       autosize = TRUE,
       margin = list(l = 50, r = 50, b = 250, t = 100, pad = 0),

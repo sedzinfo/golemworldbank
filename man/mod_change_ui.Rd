@@ -14,7 +14,8 @@ A \code{tagList} of Shiny UI elements.
 }
 \description{
 Renders a country picker, two year pickers, the two noise filters of
-\code{\link[=indicator_change]{indicator_change()}} and two tables (indicators that increased / decreased
+\code{\link[=indicator_change]{indicator_change()}}, a note that the comparison is automatic and needs
+interpretation, and two tables (indicators that increased / decreased
 between the two years).
 }
 \examples{

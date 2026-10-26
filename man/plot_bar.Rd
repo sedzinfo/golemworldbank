@@ -23,10 +23,13 @@ plot.
 \description{
 Plots one indicator's top \code{top_n} countries per year as a horizontal bar
 chart animated over \code{Year} (a "bar chart race"): in every frame the bars are
-re-ranked, so a country that overtakes another moves up, and the value axis
-is fitted to that year's largest value. Each bar carries the country name
-and its value. Only positive, complete-case rows are kept. Returns \code{NULL}
-when fewer than two rows remain after filtering.
+re-ranked, so a country that overtakes another moves up. For a smooth
+animation the value axis only grows (it follows the largest value seen so
+far, so bars never jump back when the maximum drops), and a country's
+missing years between two observed ones are filled by linear interpolation
+(so it does not drop out of the ranking for a year and come back). Each bar
+carries the country name and its value. Only positive, complete-case rows
+are kept. Returns \code{NULL} when fewer than two rows remain after filtering.
 }
 \examples{
 plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style)

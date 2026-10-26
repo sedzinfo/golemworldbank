@@ -1,7 +1,11 @@
+##########################################################################################
+# 
+##########################################################################################
 #' What changed module - UI
 #'
 #' Renders a country picker, two year pickers, the two noise filters of
-#' [indicator_change()] and two tables (indicators that increased / decreased
+#' [indicator_change()], a note that the comparison is automatic and needs
+#' interpretation, and two tables (indicators that increased / decreased
 #' between the two years).
 #'
 #' @param id Character. Module namespace id.
@@ -32,6 +36,19 @@ mod_change_ui <- function(id) {
         checkboxInput(ns("sign_change"), "Include indicators that changed sign", value = FALSE)
       )
     ),
+    # these tables are a mechanical comparison of two years, not an analysis
+    tags$p(class = "text-muted small", style = "margin-bottom:6px;",
+      tags$b("Note:"),
+      "these tables are produced automatically by comparing the two selected years,",
+      "and need interpretation. Change % is (To - From) / |From| x 100, the change",
+      "relative to the starting value; for indicators that are already percentages",
+      "(e.g. % of population) it is not the difference in percentage points, which is",
+      "the Change column. A change can come from a data revision, a missing or",
+      "estimated value, a change of method or of currency (e.g. drachma to euro) rather",
+      "than a real change, and a large percent change from a small starting value can",
+      "matter little. Check the indicator's definition and its full time series",
+      "(Country Comparison tab) before drawing conclusions."
+    ),
     textOutput(ns("summary_change")),
     tabsetPanel(
       tabPanel("Increased", DT::dataTableOutput(ns("increased_change"))),
@@ -39,7 +56,9 @@ mod_change_ui <- function(id) {
     )
   )
 }
-
+##########################################################################################
+# 
+##########################################################################################
 #' What changed module - server
 #'
 #' Runs [indicator_change()] for the selected country and years and renders
