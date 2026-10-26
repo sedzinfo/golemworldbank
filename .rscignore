@@ -14,3 +14,12 @@ man
 vignettes
 tests
 legacy
+generate_package.R
+financial_indicators.R
+golemworldbank_0.0.1.tar.gz
+golemworldbank.pdf
+data-raw
+docs
+pkgdown
+_pkgdown.yml
+.github
