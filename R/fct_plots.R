@@ -156,7 +156,8 @@ plot_pyramid <- function(mfi_population, country, font_style) {
       ),
       font = font_style
     ) %>%
-    plotly::animation_opts(frame = 500, easing = "linear", redraw = TRUE, mode = "immediate") %>%
+    plotly::animation_opts(frame = 200, transition = 200, easing = "linear", redraw = TRUE, mode = "afterall") %>%
+    plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 }
 ##########################################################################################
@@ -314,7 +315,8 @@ plot_map <- function(mfi, indicator, font_style) {
       geo = g,
       font = font_style
     ) %>%
-    plotly::animation_opts(frame = 1000, easing = "linear", redraw = TRUE, mode = "immediate") %>%
+    plotly::animation_opts(frame = 200, transition = 200, easing = "linear", redraw = TRUE, mode = "afterall") %>%
+    plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 }
 ##########################################################################################

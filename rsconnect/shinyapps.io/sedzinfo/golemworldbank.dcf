@@ -1,10 +1,12 @@
 name: golemworldbank
-title:
+title: golemworldbank
 username: sedzinfo
 account: sedzinfo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 18281576
-bundleId: 12742056
+bundleId: 12742464
 url: https://sedzinfo.shinyapps.io/golemworldbank/
 version: 1
+asMultiple: FALSE
+asStatic: FALSE
