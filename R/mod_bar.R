@@ -68,6 +68,7 @@ mod_bar_server <- function(id, mfi) {
       server = TRUE
     )
     output$plot_bar <- plotly::renderPlotly({
+      req(input$indicator_bar, input$top_n_bar, cancelOutput = TRUE)
       plot_bar(mfi, input$indicator_bar, font_style, top_n = as.integer(input$top_n_bar))
     })
   })

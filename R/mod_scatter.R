@@ -87,6 +87,7 @@ mod_scatter_server <- function(id, mfi, country_code) {
     )
 
     output$plot_cor <- plotly::renderPlotly({
+      req(input$indicator_cor1, input$indicator_cor2, cancelOutput = TRUE)
       plot_cor(mfi, country_code, input$indicator_cor1, input$indicator_cor2, font_style)
     })
   })

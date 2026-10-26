@@ -73,6 +73,7 @@ mod_country_comp_server <- function(id, mfi) {
     })
 
     output$plot_country_comp <- plotly::renderPlotly({
+      req(input$multiple_country_comp, input$indicator_country_comp, cancelOutput = TRUE)
       plot_country_comp(mfi, input$multiple_country_comp, input$indicator_country_comp, font_style)
     })
   })
