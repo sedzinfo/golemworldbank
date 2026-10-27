@@ -61,13 +61,14 @@ Each feature below is a Shiny module rendered as its own tab in the app:
 
 ## Data
 
-The package ships three lazy-loaded datasets, sourced from [World Bank Open Data](https://data.worldbank.org):
+The package ships four lazy-loaded datasets, sourced from [World Bank Open Data](https://data.worldbank.org):
 
 - `mfi` — long-format indicator values, one row per country/indicator/year (`Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`).
 - `mfi_population` — long-format population counts by five-year age group and sex, used by the Pyramid tab.
 - `country_code` — country/region reference metadata (region, income group, and other World Bank classifications), used to join region info in the Scatterplot tab.
+- `indicator_info` — the World Bank topic and definition of every indicator in `mfi`, shown in the Index tab.
 
-Full column-level documentation is available via `?mfi`, `?mfi_population`, and `?country_code`.
+Full column-level documentation is available via `?mfi`, `?mfi_population`, `?country_code`, and `?indicator_info`.
 
 ---
 
@@ -129,7 +130,8 @@ git lfs ls-files
 ![Barplot tab](man/figures/worldbank4.png)
 ![Scatterplot tab](man/figures/worldbank5.png)
 ![Map tab](man/figures/worldbank6.png)
-![Index tab](man/figures/worldbank7.png)
+![Change (%) tab](man/figures/worldbank7.png)
+![Index tab](man/figures/worldbank8.png)
 
 ---
 
