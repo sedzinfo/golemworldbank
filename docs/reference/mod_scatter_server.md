@@ -1,7 +1,9 @@
-# Scatter correlation module - server
+# Scatterplot tab - server
 
-Populates both indicator pickers from `mfi` and renders the animated
-bubble scatter plot for the two indicators selected by the user.
+Fills both indicator pickers with every indicator of `mfi` (on the
+server, as the list is long) and draws
+[`plot_cor()`](https://sedzinfo.github.io/golemworldbank/reference/plot_cor.md)
+for the chosen pair.
 
 ## Usage
 
@@ -24,7 +26,8 @@ mod_scatter_server(id, mfi, country_code)
 - country_code:
 
   Data frame mapping countries to region, with columns `Country Code`,
-  `Short Name`, `Region`.
+  `Short Name`, `Region`, see
+  [country_code](https://sedzinfo.github.io/golemworldbank/reference/country_code.md).
 
 ## Value
 

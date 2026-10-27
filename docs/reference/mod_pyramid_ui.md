@@ -1,7 +1,7 @@
-# Population pyramid module - UI
+# Pyramid tab - UI
 
-Renders a country picker and an animated population pyramid (male vs.
-female counts by age group, one animation frame per year).
+A picker for the country and the animated population pyramid of
+[`plot_pyramid()`](https://sedzinfo.github.io/golemworldbank/reference/plot_pyramid.md).
 
 ## Usage
 

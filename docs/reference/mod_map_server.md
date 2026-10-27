@@ -1,7 +1,9 @@
-# Choropleth map module - server
+# Map tab - server
 
-Populates the indicator choices from `mfi` and renders the animated
-choropleth map for the indicator selected by the user.
+Fills the indicator picker with every indicator of `mfi` (on the server,
+as the list is long) and draws
+[`plot_map()`](https://sedzinfo.github.io/golemworldbank/reference/plot_map.md)
+for the chosen one.
 
 ## Usage
 
@@ -19,7 +21,8 @@ mod_map_server(id, mfi)
 - mfi:
 
   Data frame of World Bank indicator values (long format, with
-  `Indicator Name`, `Country Code`, `Year`, `value` columns).
+  `Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`
+  columns).
 
 ## Value
 

@@ -1,7 +1,8 @@
-# Population pyramid module - server
+# Pyramid tab - server
 
-Renders the animated population pyramid for the country selected by the
-user.
+Draws
+[`plot_pyramid()`](https://sedzinfo.github.io/golemworldbank/reference/plot_pyramid.md)
+for the chosen country.
 
 ## Usage
 
@@ -18,8 +19,9 @@ mod_pyramid_server(id, mfi_population)
 
 - mfi_population:
 
-  Data frame of population-by-age/sex values (long format, with
-  `Country Name`, `sex`, `age`, `Year`, `value` columns).
+  Data frame of population shares by age group and sex (long format,
+  with `Country Name`, `sex`, `age`, `Year`, `value` columns), see
+  [mfi_population](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md).
 
 ## Value
 

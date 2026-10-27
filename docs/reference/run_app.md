@@ -1,6 +1,13 @@
-# Run the Shiny Application
+# Run the World Bank Indicators Explorer
 
-Launches the World Bank indicators explorer app.
+Builds the app: country and indicator comparisons over time, a
+population pyramid, a bar chart race, a bubble scatter plot, a world
+map, the indicators that changed between two years, and an index of the
+indicators with their definitions. The app has a dark mode, switched by
+the button at the right of the navbar.
+
+It also sets `options(scipen = 999)`, so that R does not print numbers
+in scientific notation; the option stays set after the app stops.
 
 ## Usage
 
@@ -46,8 +53,14 @@ run_app(
 
 - ...:
 
-  Arguments passed to
+  Options for the app, which its code reads with
+  [`golem::get_golem_options()`](https://thinkr-open.github.io/golem/reference/get_golem_options.html);
+  see
   [`golem::with_golem_options()`](https://thinkr-open.github.io/golem/reference/with_golem_options.html).
+
+## Value
+
+A Shiny app object. Printing it, as the console does, starts the app.
 
 ## Examples
 

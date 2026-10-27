@@ -1,7 +1,7 @@
-# Choropleth map module - UI
+# Map tab - UI
 
-Renders an indicator picker and an animated world choropleth map (one
-animation frame per year).
+A picker for the indicator and the animated world map of
+[`plot_map()`](https://sedzinfo.github.io/golemworldbank/reference/plot_map.md).
 
 ## Usage
 

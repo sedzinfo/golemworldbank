@@ -1,8 +1,8 @@
-# Scatter correlation module - UI
+# Scatterplot tab - UI
 
-Renders two indicator pickers and an animated bubble scatter plot
-correlating the two chosen indicators across countries (bubble size is
-population, color is region, one animation frame per year).
+Pickers for the indicator of the x axis and of the y axis, and the
+animated bubble chart of
+[`plot_cor()`](https://sedzinfo.github.io/golemworldbank/reference/plot_cor.md).
 
 ## Usage
 
