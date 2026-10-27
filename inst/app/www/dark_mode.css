@@ -1,0 +1,162 @@
+/* Dark mode, switched on by dark_mode.js with the dark-mode class of <html>.
+   plotly and DT write their colors inline, which only !important overrides. */
+#dark-mode-toggle {
+  font-size: 16px;
+  line-height: 17px;
+  margin-right: 15px;
+}
+html.dark-mode {
+  color-scheme: dark;
+}
+html.dark-mode body {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+html.dark-mode a {
+  color: #6ea8fe;
+}
+
+/* navbar */
+html.dark-mode .navbar-default {
+  background-color: #2b2b2b;
+  border-color: #3a3a3a;
+}
+html.dark-mode .navbar-default .navbar-brand,
+html.dark-mode .navbar-default .navbar-nav > li > a {
+  color: #ccc;
+}
+html.dark-mode .navbar-default .navbar-brand:hover,
+html.dark-mode .navbar-default .navbar-nav > li > a:hover {
+  color: #fff;
+}
+html.dark-mode .navbar-default .navbar-nav > .active > a,
+html.dark-mode .navbar-default .navbar-nav > .active > a:hover,
+html.dark-mode .navbar-default .navbar-nav > .active > a:focus {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+html.dark-mode .navbar-default .navbar-toggle {
+  border-color: #555;
+}
+html.dark-mode .navbar-default .navbar-toggle .icon-bar {
+  background-color: #ccc;
+}
+
+/* the Increased / Decreased tabs of Change (%) */
+html.dark-mode .nav-tabs {
+  border-bottom-color: #3a3a3a;
+}
+html.dark-mode .nav-tabs > li.active > a,
+html.dark-mode .nav-tabs > li.active > a:hover,
+html.dark-mode .nav-tabs > li.active > a:focus {
+  background-color: #2b2b2b;
+  color: #fff;
+  border-color: #3a3a3a #3a3a3a transparent;
+}
+html.dark-mode .nav-tabs > li > a:hover {
+  background-color: #2b2b2b;
+  border-color: #3a3a3a;
+}
+
+/* inputs */
+html.dark-mode .well {
+  background-color: #2b2b2b;
+  border-color: #3a3a3a;
+}
+html.dark-mode .form-control,
+html.dark-mode .selectize-input,
+html.dark-mode .selectize-input.full,
+html.dark-mode .selectize-dropdown {
+  background: #2b2b2b;
+  color: #ddd;
+  border-color: #555;
+  box-shadow: none;
+}
+html.dark-mode .selectize-input input {
+  color: #ddd;
+}
+html.dark-mode .selectize-dropdown .active {
+  background-color: #3d4b5c;
+  color: #fff;
+}
+html.dark-mode .selectize-control.multi .selectize-input > div {
+  background: #3a3a3a;
+  color: #ddd;
+}
+html.dark-mode .irs--shiny .irs-line {
+  background: #3a3a3a;
+  border-color: #555;
+}
+html.dark-mode .irs--shiny .irs-min,
+html.dark-mode .irs--shiny .irs-max,
+html.dark-mode .irs--shiny .irs-grid-text {
+  background: #3a3a3a;
+  color: #ccc;
+}
+
+/* plotly: a transparent background and light text, axes and grid */
+html.dark-mode .js-plotly-plot .main-svg {
+  background: transparent !important;
+}
+html.dark-mode .js-plotly-plot .bg,
+html.dark-mode .js-plotly-plot .legend .bg {
+  fill: transparent !important;
+}
+html.dark-mode .js-plotly-plot .main-svg text:not(.hoverlayer *):not(.annotation-text) {
+  fill: #ddd !important;
+}
+html.dark-mode .js-plotly-plot .gridlayer path,
+html.dark-mode .js-plotly-plot .zerolinelayer path {
+  stroke: #444 !important;
+}
+html.dark-mode .js-plotly-plot .updatemenu-item-rect {
+  fill: #2b2b2b !important;
+  stroke: #555 !important;
+}
+html.dark-mode .js-plotly-plot .slider-rail-rect {
+  fill: #444 !important;
+}
+html.dark-mode .js-plotly-plot .geo .bg rect {
+  fill: transparent !important;
+}
+html.dark-mode .js-plotly-plot .geo .land {
+  fill: #2b2b2b !important;
+}
+html.dark-mode .js-plotly-plot .geo .coastlines path {
+  stroke: #888 !important;
+}
+html.dark-mode .js-plotly-plot .modebar-btn path {
+  fill: #888 !important;
+}
+
+/* DT tables */
+html.dark-mode table.dataTable tbody tr,
+html.dark-mode table.dataTable.display tbody tr.odd,
+html.dark-mode table.dataTable.display tbody tr.even,
+html.dark-mode table.dataTable tbody td {
+  background-color: #1e1e1e !important;
+  color: #ddd;
+}
+html.dark-mode table.dataTable.stripe tbody tr.odd,
+html.dark-mode table.dataTable.display tbody tr.odd td {
+  background-color: #262626 !important;
+}
+html.dark-mode table.dataTable thead th {
+  color: #ddd;
+}
+html.dark-mode table.dataTable thead th,
+html.dark-mode table.dataTable tbody td {
+  border-color: #3a3a3a !important;
+}
+html.dark-mode .dataTables_wrapper .dataTables_filter,
+html.dark-mode .dataTables_wrapper .dataTables_info,
+html.dark-mode .dataTables_wrapper .dataTables_length,
+html.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #ccc !important;
+}
+html.dark-mode .dataTables_wrapper input,
+html.dark-mode .dataTables_wrapper select {
+  background-color: #2b2b2b;
+  color: #ddd;
+  border: 1px solid #555;
+}
