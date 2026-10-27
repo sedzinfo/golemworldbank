@@ -28,38 +28,39 @@ them out.}
 \item{include_sign_change}{Logical. Keep indicators whose value changed sign
 between the two years (e.g. net FDI inflows from -8 million to +6.7
 billion): their percent change is not meaningful (+82,000\%). \code{FALSE}
-(default) leaves them out and lists them in \code{sign_change}.}
+(default) leaves them out; either way they are listed in \code{sign_change}.}
 }
 \value{
-A list with \code{increased} and \code{decreased} (data frames with columns
-\code{Indicator}, the two years' values, \code{Change} and \verb{Change \%}),
-\code{zero_base} (indicators left out because their \code{year1} value is 0) and
-\code{sign_change} (indicators whose value changed sign; left out unless
-\code{include_sign_change = TRUE}).
+A list with \code{increased} and \code{decreased} (data frames with the columns
+\code{Indicator}, one named after each year with its value, \code{Change} and
+\verb{Change \%}), \code{zero_base} (indicators left out because their \code{year1} value
+is 0) and \code{sign_change} (indicators whose value changed sign; left out of
+the tables unless \code{include_sign_change = TRUE}). Stops with an error when
+the country has no data in either year.
 }
 \description{
-Compares every indicator a country has a value for in both years and splits
-them into two tables: the ones that increased from \code{year1} to \code{year2} and the
-ones that decreased, each sorted by percent change (largest change first).
-Percent change is \verb{(value2 - value1) / |value1| * 100}; it is undefined when
-the \code{year1} value is 0, so those indicators are left out of both tables (their
-names are kept in the \code{zero_base} element). Indicators that did not change
-are in neither table.
-}
-\details{
-Rates of change ("annual \%", "\% change", "growth", e.g. "GDP growth (annual
-\%)", "Inflation, consumer prices (annual \%)", "... (\% change from 1990)") are
-left out by default: a percent
-change of a growth rate is not meaningful (a rate going from -0.01 to 1.7
-reads as +17,000\%). \code{include_rates = TRUE} keeps them.
+Compares every indicator a country has a value for in both years, for the
+Change (\%) tab, and splits them into two tables: the ones that increased
+from \code{year1} to \code{year2} and the ones that decreased, each sorted by percent
+change (largest change first). The percent change is
+\verb{(value2 - value1) / |value1| * 100}; it is undefined when the \code{year1} value
+is 0, so those indicators are left out of both tables (their names are kept
+in the \code{zero_base} element). Indicators that did not change are in neither
+table.
 
-For indicators that are themselves percentages (e.g. "Urban population (\% of
-total population)") the percent change is relative to the old percentage, not
-a difference in percentage points; the \code{Change} column gives the plain
-difference.
+Rates of change ("annual \%", "\% change", "growth", e.g. "GDP growth
+(annual \%)", "Inflation, consumer prices (annual \%)", "... (\% change from
+1990)") are left out by default: a percent change of a growth rate is not
+meaningful (a rate going from -0.01 to 1.7 reads as +17,000\%).
+\code{include_rates = TRUE} keeps them.
+
+For indicators that are themselves percentages (e.g. "Urban population (\%
+of total population)") the percent change is relative to the old
+percentage, not a difference in percentage points; the \code{Change} column gives
+the plain difference.
 }
 \examples{
-res <- indicator_change(mfi, country = "Greece", year1 = 2024, year2 = 2025)
+res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
 head(res$increased)
 head(res$decreased)
 }

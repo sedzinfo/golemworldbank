@@ -7,21 +7,24 @@
 plot_pyramid(mfi_population, country, font_style)
 }
 \arguments{
-\item{mfi_population}{Data frame of population-by-age/sex values (long
-format, with \verb{Country Name}, \code{sex}, \code{age}, \code{Year}, \code{value} columns).}
+\item{mfi_population}{Data frame of population shares by age group and sex
+(long format, with \verb{Country Name}, \code{sex}, \code{age}, \code{Year}, \code{value} columns),
+see \link{mfi_population}.}
 
 \item{country}{Character. Country name to plot.}
 
-\item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
+\item{font_style}{A \code{plotly} font list for the layout of the chart; the app
+passes \link{font_style}.}
 }
 \value{
 A \code{plotly} htmlwidget.
 }
 \description{
-Plots male (negative, left) and female (positive, right) population
-counts by age group as horizontal bars, animated over \code{Year}. Male values
-are negated internally so the two sexes render back-to-back, while
-\code{display_value} keeps the original (positive) counts for hover/axis text.
+Plots, for one country, the share of each five-year age group in the male
+population (bars to the left) and in the female population (to the right),
+animated over \code{Year}, for the Pyramid tab. The male values are negated so
+that the two sexes stand back to back; the labels on the bars show them
+positive, and so do the axis ticks (-5 reads "5\%").
 }
 \examples{
 plot_pyramid(mfi_population, country = "Greece", font_style = font_style)

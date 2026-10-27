@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_scatter.R
 \name{mod_scatter_server}
 \alias{mod_scatter_server}
-\title{Scatter correlation module - server}
+\title{Scatterplot tab - server}
 \usage{
 mod_scatter_server(id, mfi, country_code)
 }
@@ -14,14 +14,14 @@ mod_scatter_server(id, mfi, country_code)
 \verb{Indicator Name}, \verb{Country Name}, \code{Year}, \code{value} columns).}
 
 \item{country_code}{Data frame mapping countries to region, with columns
-\verb{Country Code}, \verb{Short Name}, \code{Region}.}
+\verb{Country Code}, \verb{Short Name}, \code{Region}, see \link{country_code}.}
 }
 \value{
 None. Called for its side effect of registering the module server.
 }
 \description{
-Populates both indicator pickers from \code{mfi} and renders the animated
-bubble scatter plot for the two indicators selected by the user.
+Fills both indicator pickers with every indicator of \code{mfi} (on the
+server, as the list is long) and draws \code{\link[=plot_cor]{plot_cor()}} for the chosen pair.
 }
 \examples{
 \dontrun{

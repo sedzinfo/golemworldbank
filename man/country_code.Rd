@@ -16,8 +16,10 @@ World Bank Open Data (\url{https://data.worldbank.org}).
 country_code
 }
 \description{
-Reference metadata mapping each country to its region, income group, and
-other World Bank classification metadata.
+The World Bank metadata of each country and aggregate: its names, region,
+income group and statistical practices. The app uses \verb{Short Name}, matched
+to \verb{Country Name} of \link{mfi}, and \code{Region} (empty for the aggregates), to
+color the bubbles of the Scatterplot tab by region.
 }
 \examples{
 \donttest{

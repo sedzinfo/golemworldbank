@@ -12,28 +12,29 @@ plot_bar(mfi, indicator, font_style, top_n = 20, country = NULL)
 
 \item{indicator}{Character. Indicator name to plot.}
 
-\item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
+\item{font_style}{A \code{plotly} font list for the layout of the chart; the app
+passes \link{font_style}.}
 
 \item{top_n}{Integer. Number of countries shown in each year.}
 
 \item{country}{Character. Country whose bar is drawn red (\code{NULL} for none).}
 }
 \value{
-A \code{plotly} htmlwidget, or \code{NULL} if there is not enough data to
-plot.
+A \code{plotly} htmlwidget, or \code{NULL} when the indicator has fewer than two
+positive values.
 }
 \description{
-Plots one indicator's top \code{top_n} countries per year as a horizontal bar
-chart animated over \code{Year} (a "bar chart race"): in every frame the bars are
-re-ranked, so a country that overtakes another moves up. For a smooth
-animation the value axis only grows (it follows the largest value seen so
-far, so bars never jump back when the maximum drops), and a country's
-missing years between two observed ones are filled by linear interpolation
-(so it does not drop out of the ranking for a year and come back). Each bar
-carries the country name and its value; the bar of \code{country} is red so it
-can be followed through the race, and the current year is printed large and
-gray in the bottom right corner. Only positive, complete-case rows are kept.
-Returns \code{NULL} when fewer than two rows remain after filtering.
+Plots the \code{top_n} countries with the largest value of one indicator as
+horizontal bars, animated over \code{Year} (a "bar chart race"), for the Barplot
+tab: in every frame the bars are ranked again, so a country that overtakes
+another moves up. A country's missing years between two observed ones are
+filled by linear interpolation, so that it does not drop out of the race
+for a year and come back; nothing is filled before its first or after its
+last observed year. Each bar carries the country name and its value, to 3
+significant digits (1.52k, 6.02M); the bar of \code{country} is red, so that it
+can be followed through the race, and the year of the frame is printed
+large and gray in the bottom right corner. Only rows with a positive value
+are used.
 }
 \examples{
 plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece")

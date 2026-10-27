@@ -14,15 +14,16 @@ plot_country_comp(mfi, countries, indicator, font_style)
 
 \item{indicator}{Character. Indicator name to plot.}
 
-\item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
+\item{font_style}{A \code{plotly} font list for the layout of the chart; the app
+passes \link{font_style}.}
 }
 \value{
 A \code{plotly} htmlwidget.
 }
 \description{
-Plots one indicator's value over time as one line per selected country.
-Rows with missing values for the given filters are dropped before
-plotting.
+Plots one indicator over the years, one line per country, for the Country
+Comparison tab. The hover text gives the country, indicator, year and value.
+Rows with a missing value are left out.
 }
 \examples{
 plot_country_comp(

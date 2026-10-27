@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_index_table.R
 \name{mod_index_table_ui}
 \alias{mod_index_table_ui}
-\title{Indicator index table module - UI}
+\title{Index tab - UI}
 \usage{
 mod_index_table_ui(id)
 }
@@ -13,7 +13,7 @@ mod_index_table_ui(id)
 A \code{DT::dataTableOutput} Shiny UI element.
 }
 \description{
-Renders a DataTable output listing all available indicators.
+The table of every indicator with its topic and definition.
 }
 \examples{
 \dontrun{

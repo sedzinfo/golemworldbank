@@ -12,9 +12,9 @@ A \code{script} tag for the head of the page.
 \description{
 Loads the cookie banner shared with the sites of sedzinfo.github.io, which
 loads Google Analytics only after the visitor accepts. The script that
-reports the tabs as pages (\code{inst/app/www/analytics.js}) and the style
-of the banner (\code{analytics.css}) are always in the page, but send
-nothing without the banner.
+reports the tabs as pages (\code{inst/app/www/analytics.js}) and the style of the
+banner (\code{analytics.css}) are always in the page, but send nothing without
+the banner.
 }
 \examples{
 golemworldbank:::analytics_resources()

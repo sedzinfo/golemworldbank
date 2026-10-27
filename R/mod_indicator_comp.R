@@ -1,14 +1,12 @@
-#' Indicator comparison module - UI
-#'
-#' Renders a multi-indicator picker, a single-country picker, and a line
-#' chart comparing the selected indicators over time for one country.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Indicator Comparison tab - UI
+#' @description A picker for one or more indicators, one for the country, and the line
+#' chart of [plot_indicator_comp()].
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_indicator_comp_ui("indicator_comp"))
@@ -38,21 +36,18 @@ mod_indicator_comp_ui <- function(id) {
     plotly::plotlyOutput(ns("plot_indicator_comp"), width = "100%", height = "100%")
   )
 }
-
-#' Indicator comparison module - server
-#'
-#' Restricts the indicator choices to those with complete data for the
-#' currently selected country, and renders the comparison line chart.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Indicator Comparison tab - server
+#' @description Whenever the country changes, offers only the indicators that have a
+#' value for it (keeping the chosen ones), and draws [plot_indicator_comp()].
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_indicator_comp_ui()].
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
-#'
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

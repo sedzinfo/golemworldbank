@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_app.R
 \name{run_app}
 \alias{run_app}
-\title{Run the Shiny Application}
+\title{Run the World Bank Indicators Explorer}
 \usage{
 run_app(
   analytics = FALSE,
@@ -27,10 +27,21 @@ default, so that running the app yourself sends nothing.}
 
 \item{uiPattern}{See \code{\link[shiny:shinyApp]{shiny::shinyApp()}}.}
 
-\item{...}{Arguments passed to \code{\link[golem:with_golem_options]{golem::with_golem_options()}}.}
+\item{...}{Options for the app, which its code reads with
+\code{\link[golem:get_golem_options]{golem::get_golem_options()}}; see \code{\link[golem:with_golem_options]{golem::with_golem_options()}}.}
+}
+\value{
+A Shiny app object. Printing it, as the console does, starts the app.
 }
 \description{
-Launches the World Bank indicators explorer app.
+Builds the app: country and indicator comparisons over time, a population
+pyramid, a bar chart race, a bubble scatter plot, a world map, the
+indicators that changed between two years, and an index of the indicators
+with their definitions. The app has a dark mode, switched by the button at
+the right of the navbar.
+
+It also sets \code{options(scipen = 999)}, so that R does not print numbers in
+scientific notation; the option stays set after the app stops.
 }
 \examples{
 \dontrun{

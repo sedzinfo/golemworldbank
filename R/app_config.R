@@ -1,12 +1,15 @@
 ##########################################################################################
-# 
+#
 ##########################################################################################
-#' @title Access files in the current app
-#' @description NOTE: If you manually change your package name in the DESCRIPTION,
-#' don't forget to change it here too, and in the config file.
-#' For a safer name change mechanism, use the `golem::set_golem_name()` function.
-#' @param ... character vectors, specifying subdirectory and file(s)
-#' within your package. The default, none, returns the root of the app.
+#' @title Path to a file installed with the app
+#' @description `system.file()` for this package: finds the files of `inst/` (the
+#' `www` folder, `golem-config.yml`) whether the package is installed or loaded
+#' with `pkgload::load_all()`. The package name is written here, in
+#' DESCRIPTION and in `inst/golem-config.yml`; when renaming the package,
+#' change all three, or use `golem::set_golem_name()`.
+#' @param ... Character vectors, giving the subdirectory and file(s) inside
+#'   `inst/`. Without any, the root of the installed package.
+#' @return The full path, or `""` if the file does not exist.
 #' @noRd
 #' @examples
 #' \dontrun{
@@ -17,13 +20,17 @@ app_sys <- function(...) {
   system.file(..., package = "golemworldbank")
 }
 ##########################################################################################
-# 
+#
 ##########################################################################################
-#' @title Read App Config
-#' @param value Value to retrieve from the config file.
-#' @param config GOLEM_CONFIG_ACTIVE value. If unset, R_CONFIG_ACTIVE.
-#' If unset, "default".
-#' @param use_parent Logical, scan the parent directory for config file.
+#' @title Read a value of the app configuration
+#' @description Reads `inst/golem-config.yml`, the golem settings of the app (its name,
+#' version, whether it runs in production), for the active configuration.
+#' @param value Name of the value to read.
+#' @param config Configuration to read: the environment variable
+#'   `GOLEM_CONFIG_ACTIVE`, or else `R_CONFIG_ACTIVE`, or else `"default"`.
+#' @param use_parent Logical. Look for the file in the parent directories too.
+#' @param file Path of the configuration file.
+#' @return The value, as [config::get()] returns it.
 #' @noRd
 #' @examples
 #' \dontrun{

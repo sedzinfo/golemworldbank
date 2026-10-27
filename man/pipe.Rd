@@ -2,13 +2,21 @@
 % Please edit documentation in R/utils_helpers.R
 \name{\%>\%}
 \alias{\%>\%}
-\title{Pipe operator
-See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.}
+\title{Pipe operator}
 \usage{
 lhs \%>\% rhs
 }
+\arguments{
+\item{lhs}{A value.}
+
+\item{rhs}{A function call, which gets \code{lhs} as its first argument.}
+}
+\value{
+The result of the call \code{rhs} with \code{lhs} as its first argument.
+}
 \description{
-Pipe operator
-See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
+Re-exported from dplyr, so that the code of the package and its users
+can chain calls with it. See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for
+details.
 }
 \keyword{internal}

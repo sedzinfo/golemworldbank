@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_bar.R
 \name{mod_bar_ui}
 \alias{mod_bar_ui}
-\title{Bar chart module - UI}
+\title{Barplot tab - UI}
 \usage{
 mod_bar_ui(id)
 }
@@ -13,9 +13,9 @@ mod_bar_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders an indicator picker, a top-n picker, a picker for the country to
-follow (its bar is red) and an animated ranked bar chart (races countries
-by value, one animation frame per year).
+A picker for the indicator, one for the number of countries (top 30, 50
+or 100) and one for the country to follow (its bar is red), above the
+bar chart race of \code{\link[=plot_bar]{plot_bar()}}.
 }
 \examples{
 \dontrun{

@@ -1,17 +1,12 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' Population pyramid module - UI
-#'
-#' Renders a country picker and an animated population pyramid (male vs.
-#' female counts by age group, one animation frame per year).
-#'
+#' @title Pyramid tab - UI
+#' @description A picker for the country and the animated population pyramid of
+#' [plot_pyramid()].
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_pyramid_ui("pyramid"))
@@ -31,20 +26,15 @@ mod_pyramid_ui <- function(id) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Population pyramid module - server
-#'
-#' Renders the animated population pyramid for the country selected by the
-#' user.
-#'
+#' @title Pyramid tab - server
+#' @description Draws [plot_pyramid()] for the chosen country.
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_pyramid_ui()].
-#' @param mfi_population Data frame of population-by-age/sex values (long
-#'   format, with `Country Name`, `sex`, `age`, `Year`, `value` columns).
-#'
+#' @param mfi_population Data frame of population shares by age group and sex
+#'   (long format, with `Country Name`, `sex`, `age`, `Year`, `value` columns),
+#'   see [mfi_population].
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

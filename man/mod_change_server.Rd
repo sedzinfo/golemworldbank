@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_change.R
 \name{mod_change_server}
 \alias{mod_change_server}
-\title{What changed module - server}
+\title{Change (\%) tab - server}
 \usage{
 mod_change_server(id, mfi)
 }
@@ -17,8 +17,11 @@ mod_change_server(id, mfi)
 None. Called for its side effect of registering the module server.
 }
 \description{
-Runs \code{\link[=indicator_change]{indicator_change()}} for the selected country and years and renders
-its two tables with \code{\link[=render_change_table]{render_change_table()}}.
+Runs \code{\link[=indicator_change]{indicator_change()}} for the chosen country, years and checkboxes,
+and shows how many indicators increased and decreased, and its two tables
+with \code{\link[=render_change_table]{render_change_table()}}. Asks for two different years, and shows the
+error of \code{\link[=indicator_change]{indicator_change()}} (no data in either year) in place of the
+tables.
 }
 \examples{
 \dontrun{

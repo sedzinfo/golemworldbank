@@ -1,14 +1,17 @@
-#' The application User-Interface
-#'
-#' Defines the top-level navbar layout, with one tab per Shiny module.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title The application User-Interface
+#' @description A navbar page with one tab per module. The navbar is made compact, and
+#' each tab fills the window under it: the charts stretch to the bottom of the
+#' window, and a tab that is longer than the window scrolls by itself, under a
+#' navbar that stays in place.
 #' @param request Internal parameter for `{shiny}`. DO NOT REMOVE.
-#' @param analytics `TRUE` to add Google Analytics and its cookie banner,
-#'   see `analytics_resources()`.
-#'
+#' @param analytics `TRUE` to add Google Analytics, with its cookie banner
+#'   (see `analytics_resources()`) and a footer with the links of the banner
+#'   (see `analytics_footer()`).
 #' @import shiny
 #' @noRd
-#'
 #' @examples
 #' \dontrun{
 #' shiny::shinyApp(ui = app_ui, server = app_server)
@@ -54,15 +57,18 @@ app_ui <- function(request, analytics = FALSE) {
   )
 }
 
-#' Add external resources to the application
-#'
-#' Internally used to add JS/CSS/favicon resources inside the Shiny
-#' application.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Add external resources to the application
+#' @description Adds the favicon and every CSS and JS file of `inst/app/www` to the head
+#' of the page: the analytics files (`analytics.css`, `analytics.js`) and the
+#' dark mode (`dark_mode.css`, `dark_mode.js`). A file put in that folder is
+#' added without any change here.
+#' @return A `head` tag.
 #' @import shiny
 #' @importFrom golem add_resource_path favicon bundle_resources
 #' @noRd
-#'
 #' @examples
 #' \dontrun{
 #' # called from inside app_ui():

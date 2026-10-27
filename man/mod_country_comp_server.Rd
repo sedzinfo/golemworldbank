@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_country_comp.R
 \name{mod_country_comp_server}
 \alias{mod_country_comp_server}
-\title{Country comparison module - server}
+\title{Country Comparison tab - server}
 \usage{
 mod_country_comp_server(id, mfi)
 }
@@ -17,8 +17,9 @@ mod_country_comp_server(id, mfi)
 None. Called for its side effect of registering the module server.
 }
 \description{
-Restricts the indicator choices to those with complete data for the
-currently selected countries, and renders the comparison line chart.
+Whenever the countries change, offers only the indicators that have a
+value for at least one of them (keeping the chosen indicator), and draws
+\code{\link[=plot_country_comp]{plot_country_comp()}}.
 }
 \examples{
 \dontrun{

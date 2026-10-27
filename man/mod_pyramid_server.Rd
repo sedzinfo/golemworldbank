@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_pyramid.R
 \name{mod_pyramid_server}
 \alias{mod_pyramid_server}
-\title{Population pyramid module - server}
+\title{Pyramid tab - server}
 \usage{
 mod_pyramid_server(id, mfi_population)
 }
@@ -10,15 +10,15 @@ mod_pyramid_server(id, mfi_population)
 \item{id}{Character. Module namespace id, must match the id used in
 \code{\link[=mod_pyramid_ui]{mod_pyramid_ui()}}.}
 
-\item{mfi_population}{Data frame of population-by-age/sex values (long
-format, with \verb{Country Name}, \code{sex}, \code{age}, \code{Year}, \code{value} columns).}
+\item{mfi_population}{Data frame of population shares by age group and sex
+(long format, with \verb{Country Name}, \code{sex}, \code{age}, \code{Year}, \code{value} columns),
+see \link{mfi_population}.}
 }
 \value{
 None. Called for its side effect of registering the module server.
 }
 \description{
-Renders the animated population pyramid for the country selected by the
-user.
+Draws \code{\link[=plot_pyramid]{plot_pyramid()}} for the chosen country.
 }
 \examples{
 \dontrun{

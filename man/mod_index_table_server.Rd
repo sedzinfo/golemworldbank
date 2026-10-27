@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_index_table.R
 \name{mod_index_table_server}
 \alias{mod_index_table_server}
-\title{Indicator index table module - server}
+\title{Index tab - server}
 \usage{
 mod_index_table_server(id, mfi, indicator_info)
 }
@@ -20,8 +20,7 @@ mod_index_table_server(id, mfi, indicator_info)
 None. Called for its side effect of registering the module server.
 }
 \description{
-Renders the datatable listing every distinct indicator present in \code{mfi},
-with its topic and definition.
+Draws the table of \code{\link[=render_index_table]{render_index_table()}}.
 }
 \examples{
 \dontrun{

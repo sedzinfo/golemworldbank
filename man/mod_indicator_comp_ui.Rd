@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_indicator_comp.R
 \name{mod_indicator_comp_ui}
 \alias{mod_indicator_comp_ui}
-\title{Indicator comparison module - UI}
+\title{Indicator Comparison tab - UI}
 \usage{
 mod_indicator_comp_ui(id)
 }
@@ -13,8 +13,8 @@ mod_indicator_comp_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders a multi-indicator picker, a single-country picker, and a line
-chart comparing the selected indicators over time for one country.
+A picker for one or more indicators, one for the country, and the line
+chart of \code{\link[=plot_indicator_comp]{plot_indicator_comp()}}.
 }
 \examples{
 \dontrun{

@@ -17,8 +17,9 @@ render_index_table(mfi, indicator_info)
 A \code{DT::datatable} htmlwidget.
 }
 \description{
-Builds a non-paginated \code{DT::datatable} listing every distinct indicator
-name present in \code{mfi}, with its World Bank topic and definition.
+Lists every indicator of \code{mfi}, in the order it first appears there, with
+its World Bank topic and definition, for the Index tab. The table is one
+long page, which can be searched and sorted.
 }
 \examples{
 render_index_table(mfi, indicator_info)

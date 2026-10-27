@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_map.R
 \name{mod_map_ui}
 \alias{mod_map_ui}
-\title{Choropleth map module - UI}
+\title{Map tab - UI}
 \usage{
 mod_map_ui(id)
 }
@@ -13,8 +13,7 @@ mod_map_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders an indicator picker and an animated world choropleth map (one
-animation frame per year).
+A picker for the indicator and the animated world map of \code{\link[=plot_map]{plot_map()}}.
 }
 \examples{
 \dontrun{

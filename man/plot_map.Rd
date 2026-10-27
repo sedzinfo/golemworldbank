@@ -13,14 +13,17 @@ columns).}
 
 \item{indicator}{Character. Indicator name to plot.}
 
-\item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
+\item{font_style}{A \code{plotly} font list for the layout of the chart; the app
+passes \link{font_style}.}
 }
 \value{
 A \code{plotly} htmlwidget.
 }
 \description{
-Plots one indicator's value per country as a world choropleth, animated
-over \code{Year}. Rows with missing values are dropped before plotting.
+Colors every country of a world map by the value of one indicator, from
+white (lowest) to dark blue (highest), animated over \code{Year}, for the Map
+tab. Countries are placed by their \verb{Country Code}. Rows with a missing
+value are left out.
 }
 \examples{
 plot_map(mfi, indicator = "Population, total", font_style = font_style)

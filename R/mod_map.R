@@ -1,14 +1,11 @@
-#' Choropleth map module - UI
-#'
-#' Renders an indicator picker and an animated world choropleth map (one
-#' animation frame per year).
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Map tab - UI
+#' @description A picker for the indicator and the animated world map of [plot_map()].
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_map_ui("map"))
@@ -25,21 +22,19 @@ mod_map_ui <- function(id) {
     plotly::plotlyOutput(ns("plot_map"), width = "100%", height = "100%")
   )
 }
-
-#' Choropleth map module - server
-#'
-#' Populates the indicator choices from `mfi` and renders the animated
-#' choropleth map for the indicator selected by the user.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Map tab - server
+#' @description Fills the indicator picker with every indicator of `mfi` (on the server,
+#' as the list is long) and draws [plot_map()] for the chosen one.
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_map_ui()].
 #' @param mfi Data frame of World Bank indicator values (long format, with
-#'   `Indicator Name`, `Country Code`, `Year`, `value` columns).
-#'
+#'   `Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`
+#'   columns).
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

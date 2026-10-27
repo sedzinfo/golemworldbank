@@ -1,19 +1,14 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' What changed module - UI
-#'
-#' Renders a country picker, two year pickers, the two noise filters of
-#' [indicator_change()], a note that the comparison is automatic and needs
-#' interpretation, and two tables (indicators that increased / decreased
-#' between the two years).
-#'
+#' @title Change (%) tab - UI
+#' @description A country picker, the two years to compare, the two checkboxes of
+#' [indicator_change()] (growth rates, changes of sign), a note that the
+#' comparison is automatic and needs interpretation, a one-line summary, and
+#' the indicators that increased and decreased, in two tabs.
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_change_ui("change"))
@@ -59,20 +54,18 @@ mod_change_ui <- function(id) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' What changed module - server
-#'
-#' Runs [indicator_change()] for the selected country and years and renders
-#' its two tables with [render_change_table()].
-#'
+#' @title Change (%) tab - server
+#' @description Runs [indicator_change()] for the chosen country, years and checkboxes,
+#' and shows how many indicators increased and decreased, and its two tables
+#' with [render_change_table()]. Asks for two different years, and shows the
+#' error of [indicator_change()] (no data in either year) in place of the
+#' tables.
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_change_ui()].
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
-#'
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_bar.R
 \name{mod_bar_server}
 \alias{mod_bar_server}
-\title{Bar chart module - server}
+\title{Barplot tab - server}
 \usage{
 mod_bar_server(id, mfi)
 }
@@ -17,8 +17,9 @@ mod_bar_server(id, mfi)
 None. Called for its side effect of registering the module server.
 }
 \description{
-Populates the indicator choices from \code{mfi} and renders the animated bar
-chart for the indicator selected by the user.
+Fills the indicator picker with every indicator of \code{mfi} (on the server,
+as the list is long) and draws \code{\link[=plot_bar]{plot_bar()}} for the chosen indicator,
+number of countries and country to follow.
 }
 \examples{
 \dontrun{

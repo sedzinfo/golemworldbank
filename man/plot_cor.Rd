@@ -18,17 +18,19 @@ contain a \code{"Population, total"} indicator, used for bubble sizing.}
 
 \item{indicator2}{Character. Indicator name plotted on the y-axis.}
 
-\item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
+\item{font_style}{A \code{plotly} font list for the layout of the chart; the app
+passes \link{font_style}.}
 }
 \value{
 A \code{plotly} htmlwidget.
 }
 \description{
-Reshapes \code{mfi} from long to wide so \code{indicator1} and \code{indicator2} become
-plottable x/y columns, joins in \code{Region} from \code{country_code}, and plots a
-bubble scatter (bubble size = population, color = region), animated over
-\code{Year}, with play/pause controls. Rows with missing values or no region
-are dropped before plotting.
+Plots every country as a bubble, at its value of \code{indicator1} (x) and of
+\code{indicator2} (y), sized by its population and colored by its region,
+animated over \code{Year}, for the Scatterplot tab. The region comes from
+\code{country_code}, by matching its \verb{Short Name} to the \verb{Country Name} of \code{mfi};
+a country whose names differ there has no region and is left out, as is a
+country-year without both values and the population.
 }
 \examples{
 plot_cor(

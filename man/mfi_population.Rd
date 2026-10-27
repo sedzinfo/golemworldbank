@@ -3,16 +3,16 @@
 \docType{data}
 \name{mfi_population}
 \alias{mfi_population}
-\title{Population by age, sex, and country}
+\title{Population by age group and sex}
 \format{
 A data frame with 458,304 rows and 7 columns:
 \describe{
 \item{Country Name}{Country name.}
-\item{Indicator Name}{World Bank indicator name.}
+\item{Indicator Name}{Indicator name, as in \link{mfi}.}
 \item{Year}{Year of observation (factor).}
-\item{value}{Population count.}
-\item{age}{Age group.}
-\item{unit}{Unit of measurement.}
+\item{value}{Percent of the male or of the female population.}
+\item{age}{Age group (factor, "00-04" to "80+").}
+\item{unit}{Unit of \code{value}: always "Percent".}
 \item{sex}{"Male" or "Female".}
 }
 }
@@ -23,8 +23,10 @@ World Bank Open Data (\url{https://data.worldbank.org}).
 mfi_population
 }
 \description{
-Long-format population counts by five-year age group and sex, used to
-drive the population pyramid module.
+The share of each five-year age group in the male and in the female
+population, per country and year: the 32 indicators of \link{mfi} such as
+"Population ages 40-44, male (\% of male population)", with their age group
+and sex in columns of their own. This is the data of the Pyramid tab.
 }
 \examples{
 \donttest{

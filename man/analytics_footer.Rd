@@ -10,8 +10,9 @@ analytics_footer()
 A \code{div} for the bottom of the page.
 }
 \description{
-"Cookie settings" opens the banner again, so that visitors can change
-their choice at any time, as the privacy note promises.
+"Cookie settings" opens the banner again, so that visitors can change their
+choice at any time, as the privacy note promises; "Privacy" opens that
+note.
 }
 \examples{
 golemworldbank:::analytics_footer()

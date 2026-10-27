@@ -14,15 +14,18 @@ plot_indicator_comp(mfi, country, indicators, font_style)
 
 \item{indicators}{Character vector of indicator names to plot.}
 
-\item{font_style}{A \code{plotly} font list (e.g. \code{list(size = 20, color = "gray25")}) applied to the chart's layout.}
+\item{font_style}{A \code{plotly} font list for the layout of the chart; the app
+passes \link{font_style}.}
 }
 \value{
 A \code{plotly} htmlwidget.
 }
 \description{
-Plots several indicators' values over time, for a single country, as one
-line per indicator. Rows with missing values for the given filters are
-dropped before plotting.
+Plots several indicators over the years for one country, one line per
+indicator, for the Indicator Comparison tab. The indicators share one y
+axis, so they compare well only when they have the same unit and a similar
+scale (e.g. the female and the male population). Rows with a missing value
+are left out.
 }
 \examples{
 plot_indicator_comp(

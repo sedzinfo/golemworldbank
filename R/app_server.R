@@ -1,22 +1,19 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' The application server-side logic
-#'
-#' Rescales the UI in response to the client's `dimension` input, then wires
-#' up each tab's Shiny module server against the packaged datasets ([mfi],
-#' [mfi_population], [country_code], [indicator_info]).
-#'
+#' @title The application server-side logic
+#' @description Starts the server of each tab's module, giving it the packaged datasets
+#' it needs ([mfi], [mfi_population], [country_code], [indicator_info]).
 #' @param input,output,session Internal parameters for `{shiny}`.
 #'   DO NOT REMOVE.
-#'
 #' @noRd
-#'
 #' @examples
 #' \dontrun{
 #' shiny::shinyApp(ui = app_ui, server = app_server)
 #' }
 app_server <- function(input, output, session) {
+  # left from an earlier version: no script in the page sends input$dimension
+  # or handles the scaleUI message, so this never runs
   observeEvent(input$dimension, {
     w <- input$dimension[1]
     h <- input$dimension[2]

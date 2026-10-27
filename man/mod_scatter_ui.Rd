@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_scatter.R
 \name{mod_scatter_ui}
 \alias{mod_scatter_ui}
-\title{Scatter correlation module - UI}
+\title{Scatterplot tab - UI}
 \usage{
 mod_scatter_ui(id)
 }
@@ -13,9 +13,8 @@ mod_scatter_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders two indicator pickers and an animated bubble scatter plot
-correlating the two chosen indicators across countries (bubble size is
-population, color is region, one animation frame per year).
+Pickers for the indicator of the x axis and of the y axis, and the
+animated bubble chart of \code{\link[=plot_cor]{plot_cor()}}.
 }
 \examples{
 \dontrun{

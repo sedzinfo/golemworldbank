@@ -2,7 +2,12 @@
 # 
 ##########################################################################################
 #' @title Pipe operator
-#' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
+#' @description Re-exported from dplyr, so that the code of the package and its users
+#' can chain calls with it. See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for
+#' details.
+#' @param lhs A value.
+#' @param rhs A function call, which gets `lhs` as its first argument.
+#' @return The result of the call `rhs` with `lhs` as its first argument.
 #' @name %>%
 #' @rdname pipe
 #' @keywords internal
@@ -13,9 +18,11 @@ NULL
 ##########################################################################################
 # 
 ##########################################################################################
-#' @title Shared plotly font style
-#' @description Applied to the `font` argument of every `plotly::layout()` call across the
-#' app's plot-building functions, so charts share one look.
+#' @title Font of the charts
+#' @description The font of every chart of the app: 20 px, bold, dark gray. The app passes
+#' it as the `font_style` argument of the `plot_*()` functions, which give it
+#' to `plotly::layout(font = )`, so that all the charts share one look.
+#' @format A list with the elements `size`, `color` and `weight`.
 #' @keywords internal
 #' @export
 #' @examples
@@ -25,9 +32,11 @@ font_style <- list(size = 20, color = "gray25", weight = "bold")
 # 
 ##########################################################################################
 #' @title Format a large number with a magnitude suffix
-#' @description Abbreviates a numeric value using Tn/Bn/M/K suffixes (trillions,
-#' billions, millions, thousands), rounding to the nearest whole unit.
-#' Values under 1,000 are returned as-is (coerced to character).
+#' @description Abbreviates numbers with the suffixes Tn, Bn, M and K (trillions,
+#' billions, millions, thousands), rounded to a whole number of that unit, so
+#' 1,500 becomes "2 K". Numbers under 1,000 are returned unchanged, as text.
+#' For 3 significant digits ("1.52k"), as on the bars of the Barplot tab, see
+#' the internal `format_value()`.
 #' @param n Numeric vector of values to format.
 #' @return A character vector of formatted values.
 #' @export
@@ -57,6 +66,7 @@ globalVariables(c("mfi", "mfi_population", "country_code", "indicator_info", "Ye
 #' @title Format numbers compactly to 3 significant digits
 #' @description Like [format_bignum()] but keeps 3 significant digits, handles negative and
 #' small values, and uses the k/M/B/T suffixes (6.02M, 1.42B, 0.0752, -5.72B).
+#' Used for the labels and the hover text of the bars in [plot_bar()].
 #' @param n Numeric vector of values to format.
 #' @return A character vector of formatted values.
 #' @noRd
@@ -73,9 +83,9 @@ format_value <- function(n) {
 # 
 ##########################################################################################
 #' @title Pause and Stop buttons for an animated plotly chart
-#' @description Builds the `updatemenus` entry shown next to plotly's own Play button.
-#' Pause halts the animation on the current frame; Stop halts it and jumps
-#' back to the first frame.
+#' @description Builds the `updatemenus` entry shown next to plotly's own Play button,
+#' used by every animated chart of the app. Pause halts the animation on the
+#' current frame; Stop halts it and jumps back to the first frame.
 #' @param first_frame Character. Name of the first animation frame (for these
 #'   charts, the first year).
 #' @return A list to pass as `plotly::layout(updatemenus = ...)`.

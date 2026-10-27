@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_pyramid.R
 \name{mod_pyramid_ui}
 \alias{mod_pyramid_ui}
-\title{Population pyramid module - UI}
+\title{Pyramid tab - UI}
 \usage{
 mod_pyramid_ui(id)
 }
@@ -13,8 +13,8 @@ mod_pyramid_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders a country picker and an animated population pyramid (male vs.
-female counts by age group, one animation frame per year).
+A picker for the country and the animated population pyramid of
+\code{\link[=plot_pyramid]{plot_pyramid()}}.
 }
 \examples{
 \dontrun{

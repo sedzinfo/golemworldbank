@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_map.R
 \name{mod_map_server}
 \alias{mod_map_server}
-\title{Choropleth map module - server}
+\title{Map tab - server}
 \usage{
 mod_map_server(id, mfi)
 }
@@ -11,14 +11,15 @@ mod_map_server(id, mfi)
 \code{\link[=mod_map_ui]{mod_map_ui()}}.}
 
 \item{mfi}{Data frame of World Bank indicator values (long format, with
-\verb{Indicator Name}, \verb{Country Code}, \code{Year}, \code{value} columns).}
+\verb{Country Code}, \verb{Country Name}, \verb{Indicator Name}, \code{Year}, \code{value}
+columns).}
 }
 \value{
 None. Called for its side effect of registering the module server.
 }
 \description{
-Populates the indicator choices from \code{mfi} and renders the animated
-choropleth map for the indicator selected by the user.
+Fills the indicator picker with every indicator of \code{mfi} (on the server,
+as the list is long) and draws \code{\link[=plot_map]{plot_map()}} for the chosen one.
 }
 \examples{
 \dontrun{

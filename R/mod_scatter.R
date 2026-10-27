@@ -1,18 +1,12 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' Scatter correlation module - UI
-#'
-#' Renders two indicator pickers and an animated bubble scatter plot
-#' correlating the two chosen indicators across countries (bubble size is
-#' population, color is region, one animation frame per year).
-#'
+#' @title Scatterplot tab - UI
+#' @description Pickers for the indicator of the x axis and of the y axis, and the
+#' animated bubble chart of [plot_cor()].
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_scatter_ui("scatter"))
@@ -46,22 +40,17 @@ mod_scatter_ui <- function(id) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Scatter correlation module - server
-#'
-#' Populates both indicator pickers from `mfi` and renders the animated
-#' bubble scatter plot for the two indicators selected by the user.
-#'
+#' @title Scatterplot tab - server
+#' @description Fills both indicator pickers with every indicator of `mfi` (on the
+#' server, as the list is long) and draws [plot_cor()] for the chosen pair.
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_scatter_ui()].
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Indicator Name`, `Country Name`, `Year`, `value` columns).
 #' @param country_code Data frame mapping countries to region, with columns
-#'   `Country Code`, `Short Name`, `Region`.
-#'
+#'   `Country Code`, `Short Name`, `Region`, see [country_code].
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

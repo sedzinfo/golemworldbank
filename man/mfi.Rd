@@ -5,13 +5,13 @@
 \alias{mfi}
 \title{World Bank indicator values}
 \format{
-A data frame with 7,478,197 rows and 5 columns:
+A data frame with 7,505,749 rows and 5 columns:
 \describe{
-\item{Country Code}{ISO country code.}
-\item{Country Name}{Country name.}
-\item{Indicator Name}{World Bank indicator name.}
+\item{Country Code}{Three-letter World Bank code of the country, e.g. "GRC".}
+\item{Country Name}{Country name, e.g. "Greece".}
+\item{Indicator Name}{Indicator name, e.g. "Population, total".}
 \item{Year}{Year of observation (factor).}
-\item{value}{Indicator value for that country/year.}
+\item{value}{Value of the indicator for that country and year.}
 }
 }
 \source{
@@ -21,8 +21,11 @@ World Bank Open Data (\url{https://data.worldbank.org}).
 mfi
 }
 \description{
-Long-format World Bank development indicator values, one row per
-country/indicator/year.
+The values of the World Development Indicators in long format, one row
+per country, indicator and year: 217 countries, 1,497 indicators, the years
+1960 to 2025. Regions and income groups (such as "World") are not included,
+and neither are missing values. This is the data of every tab except the
+Pyramid.
 }
 \examples{
 \donttest{

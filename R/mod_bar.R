@@ -1,18 +1,13 @@
 ##########################################################################################
 # 
 ##########################################################################################
-#' Bar chart module - UI
-#'
-#' Renders an indicator picker, a top-n picker, a picker for the country to
-#' follow (its bar is red) and an animated ranked bar chart (races countries
-#' by value, one animation frame per year).
-#'
+#' @title Barplot tab - UI
+#' @description A picker for the indicator, one for the number of countries (top 30, 50
+#' or 100) and one for the country to follow (its bar is red), above the
+#' bar chart race of [plot_bar()].
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_bar_ui("bar"))
@@ -45,20 +40,16 @@ mod_bar_ui <- function(id) {
 ##########################################################################################
 # 
 ##########################################################################################
-#' Bar chart module - server
-#'
-#' Populates the indicator choices from `mfi` and renders the animated bar
-#' chart for the indicator selected by the user.
-#'
+#' @title Barplot tab - server
+#' @description Fills the indicator picker with every indicator of `mfi` (on the server,
+#' as the list is long) and draws [plot_bar()] for the chosen indicator,
+#' number of countries and country to follow.
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_bar_ui()].
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Indicator Name`, `Country Name`, `Year`, `value` columns).
-#'
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

@@ -2,13 +2,17 @@
 % Please edit documentation in R/utils_helpers.R
 \name{font_style}
 \alias{font_style}
-\title{Shared plotly font style}
+\title{Font of the charts}
+\format{
+A list with the elements \code{size}, \code{color} and \code{weight}.
+}
 \usage{
 font_style
 }
 \description{
-Applied to the \code{font} argument of every \code{plotly::layout()} call across the
-app's plot-building functions, so charts share one look.
+The font of every chart of the app: 20 px, bold, dark gray. The app passes
+it as the \code{font_style} argument of the \verb{plot_*()} functions, which give it
+to \code{plotly::layout(font = )}, so that all the charts share one look.
 }
 \examples{
 plotly::layout(plotly::plot_ly(), font = font_style)

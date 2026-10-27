@@ -1,14 +1,12 @@
-#' Country comparison module - UI
-#'
-#' Renders a multi-country picker, a single-indicator picker, and a line
-#' chart comparing the selected countries over time for one indicator.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Country Comparison tab - UI
+#' @description A picker for one or more countries, one for the indicator, and the line
+#' chart of [plot_country_comp()].
 #' @param id Character. Module namespace id.
-#'
 #' @return A `tagList` of Shiny UI elements.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' shiny::fluidPage(mod_country_comp_ui("country_comp"))
@@ -38,21 +36,19 @@ mod_country_comp_ui <- function(id) {
     plotly::plotlyOutput(ns("plot_country_comp"), width = "100%", height = "100%")
   )
 }
-
-#' Country comparison module - server
-#'
-#' Restricts the indicator choices to those with complete data for the
-#' currently selected countries, and renders the comparison line chart.
-#'
+##########################################################################################
+#
+##########################################################################################
+#' @title Country Comparison tab - server
+#' @description Whenever the countries change, offers only the indicators that have a
+#' value for at least one of them (keeping the chosen indicator), and draws
+#' [plot_country_comp()].
 #' @param id Character. Module namespace id, must match the id used in
 #'   [mod_country_comp_ui()].
 #' @param mfi Data frame of World Bank indicator values (long format, with
 #'   `Country Name`, `Indicator Name`, `Year`, `value` columns).
-#'
 #' @return None. Called for its side effect of registering the module server.
-#'
 #' @keywords internal
-#'
 #' @examples
 #' \dontrun{
 #' # inside app_server():

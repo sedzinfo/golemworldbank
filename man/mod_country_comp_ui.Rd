@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_country_comp.R
 \name{mod_country_comp_ui}
 \alias{mod_country_comp_ui}
-\title{Country comparison module - UI}
+\title{Country Comparison tab - UI}
 \usage{
 mod_country_comp_ui(id)
 }
@@ -13,8 +13,8 @@ mod_country_comp_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders a multi-country picker, a single-indicator picker, and a line
-chart comparing the selected countries over time for one indicator.
+A picker for one or more countries, one for the indicator, and the line
+chart of \code{\link[=plot_country_comp]{plot_country_comp()}}.
 }
 \examples{
 \dontrun{

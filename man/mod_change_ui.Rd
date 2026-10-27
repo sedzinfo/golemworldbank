@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_change.R
 \name{mod_change_ui}
 \alias{mod_change_ui}
-\title{What changed module - UI}
+\title{Change (\%) tab - UI}
 \usage{
 mod_change_ui(id)
 }
@@ -13,10 +13,10 @@ mod_change_ui(id)
 A \code{tagList} of Shiny UI elements.
 }
 \description{
-Renders a country picker, two year pickers, the two noise filters of
-\code{\link[=indicator_change]{indicator_change()}}, a note that the comparison is automatic and needs
-interpretation, and two tables (indicators that increased / decreased
-between the two years).
+A country picker, the two years to compare, the two checkboxes of
+\code{\link[=indicator_change]{indicator_change()}} (growth rates, changes of sign), a note that the
+comparison is automatic and needs interpretation, a one-line summary, and
+the indicators that increased and decreased, in two tabs.
 }
 \examples{
 \dontrun{

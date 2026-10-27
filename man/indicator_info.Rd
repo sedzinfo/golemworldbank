@@ -7,7 +7,7 @@
 \format{
 A data frame with 1,497 rows and 3 columns:
 \describe{
-\item{Indicator Name}{World Bank indicator name, as in \link{mfi}.}
+\item{Indicator Name}{Indicator name, as in \link{mfi}.}
 \item{Topic}{World Bank topic, e.g. "Health: Population: Structure".}
 \item{Definition}{Short definition of the indicator.}
 }
