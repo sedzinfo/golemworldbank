@@ -14,21 +14,6 @@
 app_server <- function(input, output, session) {
   # left from an earlier version: no script in the page sends input$dimension
   # or handles the scaleUI message, so this never runs
-  observeEvent(input$dimension, {
-    w <- input$dimension[1]
-    h <- input$dimension[2]
-
-    base_w <- 1400
-    base_h <- 900
-
-    scale_w <- w / base_w
-    scale_h <- h / base_h
-
-    scale <- min(scale_w, scale_h, 1) # never upscale
-
-    session$sendCustomMessage("scaleUI", scale)
-  })
-
   mod_country_comp_server("country_comp", mfi)
   mod_indicator_comp_server("indicator_comp", mfi)
   mod_pyramid_server("pyramid", mfi_population)
