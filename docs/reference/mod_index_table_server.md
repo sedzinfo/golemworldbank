@@ -1,7 +1,7 @@
-# Indicator index table module - server
+# Index tab - server
 
-Renders the datatable listing every distinct indicator present in `mfi`,
-with its topic and definition.
+Draws the table of
+[`render_index_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_index_table.md).
 
 ## Usage
 

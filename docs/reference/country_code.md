@@ -1,7 +1,11 @@
 # Country and region reference table
 
-Reference metadata mapping each country to its region, income group, and
-other World Bank classification metadata.
+The World Bank metadata of each country and aggregate: its names,
+region, income group and statistical practices. The app uses
+`Short Name`, matched to `Country Name` of
+[mfi](https://sedzinfo.github.io/golemworldbank/reference/mfi.md), and
+`Region` (empty for the aggregates), to color the bubbles of the
+Scatterplot tab by region.
 
 ## Usage
 

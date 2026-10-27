@@ -1,6 +1,6 @@
-# Indicator index table module - UI
+# Index tab - UI
 
-Renders a DataTable output listing all available indicators.
+The table of every indicator with its topic and definition.
 
 ## Usage
 

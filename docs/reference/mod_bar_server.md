@@ -1,7 +1,9 @@
-# Bar chart module - server
+# Barplot tab - server
 
-Populates the indicator choices from `mfi` and renders the animated bar
-chart for the indicator selected by the user.
+Fills the indicator picker with every indicator of `mfi` (on the server,
+as the list is long) and draws
+[`plot_bar()`](https://sedzinfo.github.io/golemworldbank/reference/plot_bar.md)
+for the chosen indicator, number of countries and country to follow.
 
 ## Usage
 

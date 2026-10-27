@@ -1,7 +1,8 @@
-# Country comparison module - UI
+# Country Comparison tab - UI
 
-Renders a multi-country picker, a single-indicator picker, and a line
-chart comparing the selected countries over time for one indicator.
+A picker for one or more countries, one for the indicator, and the line
+chart of
+[`plot_country_comp()`](https://sedzinfo.github.io/golemworldbank/reference/plot_country_comp.md).
 
 ## Usage
 

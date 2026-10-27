@@ -1,7 +1,8 @@
-# Country comparison module - server
+# Country Comparison tab - server
 
-Restricts the indicator choices to those with complete data for the
-currently selected countries, and renders the comparison line chart.
+Whenever the countries change, offers only the indicators that have a
+value for at least one of them (keeping the chosen indicator), and draws
+[`plot_country_comp()`](https://sedzinfo.github.io/golemworldbank/reference/plot_country_comp.md).
 
 ## Usage
 

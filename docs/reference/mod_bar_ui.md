@@ -1,8 +1,9 @@
-# Bar chart module - UI
+# Barplot tab - UI
 
-Renders an indicator picker, a top-n picker, a picker for the country to
-follow (its bar is red) and an animated ranked bar chart (races
-countries by value, one animation frame per year).
+A picker for the indicator, one for the number of countries (top 30, 50
+or 100) and one for the country to follow (its bar is red), above the
+bar chart race of
+[`plot_bar()`](https://sedzinfo.github.io/golemworldbank/reference/plot_bar.md).
 
 ## Usage
 

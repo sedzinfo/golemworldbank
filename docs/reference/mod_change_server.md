@@ -1,9 +1,13 @@
-# What changed module - server
+# Change (%) tab - server
 
 Runs
 [`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
-for the selected country and years and renders its two tables with
+for the chosen country, years and checkboxes, and shows how many
+indicators increased and decreased, and its two tables with
 [`render_change_table()`](https://sedzinfo.github.io/golemworldbank/reference/render_change_table.md).
+Asks for two different years, and shows the error of
+[`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
+(no data in either year) in place of the tables.
 
 ## Usage
 

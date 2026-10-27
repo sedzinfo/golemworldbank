@@ -1,13 +1,24 @@
 # Indicators that rose or fell between two years for one country
 
-Compares every indicator a country has a value for in both years and
-splits them into two tables: the ones that increased from `year1` to
-`year2` and the ones that decreased, each sorted by percent change
-(largest change first). Percent change is
+Compares every indicator a country has a value for in both years, for
+the Change (%) tab, and splits them into two tables: the ones that
+increased from `year1` to `year2` and the ones that decreased, each
+sorted by percent change (largest change first). The percent change is
 `(value2 - value1) / |value1| * 100`; it is undefined when the `year1`
 value is 0, so those indicators are left out of both tables (their names
 are kept in the `zero_base` element). Indicators that did not change are
 in neither table.
+
+Rates of change ("annual %", "% change", "growth", e.g. "GDP growth
+(annual %)", "Inflation, consumer prices (annual %)", "... (% change
+from 1990)") are left out by default: a percent change of a growth rate
+is not meaningful (a rate going from -0.01 to 1.7 reads as +17,000%).
+`include_rates = TRUE` keeps them.
+
+For indicators that are themselves percentages (e.g. "Urban population
+(% of total population)") the percent change is relative to the old
+percentage, not a difference in percentage points; the `Change` column
+gives the plain difference.
 
 ## Usage
 
@@ -47,47 +58,35 @@ indicator_change(
   Logical. Keep indicators whose value changed sign between the two
   years (e.g. net FDI inflows from -8 million to +6.7 billion): their
   percent change is not meaningful (+82,000%). `FALSE` (default) leaves
-  them out and lists them in `sign_change`.
+  them out; either way they are listed in `sign_change`.
 
 ## Value
 
-A list with `increased` and `decreased` (data frames with columns
-`Indicator`, the two years' values, `Change` and `Change %`),
-`zero_base` (indicators left out because their `year1` value is 0) and
-`sign_change` (indicators whose value changed sign; left out unless
-`include_sign_change = TRUE`).
-
-## Details
-
-Rates of change ("annual %", "% change", "growth", e.g. "GDP growth
-(annual %)", "Inflation, consumer prices (annual %)", "... (% change
-from 1990)") are left out by default: a percent change of a growth rate
-is not meaningful (a rate going from -0.01 to 1.7 reads as +17,000%).
-`include_rates = TRUE` keeps them.
-
-For indicators that are themselves percentages (e.g. "Urban population
-(% of total population)") the percent change is relative to the old
-percentage, not a difference in percentage points; the `Change` column
-gives the plain difference.
+A list with `increased` and `decreased` (data frames with the columns
+`Indicator`, one named after each year with its value, `Change` and
+`Change %`), `zero_base` (indicators left out because their `year1`
+value is 0) and `sign_change` (indicators whose value changed sign; left
+out of the tables unless `include_sign_change = TRUE`). Stops with an
+error when the country has no data in either year.
 
 ## Examples
 
 ``` r
-res <- indicator_change(mfi, country = "Greece", year1 = 2024, year2 = 2025)
+res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
 head(res$increased)
-#>                                                    Indicator         2024         2025       Change Change %
-#> 1 Foreign direct investment, net outflows (BoP, current US$) 2.219862e+09 5.957093e+09 3.737232e+09   168.35
-#> 2         Foreign direct investment, net outflows (% of GDP) 8.663269e-01 2.122715e+00 1.256389e+00   145.02
-#> 3                   Stocks traded, total value (current US$) 2.323616e+10 4.811845e+10 2.488229e+10   107.08
-#> 4  Foreign direct investment, net inflows (BoP, current US$) 6.742277e+09 1.357470e+10 6.832427e+09   101.34
-#> 5                      Stocks traded, total value (% of GDP) 9.068181e+00 1.714624e+01 8.078062e+00    89.08
-#> 6          Foreign direct investment, net inflows (% of GDP) 2.631252e+00 4.837130e+00 2.205878e+00    83.83
+#>                                                                             Indicator         2000         2020       Change Change %
+#> 1     International tourism, expenditures for passenger transport items (current US$) 6.000000e+06 6.020000e+08 5.960000e+08  9933.33
+#> 2                                                     Children out of school, primary 4.740000e+02 2.396600e+04 2.349200e+04  4956.12
+#> 3                                    Children out of school (% of primary school age) 7.517000e-02 3.727260e+00 3.652090e+00  4858.44
+#> 4 Electricity production from renewable sources, excluding hydroelectric (% of total) 8.376205e-01 2.945185e+01 2.861423e+01  3416.13
+#> 5        Electricity production from renewable sources, excluding hydroelectric (kWh) 4.510000e+08 1.421081e+10 1.375981e+10  3050.96
+#> 6         International tourism, receipts for passenger transport items (current US$) 4.300000e+07 1.178000e+09 1.135000e+09  2639.53
 head(res$decreased)
-#>                                           Indicator        2024         2025      Change Change %
-#> 1      Portfolio investment, net (BoP, current US$) -6325496155 -12777283277 -6451787122  -102.00
-#> 2       Arms exports (SIPRI trend indicator values)    20000000      2000000   -18000000   -90.00
-#> 3              Changes in inventories (current LCU)  5333733000    900044000 -4433689000   -83.13
-#> 4              Changes in inventories (current US$)  5773128425   1017034543 -4756093882   -82.38
-#> 5 Foreign direct investment, net (BoP, current US$) -4522415327  -7617610888 -3095195560   -68.44
-#> 6  Asylum-seekers by country or territory of origin         233          121        -112   -48.07
+#>                                                            Indicator          2000          2020        Change Change %
+#> 1                  Net lending (+) / net borrowing (-) (current LCU) -5.720000e+09 -1.612600e+10 -1.040600e+10  -181.92
+#> 2 Carbon dioxide (CO2) net fluxes from LULUCF - Other Land (Mt CO2e) -1.258600e+00 -3.237100e+00 -1.978500e+00  -157.20
+#> 3                     Net lending (+) / net borrowing (-) (% of GDP) -4.200904e+00 -9.625192e+00 -5.424288e+00  -129.12
+#> 4                        Fossil fuel energy consumption (% of total)  9.438860e+01  0.000000e+00 -9.438860e+01  -100.00
+#> 5                People practicing open defecation (% of population)  5.191913e-01  0.000000e+00 -5.191913e-01  -100.00
+#> 6   People practicing open defecation, rural (% of rural population)  1.439888e+00  0.000000e+00 -1.439888e+00  -100.00
 ```

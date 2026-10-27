@@ -1,7 +1,11 @@
-# Population by age, sex, and country
+# Population by age group and sex
 
-Long-format population counts by five-year age group and sex, used to
-drive the population pyramid module.
+The share of each five-year age group in the male and in the female
+population, per country and year: the 32 indicators of
+[mfi](https://sedzinfo.github.io/golemworldbank/reference/mfi.md) such
+as "Population ages 40-44, male (% of male population)", with their age
+group and sex in columns of their own. This is the data of the Pyramid
+tab.
 
 ## Usage
 
@@ -19,7 +23,8 @@ A data frame with 458,304 rows and 7 columns:
 
 - Indicator Name:
 
-  World Bank indicator name.
+  Indicator name, as in
+  [mfi](https://sedzinfo.github.io/golemworldbank/reference/mfi.md).
 
 - Year:
 
@@ -27,15 +32,15 @@ A data frame with 458,304 rows and 7 columns:
 
 - value:
 
-  Population count.
+  Percent of the male or of the female population.
 
 - age:
 
-  Age group.
+  Age group (factor, "00-04" to "80+").
 
 - unit:
 
-  Unit of measurement.
+  Unit of `value`: always "Percent".
 
 - sex:
 

@@ -13,45 +13,45 @@
 - [`mfi`](https://sedzinfo.github.io/golemworldbank/reference/mfi.md) :
   World Bank indicator values
 - [`mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md)
-  : Population by age, sex, and country
+  : Population by age group and sex
 
 ## UI
 
 Internal functions not meant to run independently
 
 - [`mod_bar_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_ui.md)
-  : Bar chart module - UI
+  : Barplot tab - UI
 - [`mod_country_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_ui.md)
-  : Country comparison module - UI
+  : Country Comparison tab - UI
 - [`mod_index_table_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_ui.md)
-  : Indicator index table module - UI
+  : Index tab - UI
 - [`mod_indicator_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_ui.md)
-  : Indicator comparison module - UI
+  : Indicator Comparison tab - UI
 - [`mod_map_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_map_ui.md)
-  : Choropleth map module - UI
+  : Map tab - UI
 - [`mod_pyramid_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_ui.md)
-  : Population pyramid module - UI
+  : Pyramid tab - UI
 - [`mod_scatter_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_ui.md)
-  : Scatter correlation module - UI
+  : Scatterplot tab - UI
 
 ## Server
 
 Internal functions not meant to run independently
 
 - [`mod_bar_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_server.md)
-  : Bar chart module - server
+  : Barplot tab - server
 - [`mod_country_comp_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_server.md)
-  : Country comparison module - server
+  : Country Comparison tab - server
 - [`mod_index_table_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_server.md)
-  : Indicator index table module - server
+  : Index tab - server
 - [`mod_indicator_comp_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_server.md)
-  : Indicator comparison module - server
+  : Indicator Comparison tab - server
 - [`mod_map_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_map_server.md)
-  : Choropleth map module - server
+  : Map tab - server
 - [`mod_pyramid_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_server.md)
-  : Population pyramid module - server
+  : Pyramid tab - server
 - [`mod_scatter_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_server.md)
-  : Scatter correlation module - server
+  : Scatterplot tab - server
 
 ## Plot
 
@@ -81,4 +81,4 @@ Internal functions not meant to run independently
   : Build the indicator index DataTable
 
 - [`run_app()`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)
-  : Run the Shiny Application
+  : Run the World Bank Indicators Explorer

@@ -16,7 +16,7 @@ A data frame with 1,497 rows and 3 columns:
 
 - Indicator Name:
 
-  World Bank indicator name, as in
+  Indicator name, as in
   [mfi](https://sedzinfo.github.io/golemworldbank/reference/mfi.md).
 
 - Topic:

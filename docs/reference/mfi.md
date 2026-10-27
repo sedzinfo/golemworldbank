@@ -1,7 +1,10 @@
 # World Bank indicator values
 
-Long-format World Bank development indicator values, one row per
-country/indicator/year.
+The values of the World Development Indicators in long format, one row
+per country, indicator and year: 217 countries, 1,497 indicators, the
+years 1960 to 2025. Regions and income groups (such as "World") are not
+included, and neither are missing values. This is the data of every tab
+except the Pyramid.
 
 ## Usage
 
@@ -11,19 +14,19 @@ mfi
 
 ## Format
 
-A data frame with 7,478,197 rows and 5 columns:
+A data frame with 7,505,749 rows and 5 columns:
 
 - Country Code:
 
-  ISO country code.
+  Three-letter World Bank code of the country, e.g. "GRC".
 
 - Country Name:
 
-  Country name.
+  Country name, e.g. "Greece".
 
 - Indicator Name:
 
-  World Bank indicator name.
+  Indicator name, e.g. "Population, total".
 
 - Year:
 
@@ -31,7 +34,7 @@ A data frame with 7,478,197 rows and 5 columns:
 
 - value:
 
-  Indicator value for that country/year.
+  Value of the indicator for that country and year.
 
 ## Source
 

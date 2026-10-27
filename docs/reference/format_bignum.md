@@ -1,8 +1,10 @@
 # Format a large number with a magnitude suffix
 
-Abbreviates a numeric value using Tn/Bn/M/K suffixes (trillions,
-billions, millions, thousands), rounding to the nearest whole unit.
-Values under 1,000 are returned as-is (coerced to character).
+Abbreviates numbers with the suffixes Tn, Bn, M and K (trillions,
+billions, millions, thousands), rounded to a whole number of that unit,
+so 1,500 becomes "2 K". Numbers under 1,000 are returned unchanged, as
+text. For 3 significant digits ("1.52k"), as on the bars of the Barplot
+tab, see the internal `format_value()`.
 
 ## Usage
 

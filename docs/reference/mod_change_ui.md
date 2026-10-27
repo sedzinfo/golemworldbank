@@ -1,10 +1,10 @@
-# What changed module - UI
+# Change (%) tab - UI
 
-Renders a country picker, two year pickers, the two noise filters of
-[`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md),
-a note that the comparison is automatic and needs interpretation, and
-two tables (indicators that increased / decreased between the two
-years).
+A country picker, the two years to compare, the two checkboxes of
+[`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
+(growth rates, changes of sign), a note that the comparison is automatic
+and needs interpretation, a one-line summary, and the indicators that
+increased and decreased, in two tabs.
 
 ## Usage
 

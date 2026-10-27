@@ -1,7 +1,8 @@
 # Footer with the links of the cookie banner
 
 "Cookie settings" opens the banner again, so that visitors can change
-their choice at any time, as the privacy note promises.
+their choice at any time, as the privacy note promises; "Privacy" opens
+that note.
 
 ## Usage
 
