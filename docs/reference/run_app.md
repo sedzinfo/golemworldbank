@@ -6,6 +6,7 @@ Launches the World Bank indicators explorer app.
 
 ``` r
 run_app(
+  analytics = FALSE,
   onStart = NULL,
   options = list(),
   enableBookmarking = NULL,
@@ -15,6 +16,13 @@ run_app(
 ```
 
 ## Arguments
+
+- analytics:
+
+  `TRUE` to add Google Analytics, through the cookie banner shared with
+  the sites of sedzinfo.github.io, which loads it only after the visitor
+  accepts. Meant for the public deployment (see `app.R`); off by
+  default, so that running the app yourself sends nothing.
 
 - onStart:
 
