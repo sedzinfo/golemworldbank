@@ -9,10 +9,10 @@ directory<-paste0(dirname(rstudioapi::getActiveDocumentContext()$path),"/")
 #               paste0(directory,"data/WDI_CSV.zip"),
 #               method="libcurl",quiet=FALSE,mode="w",
 #               cacheOK=FALSE,extra=getOption("download.file.extra"),headers=NULL)
-# unzip(zipfile=paste0(directory,"data/WDI_CSV.zip"),
-#       exdir=paste0(directory,"data/"),
-#       files=c("WDICSV.csv"),list=FALSE,overwrite=TRUE,junkpaths=FALSE,
-#       unzip="internal",setTimes=FALSE)
+unzip(zipfile=paste0(directory,"data/WDI_CSV.zip"),
+      exdir=paste0(directory,"data/"),
+      files=c("WDICSV.csv"),list=FALSE,overwrite=TRUE,junkpaths=FALSE,
+      unzip="internal",setTimes=FALSE)
 df_wdi<-read.csv(paste0(directory,"data/WDICSV.csv"),
                  stringsAsFactors=FALSE,
                  check.names=FALSE,
@@ -37,6 +37,26 @@ mfi<-merge(country_code[,c("Country Code","Region")],
            all=TRUE)
 mfi<-mfi[complete.cases(mfi),]
 mfi<-mfi[order(mfi$Year),]
+# names in mfi = names in country_code (so the Scatterplot finds their region)
+rename<-c("Bolivia"="Bolivia, Plurinational State of",
+          "Cote d'Ivoire"="Côte d'Ivoire",
+          "Congo, Dem. Rep."="Congo, Democratic Republic of",
+          "Congo, Rep."="Congo, Republic of",
+          "Curacao"="Curaçao",
+          "Egypt, Arab Rep."="Egypt, Arab Republic of",
+          "Micronesia, Fed. Sts."="Micronesia, Federated States of",
+          "Iran, Islamic Rep."="Iran, Islamic Republic of",
+          "Korea, Rep."="Korea",
+          "Naoero"="Nauru",
+          "Korea, Dem. People’s Rep."="Korea, Democratic People’s Republic of",
+          "Somalia, Fed. Rep."="Somalia",
+          "Sao Tome and Principe"="São Tomé and Principe",
+          "Turkiye"="Türkiye",
+          "Venezuela, RB"="Venezuela, República Bolivariana de",
+          "Virgin Islands (U.S.)"="Virgin Islands (US)",
+          "Yemen, Rep."="Yemen, Republic of")
+for(old in names(rename)) 
+  mfi$`Country Name`[mfi$`Country Name`==old]<-rename[[old]]
 ##########################################################################################
 # PYRAMID
 ##########################################################################################
