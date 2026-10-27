@@ -9,11 +9,6 @@
 - **`format_bignum()`** ([R/utils_helpers.R](R/utils_helpers.R), line 46): exported, but
   the app does not use it. The charts use the internal `format_value()`. Keep it as a
   user-facing helper, or remove it and its man page.
-- **Picker options** ([R/mod_country_comp.R](R/mod_country_comp.R) and
-  [R/mod_indicator_comp.R](R/mod_indicator_comp.R), line 22): `actions-box`,
-  `live-search` and `selected-text-format` are options of bootstrap-select
-  (`shinyWidgets::pickerInput()`), not of `selectizeInput()`, which ignores them.
-  Remove them, or switch to `pickerInput()` if the select-all buttons are wanted.
 
 ## Dark mode
 
