@@ -1,13 +1,7 @@
 # TODO
 
-Loose ends found while documenting the package (October 2026). None of them breaks
-the app; they are listed from most to least useful.
-
 ## Code that never runs
 
-- **`input$dimension` observer** ([R/app_server.R](R/app_server.R), lines 17-30): left
-  from an earlier version. No script in the page sends `input$dimension` or handles the
-  `scaleUI` message. Delete it, or add the JavaScript if the scaling is still wanted.
 - **`year_max` in `plot_bar()`** ([R/fct_plots.R](R/fct_plots.R), lines 248-254): it is
   computed for a value axis that only grows, but the code that would use it is
   commented out. Either bring that code back (and mention it in the description of
