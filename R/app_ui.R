@@ -2,10 +2,10 @@
 #
 ##########################################################################################
 #' @title The application User-Interface
-#' @description A navbar page with one tab per module. The navbar is made compact, and
-#' each tab fills the window under it: the charts stretch to the bottom of the
-#' window, and a tab that is longer than the window scrolls by itself, under a
-#' navbar that stays in place.
+#' @description A navbar page with one tab per module. The navbar is made 
+#' compact, and each tab fills the window under it: the charts stretch to the
+#' bottom of the window, and a tab that is longer than the window scrolls by
+#' itself, under a navbar that stays in place.
 #' @param request Internal parameter for `{shiny}`. DO NOT REMOVE.
 #' @param analytics `TRUE` to add Google Analytics, with its cookie banner
 #'   (see `analytics_resources()`) and a footer with the links of the banner
@@ -56,15 +56,14 @@ app_ui <- function(request, analytics = FALSE) {
     )
   )
 }
-
 ##########################################################################################
 #
 ##########################################################################################
 #' @title Add external resources to the application
-#' @description Adds the favicon and every CSS and JS file of `inst/app/www` to the head
-#' of the page: the analytics files (`analytics.css`, `analytics.js`) and the
-#' dark mode (`dark_mode.css`, `dark_mode.js`). A file put in that folder is
-#' added without any change here.
+#' @description Adds the favicon and every CSS and JS file of `inst/app/www` to
+#' the head of the page: the analytics files (`analytics.css`, `analytics.js`) 
+#' and the dark mode (`dark_mode.css`, `dark_mode.js`). A file put in that
+#' folder is added without any change here.
 #' @return A `head` tag.
 #' @import shiny
 #' @importFrom golem add_resource_path favicon bundle_resources
@@ -75,11 +74,7 @@ app_ui <- function(request, analytics = FALSE) {
 #' shiny::tagList(golem_add_external_resources(), shiny::fluidPage())
 #' }
 golem_add_external_resources <- function() {
-  add_resource_path(
-    "www",
-    app_sys("app/www")
-  )
-
+  add_resource_path("www",app_sys("app/www"))
   tags$head(
     favicon(),
     bundle_resources(

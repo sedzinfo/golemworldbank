@@ -1,0 +1,6 @@
+/* Taller dropdown lists: every selectize dropdown of the app opens to 70% of the
+   window height (the selectize default is 200px). Added to the page automatically,
+   like every CSS file of this folder (see golem_add_external_resources()). */
+.selectize-dropdown-content {
+  max-height: 70vh;
+}

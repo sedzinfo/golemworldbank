@@ -51,7 +51,6 @@ mod_map_server <- function(id, mfi) {
       selected = "Population, total",
       server = TRUE
     )
-
     output$plot_map <- plotly::renderPlotly({
       req(input$indicator_map, cancelOutput = TRUE)
       plot_map(mfi, input$indicator_map, font_style)

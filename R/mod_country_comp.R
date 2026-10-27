@@ -18,11 +18,6 @@ mod_country_comp_ui <- function(id) {
       label = "Country",
       choices = sort(unique(as.character(mfi$`Country Name`))),
       selected = c("Greece", "Bulgaria"),
-      options = list(
-        `actions-box` = TRUE,
-        `live-search` = TRUE,
-        `selected-text-format` = "count>10"
-      ),
       multiple = TRUE,
       width = "100%"
     ),
@@ -30,7 +25,6 @@ mod_country_comp_ui <- function(id) {
       label = "Indicator",
       choices = "Population, total",
       selected = "Population, total",
-      size = 50,
       width = "100%"
     ),
     plotly::plotlyOutput(ns("plot_country_comp"), width = "100%", height = "100%")

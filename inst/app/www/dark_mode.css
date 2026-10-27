@@ -72,8 +72,33 @@ html.dark-mode .selectize-dropdown {
   border-color: #555;
   box-shadow: none;
 }
-html.dark-mode .selectize-input input {
+/* while typing, selectize turns the box white (.input-active, .focus): keep it dark */
+html.dark-mode .selectize-control .selectize-input.focus,
+html.dark-mode .selectize-control .selectize-input.input-active,
+html.dark-mode .selectize-control.single .selectize-input.input-active {
+  background: #2b2b2b !important;
+  border-color: #777;
+}
+/* the text typed into a dropdown: selectize's own, more specific rules would
+   keep it dark gray, so these win with !important */
+html.dark-mode .selectize-control .selectize-input input,
+html.dark-mode .selectize-control .selectize-input input:focus {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;   /* Chrome and Safari draw the typed text with this */
+  caret-color: #fff;               /* the blinking cursor */
+}
+html.dark-mode .selectize-control .selectize-input input::placeholder {
+  color: #999 !important;
+  -webkit-text-fill-color: #999;
+}
+html.dark-mode .selectize-dropdown .option,
+html.dark-mode .selectize-dropdown .optgroup-header {
   color: #ddd;
+}
+/* the letters that match what was typed */
+html.dark-mode .selectize-dropdown .highlight {
+  background: rgba(255, 213, 79, 0.35);
+  color: #fff;
 }
 html.dark-mode .selectize-dropdown .active {
   background-color: #3d4b5c;

@@ -43,7 +43,7 @@ plot_country_comp <- function(mfi, countries, indicator, font_style) {
       legend = list(orientation = "h", xanchor = "center", x = .5, y = 1),
       title = paste("Indicator:", indicator),
       xaxis = list(title = "", tickangle = -90),
-      yaxis = list(title = indicator),
+      yaxis = list(title = ""),
       showlegend = TRUE,
       font = font_style
     ) %>%
