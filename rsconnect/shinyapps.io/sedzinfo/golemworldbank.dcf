@@ -5,7 +5,7 @@ account: sedzinfo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 18281576
-bundleId: 12742820
+bundleId: 12744448
 url: https://sedzinfo.shinyapps.io/golemworldbank/
 version: 1
 asMultiple: FALSE
