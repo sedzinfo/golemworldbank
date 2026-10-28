@@ -217,7 +217,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
     orientation = "h",
     marker = list(color = ~color),
     text = ~label,
-    textposition = "outside",
+    textposition = "auto",
     cliponaxis = FALSE,
     hovertext = ~ paste0("Rank=", rank,"\nCountry=", `Country Name`,"\nValue=", format_value(value)),
     hoverinfo = "text"
