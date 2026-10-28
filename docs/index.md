@@ -81,7 +81,7 @@ Each feature below is a Shiny module rendered as its own tab in the app:
 
 ## Data
 
-The package ships three lazy-loaded datasets, sourced from [World Bank
+The package ships four lazy-loaded datasets, sourced from [World Bank
 Open Data](https://data.worldbank.org):
 
 - `mfi` — long-format indicator values, one row per
@@ -92,12 +92,15 @@ Open Data](https://data.worldbank.org):
 - `country_code` — country/region reference metadata (region, income
   group, and other World Bank classifications), used to join region info
   in the Scatterplot tab.
+- `indicator_info` — the World Bank topic and definition of every
+  indicator in `mfi`, shown in the Index tab.
 
 Full column-level documentation is available via
 [`?mfi`](https://sedzinfo.github.io/golemworldbank/reference/mfi.md),
 [`?mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md),
+[`?country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md),
 and
-[`?country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md).
+[`?indicator_info`](https://sedzinfo.github.io/golemworldbank/reference/indicator_info.md).
 
 ------------------------------------------------------------------------
 
@@ -165,8 +168,9 @@ Comparison tab](reference/figures/worldbank2.png)![Pyramid
 tab](reference/figures/worldbank3.png)![Barplot
 tab](reference/figures/worldbank4.png)![Scatterplot
 tab](reference/figures/worldbank5.png)![Map
-tab](reference/figures/worldbank6.png)![Index
-tab](reference/figures/worldbank7.png)
+tab](reference/figures/worldbank6.png)![Change (%)
+tab](reference/figures/worldbank7.png)![Index
+tab](reference/figures/worldbank8.png)
 
 ------------------------------------------------------------------------
 

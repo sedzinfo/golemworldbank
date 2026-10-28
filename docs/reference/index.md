@@ -4,8 +4,6 @@
 
 - [`country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md)
   : Country and region reference table
-- [`format_bignum()`](https://sedzinfo.github.io/golemworldbank/reference/format_bignum.md)
-  : Format a large number with a magnitude suffix
 - [`indicator_change()`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)
   : Indicators that rose or fell between two years for one country
 - [`indicator_info`](https://sedzinfo.github.io/golemworldbank/reference/indicator_info.md)
@@ -21,6 +19,8 @@ Internal functions not meant to run independently
 
 - [`mod_bar_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_ui.md)
   : Barplot tab - UI
+- [`mod_change_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_change_ui.md)
+  : Change (%) tab - UI
 - [`mod_country_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_ui.md)
   : Country Comparison tab - UI
 - [`mod_index_table_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_ui.md)
@@ -40,6 +40,8 @@ Internal functions not meant to run independently
 
 - [`mod_bar_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_bar_server.md)
   : Barplot tab - server
+- [`mod_change_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_change_server.md)
+  : Change (%) tab - server
 - [`mod_country_comp_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_country_comp_server.md)
   : Country Comparison tab - server
 - [`mod_index_table_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_index_table_server.md)
@@ -82,3 +84,12 @@ Internal functions not meant to run independently
 
 - [`run_app()`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)
   : Run the World Bank Indicators Explorer
+
+## Helpers
+
+- [`animation_buttons()`](https://sedzinfo.github.io/golemworldbank/reference/animation_buttons.md)
+  : Pause and Stop buttons for an animated plotly chart
+- [`format_value()`](https://sedzinfo.github.io/golemworldbank/reference/format_value.md)
+  : Format numbers compactly to 3 significant digits
+- [`keep_legend_clicks()`](https://sedzinfo.github.io/golemworldbank/reference/keep_legend_clicks.md)
+  : Keep the legend clicks of an animated plotly chart
