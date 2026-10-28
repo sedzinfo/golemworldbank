@@ -109,7 +109,7 @@ git clone https://github.com/sedzinfo/golemworldbank.git</code></pre>
 <div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h2>
-<p>The package ships three lazy-loaded datasets, sourced from <a href="https://data.worldbank.org" class="external-link">World Bank Open Data</a>:</p>
+<p>The package ships four lazy-loaded datasets, sourced from <a href="https://data.worldbank.org" class="external-link">World Bank Open Data</a>:</p>
 <ul>
 <li>
 <code>mfi</code> — long-format indicator values, one row per country/indicator/year (<code>Country Code</code>, <code>Country Name</code>, <code>Indicator Name</code>, <code>Year</code>, <code>value</code>).</li>
@@ -117,8 +117,10 @@ git clone https://github.com/sedzinfo/golemworldbank.git</code></pre>
 <code>mfi_population</code> — long-format population counts by five-year age group and sex, used by the Pyramid tab.</li>
 <li>
 <code>country_code</code> — country/region reference metadata (region, income group, and other World Bank classifications), used to join region info in the Scatterplot tab.</li>
+<li>
+<code>indicator_info</code> — the World Bank topic and definition of every indicator in <code>mfi</code>, shown in the Index tab.</li>
 </ul>
-<p>Full column-level documentation is available via <code><a href="reference/mfi.html">?mfi</a></code>, <code><a href="reference/mfi_population.html">?mfi_population</a></code>, and <code><a href="reference/country_code.html">?country_code</a></code>.</p>
+<p>Full column-level documentation is available via <code><a href="reference/mfi.html">?mfi</a></code>, <code><a href="reference/mfi_population.html">?mfi_population</a></code>, <code><a href="reference/country_code.html">?country_code</a></code>, and <code><a href="reference/indicator_info.html">?indicator_info</a></code>.</p>
 <hr>
 </div>
 <div class="section level2">
@@ -161,7 +163,7 @@ git clone https://github.com/sedzinfo/golemworldbank.git</code></pre>
 <div class="section level1">
 <h1 id="screenshots">Screenshots<a class="anchor" aria-label="anchor" href="#screenshots"></a>
 </h1>
-<p><img src="reference/figures/worldbank1.png" alt="Country Comparison tab"><img src="reference/figures/worldbank2.png" alt="Indicator Comparison tab"><img src="reference/figures/worldbank3.png" alt="Pyramid tab"><img src="reference/figures/worldbank4.png" alt="Barplot tab"><img src="reference/figures/worldbank5.png" alt="Scatterplot tab"><img src="reference/figures/worldbank6.png" alt="Map tab"><img src="reference/figures/worldbank7.png" alt="Index tab"></p>
+<p><img src="reference/figures/worldbank1.png" alt="Country Comparison tab"><img src="reference/figures/worldbank2.png" alt="Indicator Comparison tab"><img src="reference/figures/worldbank3.png" alt="Pyramid tab"><img src="reference/figures/worldbank4.png" alt="Barplot tab"><img src="reference/figures/worldbank5.png" alt="Scatterplot tab"><img src="reference/figures/worldbank6.png" alt="Map tab"><img src="reference/figures/worldbank7.png" alt="Change (%) tab"><img src="reference/figures/worldbank8.png" alt="Index tab"></p>
 <hr>
 <p><img src="https://img.shields.io/github/stars/sedzinfo/golemworldbank" alt="Stars"><img src="https://img.shields.io/github/watchers/sedzinfo/golemworldbank" alt="Watchers"><img src="https://img.shields.io/github/repo-size/sedzinfo/golemworldbank" alt="Repo Size"><img src="https://img.shields.io/github/issues/sedzinfo/golemworldbank" alt="Open Issues"><img src="https://img.shields.io/github/forks/sedzinfo/golemworldbank" alt="Forks"><img src="https://img.shields.io/github/last-commit/sedzinfo/golemworldbank" alt="Last Commit"><img src="https://img.shields.io/github/contributors/sedzinfo/golemworldbank" alt="Contributors"><img src="https://img.shields.io/github/license/sedzinfo/golemworldbank" alt="License"><img src="https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml" alt="Workflow Status"><img src="https://github.com/sedzinfo/golemworldbank/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></p>
 </div>

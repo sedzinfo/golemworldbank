@@ -32,79 +32,12 @@
 
 <div id="todo" class="section level1">
 
-<p>Loose ends found while documenting the package (October 2026). None of them breaks the app; they are listed from most to least useful.</p>
-<div class="section level2">
-<h2 id="scatterplot-leaves-out-17-countries">Scatterplot leaves out 17 countries<a class="anchor" aria-label="anchor" href="#scatterplot-leaves-out-17-countries"></a></h2>
-<p><code><a href="reference/plot_cor.html">plot_cor()</a></code> (<a href="R/fct_plots.R">R/fct_plots.R</a>, lines 344-352) finds the region of a country by matching its <code>Country Name</code> in <code>mfi</code> to its <code>Short Name</code> in <code>country_code</code>. For 17 countries the two names differ, so they get no region and never appear on the Scatterplot tab:</p>
-<table class="table"><colgroup><col width="8%"><col width="36%"><col width="54%"></colgroup><thead><tr><th>Code</th>
-<th>Name in <code>mfi</code>
-</th>
-<th>
-<code>Short Name</code> in <code>country_code</code>
-</th>
-</tr></thead><tbody><tr><td>BOL</td>
-<td>Bolivia</td>
-<td>Bolivia, Plurinational State of</td>
-</tr><tr><td>CIV</td>
-<td>Cote d’Ivoire</td>
-<td>Côte d’Ivoire</td>
-</tr><tr><td>COD</td>
-<td>Congo, Dem. Rep.</td>
-<td>Congo, Democratic Republic of</td>
-</tr><tr><td>COG</td>
-<td>Congo, Rep.</td>
-<td>Congo, Republic of</td>
-</tr><tr><td>CUW</td>
-<td>Curacao</td>
-<td>Curaçao</td>
-</tr><tr><td>EGY</td>
-<td>Egypt, Arab Rep.</td>
-<td>Egypt, Arab Republic of</td>
-</tr><tr><td>FSM</td>
-<td>Micronesia, Fed. Sts.</td>
-<td>Micronesia, Federated States of</td>
-</tr><tr><td>IRN</td>
-<td>Iran, Islamic Rep.</td>
-<td>Iran, Islamic Republic of</td>
-</tr><tr><td>KOR</td>
-<td>Korea, Rep.</td>
-<td>Korea</td>
-</tr><tr><td>NRU</td>
-<td>Naoero</td>
-<td>Nauru</td>
-</tr><tr><td>PRK</td>
-<td>Korea, Dem. People’s Rep.</td>
-<td>Korea, Democratic People’s Republic of</td>
-</tr><tr><td>SOM</td>
-<td>Somalia, Fed. Rep.</td>
-<td>Somalia</td>
-</tr><tr><td>STP</td>
-<td>Sao Tome and Principe</td>
-<td>São Tomé and Principe</td>
-</tr><tr><td>TUR</td>
-<td>Turkiye</td>
-<td>Türkiye</td>
-</tr><tr><td>VEN</td>
-<td>Venezuela, RB</td>
-<td>Venezuela, República Bolivariana de</td>
-</tr><tr><td>VIR</td>
-<td>Virgin Islands (U.S.)</td>
-<td>Virgin Islands (US)</td>
-</tr><tr><td>YEM</td>
-<td>Yemen, Rep.</td>
-<td>Yemen, Republic of</td>
-</tr></tbody></table><p>All 17 have a region under their <code>Country Code</code>, so the fix is to match on the code: keep <code>Country Code</code> in the <code><a href="https://rdrr.io/r/stats/reshape.html" class="external-link">reshape()</a></code> (<code>idvar = c("Country Code", "Country Name", "Year")</code>) and merge with <code>by = "Country Code"</code>. After the fix, update the description of <code><a href="reference/plot_cor.html">plot_cor()</a></code>, which documents the current behavior.</p>
-</div>
 <div class="section level2">
 <h2 id="code-that-never-runs">Code that never runs<a class="anchor" aria-label="anchor" href="#code-that-never-runs"></a></h2>
 <ul><li>
-<strong><code>input$dimension</code> observer</strong> (<a href="R/app_server.R">R/app_server.R</a>, lines 17-30): left from an earlier version. No script in the page sends <code>input$dimension</code> or handles the <code>scaleUI</code> message. Delete it, or add the JavaScript if the scaling is still wanted.</li>
-<li>
 <strong><code>year_max</code> in <code><a href="reference/plot_bar.html">plot_bar()</a></code></strong> (<a href="R/fct_plots.R">R/fct_plots.R</a>, lines 248-254): it is computed for a value axis that only grows, but the code that would use it is commented out. Either bring that code back (and mention it in the description of <code><a href="reference/plot_bar.html">plot_bar()</a></code> again) or delete both.</li>
 <li>
-<strong><code><a href="reference/format_bignum.html">format_bignum()</a></code></strong> (<a href="R/utils_helpers.R">R/utils_helpers.R</a>, line 46): exported, but the app does not use it. The charts use the internal <code>format_value()</code>. Keep it as a user-facing helper, or remove it and its man page.</li>
-<li>
-<strong>Picker options</strong> (<a href="R/mod_country_comp.R">R/mod_country_comp.R</a> and <a href="R/mod_indicator_comp.R">R/mod_indicator_comp.R</a>, line 22): <code>actions-box</code>, <code>live-search</code> and <code>selected-text-format</code> are options of bootstrap-select (<code><a href="https://dreamrs.github.io/shinyWidgets/reference/pickerInput.html" class="external-link">shinyWidgets::pickerInput()</a></code>), not of <code>selectizeInput()</code>, which ignores them. Remove them, or switch to <code>pickerInput()</code> if the select-all buttons are wanted.</li>
+<strong><code>format_bignum()</code></strong> (<a href="R/utils_helpers.R">R/utils_helpers.R</a>, line 46): exported, but the app does not use it. The charts use the internal <code><a href="reference/format_value.html">format_value()</a></code>. Keep it as a user-facing helper, or remove it and its man page.</li>
 </ul></div>
 <div class="section level2">
 <h2 id="dark-mode">Dark mode<a class="anchor" aria-label="anchor" href="#dark-mode"></a></h2>
