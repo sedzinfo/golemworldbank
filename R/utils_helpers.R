@@ -31,30 +31,6 @@ font_style <- list(size = 20, color = "gray25", weight = "bold")
 ##########################################################################################
 # 
 ##########################################################################################
-#' @title Format a large number with a magnitude suffix
-#' @description Abbreviates numbers with the suffixes Tn, Bn, M and K (trillions,
-#' billions, millions, thousands), rounded to a whole number of that unit, so
-#' 1,500 becomes "2 K". Numbers under 1,000 are returned unchanged, as text.
-#' For 3 significant digits ("1.52k"), as on the bars of the Barplot tab, see
-#' the internal `format_value()`.
-#' @param n Numeric vector of values to format.
-#' @return A character vector of formatted values.
-#' @export
-#' @examples
-#' format_bignum(c(950, 1500, 2500000, 3200000000, 4100000000000))
-#' #> [1] "950" "2 K" "2 M" "3 Bn" "4 Tn"
-format_bignum <- function(n) {
-  dplyr::case_when(
-    n >= 1e12 ~ paste(round(n / 1e12), "Tn"),
-    n >= 1e9 ~ paste(round(n / 1e9), "Bn"),
-    n >= 1e6 ~ paste(round(n / 1e6), "M"),
-    n >= 1e3 ~ paste(round(n / 1e3), "K"),
-    TRUE ~ as.character(n)
-  )
-}
-##########################################################################################
-# 
-##########################################################################################
 #' @importFrom stats complete.cases reshape
 #' @importFrom utils globalVariables
 NULL
@@ -64,12 +40,13 @@ globalVariables(c("mfi", "mfi_population", "country_code", "indicator_info", "Ye
 # 
 ##########################################################################################
 #' @title Format numbers compactly to 3 significant digits
-#' @description Like [format_bignum()] but keeps 3 significant digits, handles negative and
-#' small values, and uses the k/M/B/T suffixes (6.02M, 1.42B, 0.0752, -5.72B).
+#' @description Abbreviates numbers to 3 significant digits with the suffixes k, M, B and T
+#' (thousands, millions, billions, trillions); negative and small values keep
+#' their sign and digits (6.02M, 1.42B, 0.0752, -5.72B).
 #' Used for the labels and the hover text of the bars in [plot_bar()].
 #' @param n Numeric vector of values to format.
 #' @return A character vector of formatted values.
-#' @noRd
+#' @export
 #' @examples
 #' format_value(c(0.0752, 950, 1520, 6020000, -5720000000, 29200000000000))
 #' #> [1] "0.0752" "950" "1.52k" "6.02M" "-5.72B" "29.2T"
@@ -89,7 +66,7 @@ format_value <- function(n) {
 #' @param first_frame Character. Name of the first animation frame (for these
 #'   charts, the first year).
 #' @return A list to pass as `plotly::layout(updatemenus = ...)`.
-#' @noRd
+#' @export
 #' @examples
 #' plotly::layout(p, updatemenus = animation_buttons("1960"))
 animation_buttons <- function(first_frame) {
@@ -108,4 +85,32 @@ animation_buttons <- function(first_frame) {
       )
     )
   )
+}
+##########################################################################################
+#
+##########################################################################################
+#' @title Keep the legend clicks of an animated plotly chart
+#' @description plotly writes `visible` into every trace of every animation frame, so a
+#' trace hidden with a click on the legend comes back on the next frame. This
+#' removes `visible` from the frames, so the click lasts while the animation
+#' plays. plotly also hides a trace, with `visible = FALSE`, in a frame where it
+#' has no data, as a copy of its previous frame; that copy is emptied instead,
+#' so nothing is drawn there.
+#' @param p A `plotly` object with frames.
+#' @return The built `plotly` object.
+#' @export
+#' @examples
+#' keep_legend_clicks(plot_pyramid(mfi_population, country = "Greece", font_style = font_style))
+keep_legend_clicks <- function(p) {
+  p <- plotly::plotly_build(p)
+  without_visible <- function(trace) {
+    if (isFALSE(trace$visible)) trace$x <- trace$y <- rep(NA, length(trace$x))
+    trace$visible <- NULL
+    trace
+  }
+  p$x$data <- lapply(p$x$data, without_visible)
+  for (k in seq_along(p$x$frames)) {
+    p$x$frames[[k]]$data <- lapply(p$x$frames[[k]]$data, without_visible)
+  }
+  p
 }

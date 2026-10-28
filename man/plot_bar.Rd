@@ -37,5 +37,5 @@ large and gray in the bottom right corner. Only rows with a positive value
 are used.
 }
 \examples{
-plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece")
+plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece", top_n = 50)
 }

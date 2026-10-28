@@ -33,7 +33,6 @@ reference:
   - title: "Datasets"
     contents:
       - country_code
-      - format_bignum
       - indicator_change
       - indicator_info
       - mfi
@@ -43,6 +42,7 @@ reference:
     desc: "Internal functions not meant to run independently"
     contents:
       - mod_bar_ui
+      - mod_change_ui
       - mod_country_comp_ui
       - mod_index_table_ui
       - mod_indicator_comp_ui
@@ -54,6 +54,7 @@ reference:
     desc: "Internal functions not meant to run independently"
     contents:
       - mod_bar_server
+      - mod_change_server
       - mod_country_comp_server
       - mod_index_table_server
       - mod_indicator_comp_server
@@ -74,6 +75,12 @@ reference:
       - render_change_table
       - render_index_table
       - run_app
+
+  - title: "Helpers"
+    contents:
+      - animation_buttons
+      - format_value
+      - keep_legend_clicks
   
 
 footer:

@@ -151,9 +151,10 @@ plot_pyramid <- function(mfi_population, country, font_style) {
       ),
       font = font_style
     ) %>%
-    plotly::animation_opts(frame = 200, transition = 200, easing = "linear", redraw = TRUE, mode = "afterall") %>%
+    plotly::animation_opts(frame = 100, transition = 100, easing = "linear", redraw = TRUE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
-    plotly::config(responsive = TRUE)
+    plotly::config(responsive = TRUE) %>%
+    keep_legend_clicks()
 }
 ##########################################################################################
 # 
@@ -181,7 +182,7 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #'   positive values.
 #' @export
 #' @examples
-#' plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece")
+#' plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece", top_n = 50)
 plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
   temp <- mfi[mfi$`Indicator Name` %in% indicator, ]
   temp <- temp[complete.cases(temp), ]
@@ -231,7 +232,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
       font = font_style,
       showlegend = FALSE
     ) %>%
-    plotly::animation_opts(frame = 1000, transition = 400, easing = "linear", redraw = TRUE, mode = "afterall") %>%
+    plotly::animation_opts(frame = 1000, transition = 0, easing = "linear", redraw = TRUE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 
@@ -245,16 +246,6 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
   for (k in seq_along(p$x$frames)) {
     p$x$frames[[k]]$layout <- list(annotations = year_label(p$x$frames[[k]]$name))
   }
-  year_max <- tapply(temp$value, as.character(temp$Year), max)
-  year_max[] <- cummax(year_max[order(as.numeric(names(year_max)))])[rank(as.numeric(names(year_max)))]
-  # for (k in seq_along(p$x$frames)) {
-  #   fmax <- year_max[[p$x$frames[[k]]$name]]
-  #   p$x$frames[[k]]$layout <- list(xaxis = list(range = c(0, fmax * 1.6)))
-  # }
-  # p$x$layout$xaxis$range <- c(0, year_max[[p$x$frames[[1]]$name]] * 1.6)
-  # plotly draws a frame's layout (the year) only on a redraw, and the race
-  # plays with redraw = FALSE: write the year into the drawn annotation as each
-  # frame starts. The frames still carry it for Pause/Stop, which redraw.
   htmlwidgets::onRender(p, "function(el) {
     el.on('plotly_animatingframe', function(e) {
       var year = el.querySelector('.annotation-text');
@@ -306,7 +297,7 @@ plot_map <- function(mfi, indicator, font_style) {
       geo = g,
       font = font_style
     ) %>%
-    plotly::animation_opts(frame = 200, transition = 200, easing = "linear", redraw = TRUE, mode = "afterall") %>%
+    plotly::animation_opts(frame = 100, transition = 100, easing = "linear", redraw = TRUE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 }
@@ -382,9 +373,10 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
       yaxis = list(title = unique(indicator2)),
       font = font_style
     ) %>%
-    plotly::animation_opts(frame = 500, easing = "linear", redraw = TRUE, mode = "afterall") %>%
+    plotly::animation_opts(frame = 500, easing = "linear", redraw = FALSE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
-    plotly::config(responsive = TRUE)
+    plotly::config(responsive = TRUE) %>%
+    keep_legend_clicks()
 }
 ##########################################################################################
 # 
