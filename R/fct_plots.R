@@ -270,12 +270,15 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
-#' plot_map(mfi, indicator = "Population, total", font_style = font_style)
+#' plot_map(mfi = mfi, indicator = "Population, total", font_style = font_style)
 plot_map <- function(mfi, indicator, font_style) {
   g <- list(showframe = FALSE, showcoastlines = TRUE, projection = list(type = "Mercator"))
   temp <- mfi[mfi$`Indicator Name` %in% indicator, ]
   temp <- temp[complete.cases(temp), ]
   temp$Year <- droplevels(temp$Year)
+  z_min <- min(temp$value, na.rm = TRUE)
+  z_max <- max(temp$value, na.rm = TRUE)
+  z_mid <- (z_min + z_max) / 2
   plotly::plot_ly(temp,
     z = ~value,
     frame = ~Year,
@@ -284,8 +287,10 @@ plot_map <- function(mfi, indicator, font_style) {
     color = ~ temp$value,
     type = "choropleth",
     colorbar = list(tickprefix = "", title = ""),
-    colors = "Blues"
-  ) %>%
+    zmin = z_min,
+    zmax = z_max,
+    zmid = z_mid,
+    colors = grDevices::colorRampPalette(c("#B2182B","#FFFFFF","#08306b"))(1000)) %>%
     plotly::layout(
       autosize = TRUE,
       showlegend = TRUE,

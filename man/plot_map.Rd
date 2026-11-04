@@ -26,5 +26,5 @@ tab. Countries are placed by their \verb{Country Code}. Rows with a missing
 value are left out.
 }
 \examples{
-plot_map(mfi, indicator = "Population, total", font_style = font_style)
+plot_map(mfi = mfi, indicator = "Population, total", font_style = font_style)
 }

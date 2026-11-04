@@ -25,9 +25,10 @@ document()
 install()
 library(golemworldbank)
 
-pkgdown::build_site(getwd())
+pkgdown::build_site(getwd(), lazy = TRUE)
 system("R CMD Rd2pdf . --force --no-preview --output=golemworldbank.pdf")
 if (.Platform$OS.type == "windows") shell.exec("golemworldbank.pdf") else system("evince golemworldbank.pdf")
 system("R CMD build . --resave-data")
 
 golemworldbank::run_app()
+
