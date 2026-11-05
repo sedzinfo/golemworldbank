@@ -258,7 +258,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
 ##########################################################################################
 #' @title Build an animated choropleth map
 #' @description Colors every country of a world map by the value of one indicator, from
-#' white (lowest) to dark blue (highest), animated over `Year`, for the Map
+#' white (lowest) to dark blue (highest), animated over `Year`, for the Choropleth
 #' tab. Countries are placed by their `Country Code`. Rows with a missing
 #' value are left out.
 #' @param mfi Data frame of World Bank indicator values (long format, with

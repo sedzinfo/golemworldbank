@@ -1,8 +1,9 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://sedzinfo.github.io/golemworldbank/404.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/LICENSE-text.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/TODO.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/authors.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/index.html</loc></url>
-<url><loc>https://sedzinfo.github.io/golemworldbank/LICENSE-text.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/analytics_footer.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/analytics_resources.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/animation_buttons.html</loc></url>
@@ -16,6 +17,7 @@
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/keep_legend_clicks.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mfi.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mfi_population.html</loc></url>
+<url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_about_ui.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_bar_server.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_bar_ui.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/mod_change_server.html</loc></url>
@@ -42,6 +44,5 @@
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/render_change_table.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/render_index_table.html</loc></url>
 <url><loc>https://sedzinfo.github.io/golemworldbank/reference/run_app.html</loc></url>
-<url><loc>https://sedzinfo.github.io/golemworldbank/TODO.html</loc></url>
 </urlset>
 

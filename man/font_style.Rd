@@ -15,6 +15,7 @@ it as the \code{font_style} argument of the \verb{plot_*()} functions, which giv
 to \code{plotly::layout(font = )}, so that all the charts share one look.
 }
 \examples{
-plotly::layout(plotly::plot_ly(), font = font_style)
+p <- plotly::plot_ly(x = 1:3, y = c(2, 4, 3), type = "scatter", mode = "lines")
+plotly::layout(p, font = font_style)
 }
 \keyword{internal}

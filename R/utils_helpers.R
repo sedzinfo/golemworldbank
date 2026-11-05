@@ -26,7 +26,8 @@ NULL
 #' @keywords internal
 #' @export
 #' @examples
-#' plotly::layout(plotly::plot_ly(), font = font_style)
+#' p <- plotly::plot_ly(x = 1:3, y = c(2, 4, 3), type = "scatter", mode = "lines")
+#' plotly::layout(p, font = font_style)
 font_style <- list(size = 20, color = "gray25", weight = "bold")
 ##########################################################################################
 # 
@@ -68,6 +69,9 @@ format_value <- function(n) {
 #' @return A list to pass as `plotly::layout(updatemenus = ...)`.
 #' @export
 #' @examples
+#' # an animated chart with one frame per year
+#' d <- data.frame(x = 1:3, y = c(2, 4, 3), year = c("1960", "1961", "1962"))
+#' p <- plotly::plot_ly(d, x = ~x, y = ~y, frame = ~year, type = "scatter", mode = "markers")
 #' plotly::layout(p, updatemenus = animation_buttons("1960"))
 animation_buttons <- function(first_frame) {
   # duration 0 makes plotly drop the queued frames instead of finishing them

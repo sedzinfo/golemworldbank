@@ -2,7 +2,7 @@
 % Please edit documentation in R/mod_map.R
 \name{mod_map_server}
 \alias{mod_map_server}
-\title{Map tab - server}
+\title{Choropleth tab - server}
 \usage{
 mod_map_server(id, mfi)
 }

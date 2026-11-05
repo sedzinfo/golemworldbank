@@ -28,7 +28,7 @@ Internal functions not meant to run independently
 - [`mod_indicator_comp_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_ui.md)
   : Indicator Comparison tab - UI
 - [`mod_map_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_map_ui.md)
-  : Map tab - UI
+  : Choropleth tab - UI
 - [`mod_pyramid_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_ui.md)
   : Pyramid tab - UI
 - [`mod_scatter_ui()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_ui.md)
@@ -49,7 +49,7 @@ Internal functions not meant to run independently
 - [`mod_indicator_comp_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_indicator_comp_server.md)
   : Indicator Comparison tab - server
 - [`mod_map_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_map_server.md)
-  : Map tab - server
+  : Choropleth tab - server
 - [`mod_pyramid_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_pyramid_server.md)
   : Pyramid tab - server
 - [`mod_scatter_server()`](https://sedzinfo.github.io/golemworldbank/reference/mod_scatter_server.md)

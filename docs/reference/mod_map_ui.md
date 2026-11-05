@@ -1,6 +1,6 @@
-# Map tab - UI
+# Choropleth tab - UI
 
-A picker for the indicator and the animated world map of
+A picker for the indicator and the animated choropleth map of
 [`plot_map()`](https://sedzinfo.github.io/golemworldbank/reference/plot_map.md).
 
 ## Usage

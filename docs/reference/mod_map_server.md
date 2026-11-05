@@ -1,4 +1,4 @@
-# Map tab - server
+# Choropleth tab - server
 
 Fills the indicator picker with every indicator of `mfi` (on the server,
 as the list is long) and draws

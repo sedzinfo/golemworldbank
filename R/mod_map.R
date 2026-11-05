@@ -1,8 +1,8 @@
 ##########################################################################################
 #
 ##########################################################################################
-#' @title Map tab - UI
-#' @description A picker for the indicator and the animated world map of [plot_map()].
+#' @title Choropleth tab - UI
+#' @description A picker for the indicator and the animated choropleth map of [plot_map()].
 #' @param id Character. Module namespace id.
 #' @return A `tagList` of Shiny UI elements.
 #' @keywords internal
@@ -25,7 +25,7 @@ mod_map_ui <- function(id) {
 ##########################################################################################
 #
 ##########################################################################################
-#' @title Map tab - server
+#' @title Choropleth tab - server
 #' @description Fills the indicator picker with every indicator of `mfi` (on the server,
 #' as the list is long) and draws [plot_map()] for the chosen one.
 #' @param id Character. Module namespace id, must match the id used in

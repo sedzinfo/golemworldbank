@@ -74,10 +74,12 @@ Each feature below is a Shiny module rendered as its own tab in the app:
   country, ranked by value in the most recent year
 - 🔍 **Scatterplot**: animated bubble scatter correlating two
   indicators, bubble size by population, colored by region
-- 🗺️ **Map**: animated choropleth map of one indicator by country, over
-  time
+- 🗺️ **Choropleth**: animated choropleth map of one indicator by
+  country, over time
 - 📋 **Index**: searchable table listing every indicator name available
   in the data
+- ℹ️ **About**: what the app shows, the source and license of the data,
+  and the acknowledgments
 
 ## Data
 
@@ -167,7 +169,7 @@ git lfs ls-files
 Comparison tab](reference/figures/worldbank2.png)![Pyramid
 tab](reference/figures/worldbank3.png)![Barplot
 tab](reference/figures/worldbank4.png)![Scatterplot
-tab](reference/figures/worldbank5.png)![Map
+tab](reference/figures/worldbank5.png)![Choropleth
 tab](reference/figures/worldbank6.png)![Change (%)
 tab](reference/figures/worldbank7.png)![Index
 tab](reference/figures/worldbank8.png)

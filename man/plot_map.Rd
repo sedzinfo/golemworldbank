@@ -21,7 +21,7 @@ A \code{plotly} htmlwidget.
 }
 \description{
 Colors every country of a world map by the value of one indicator, from
-white (lowest) to dark blue (highest), animated over \code{Year}, for the Map
+white (lowest) to dark blue (highest), animated over \code{Year}, for the Choropleth
 tab. Countries are placed by their \verb{Country Code}. Rows with a missing
 value are left out.
 }

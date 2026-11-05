@@ -56,8 +56,9 @@ Each feature below is a Shiny module rendered as its own tab in the app:
 - 👥 **Pyramid**: animated population pyramid by age group and sex, for a selected country, over time
 - 📉 **Barplot**: animated ranked bar chart of one indicator per country, ranked by value in the most recent year
 - 🔍 **Scatterplot**: animated bubble scatter correlating two indicators, bubble size by population, colored by region
-- 🗺️ **Map**: animated choropleth map of one indicator by country, over time
+- 🗺️ **Choropleth**: animated choropleth map of one indicator by country, over time
 - 📋 **Index**: searchable table listing every indicator name available in the data
+- ℹ️ **About**: what the app shows, the source and license of the data, and the acknowledgments
 
 ## Data
 
@@ -129,7 +130,7 @@ git lfs ls-files
 ![Pyramid tab](man/figures/worldbank3.png)
 ![Barplot tab](man/figures/worldbank4.png)
 ![Scatterplot tab](man/figures/worldbank5.png)
-![Map tab](man/figures/worldbank6.png)
+![Choropleth tab](man/figures/worldbank6.png)
 ![Change (%) tab](man/figures/worldbank7.png)
 ![Index tab](man/figures/worldbank8.png)
 

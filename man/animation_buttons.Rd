@@ -19,5 +19,8 @@ used by every animated chart of the app. Pause halts the animation on the
 current frame; Stop halts it and jumps back to the first frame.
 }
 \examples{
+# an animated chart with one frame per year
+d <- data.frame(x = 1:3, y = c(2, 4, 3), year = c("1960", "1961", "1962"))
+p <- plotly::plot_ly(d, x = ~x, y = ~y, frame = ~year, type = "scatter", mode = "markers")
 plotly::layout(p, updatemenus = animation_buttons("1960"))
 }
