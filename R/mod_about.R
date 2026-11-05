@@ -14,7 +14,8 @@
 #' }
 mod_about_ui <- function(id) {
   ns <- NS(id)
-  link <- function(href, text) tags$a(href = href, target = "_blank", rel = "noopener", text)
+  # .noWS: no space between a link and the punctuation after it
+  link <- function(href, text) tags$a(href = href, target = "_blank", rel = "noopener", text, .noWS = "outside")
   div(
     id = ns("page"),
     # centred in the tab: auto side margins, and width 100% since the tab is a flex
