@@ -60,8 +60,24 @@ app_ui <- function(request, analytics = FALSE) {
 ##########################################################################################
 #
 ##########################################################################################
+#' @title Address and description of the live app, for search engines and link previews
+#' @description Used by `golem_add_external_resources()` for the description
+#' that search engines show and the Open Graph tags of the preview that other
+#' sites show for a link to the app. `title` is the window title that `app_ui()`
+#' gives the page, and `image` the first screenshot of the README.
+#' @noRd
+app_meta <- list(
+  url = "https://sedzinfo.shinyapps.io/golemworldbank/",
+  title = "Worldbank",
+  description = "Explore World Bank development indicators with interactive country and indicator comparisons, population pyramids, bar charts, scatter plots and maps.",
+  image = "https://raw.githubusercontent.com/sedzinfo/golemworldbank/main/man/figures/worldbank1.png"
+)
+##########################################################################################
+#
+##########################################################################################
 #' @title Add external resources to the application
-#' @description Adds the favicon and every CSS and JS file of `inst/app/www` to
+#' @description Adds the description and Open Graph tags of `app_meta`, the
+#' favicon and every CSS and JS file of `inst/app/www` to
 #' the head of the page: the analytics files (`analytics.css`, `analytics.js`) 
 #' and the dark mode (`dark_mode.css`, `dark_mode.js`). A file put in that
 #' folder is added without any change here.
@@ -77,6 +93,14 @@ app_ui <- function(request, analytics = FALSE) {
 golem_add_external_resources <- function() {
   add_resource_path("www",app_sys("app/www"))
   tags$head(
+    tags$meta(name = "description", content = app_meta$description),
+    tags$meta(property = "og:type", content = "website"),
+    tags$meta(property = "og:site_name", content = "sedzinfo"),
+    tags$meta(property = "og:title", content = app_meta$title),
+    tags$meta(property = "og:description", content = app_meta$description),
+    tags$meta(property = "og:url", content = app_meta$url),
+    tags$meta(property = "og:image", content = app_meta$image),
+    tags$meta(name = "twitter:card", content = "summary_large_image"),
     favicon(),
     bundle_resources(
       path = app_sys("app/www"),

@@ -1,5 +1,7 @@
 # WDI Worldbank Visualizations
 
+**[Open the live app](https://sedzinfo.shinyapps.io/golemworldbank/)** · [Website](https://sedzinfo.github.io/golemworldbank/)
+
 A Shiny application, built as a [golem](https://thinkr-open.github.io/golem/) package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views.
 
 # Installation Instructions

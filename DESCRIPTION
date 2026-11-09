@@ -9,7 +9,7 @@ Description: A Shiny application, built as a golem package, for exploring
     comparison, indicator comparison, population pyramid, ranked bar chart,
     correlation scatter, and choropleth map views.
 License: GPL-3
-URL: https://sedzinfo.github.io/golemworldbank/, https://github.com/sedzinfo/golemworldbank
+URL: https://sedzinfo.github.io/golemworldbank/, https://github.com/sedzinfo/golemworldbank, https://sedzinfo.shinyapps.io/golemworldbank/
 BugReports: https://github.com/sedzinfo/golemworldbank/issues
 Encoding: UTF-8
 LazyData: true
