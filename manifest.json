@@ -1,7 +1,7 @@
 {
   "version": 1,
   "locale": "en_US",
-  "platform": "4.6.1",
+  "platform": "4.6.2",
   "metadata": {
     "appmode": "shiny",
     "primary_rmd": null,
@@ -1444,7 +1444,7 @@
         "Package": "openssl",
         "Type": "Package",
         "Title": "Toolkit for Encryption, Signatures and Certificates Based on\nOpenSSL",
-        "Version": "2.4.2",
+        "Version": "2.5.0",
         "Authors@R": "c(person(\"Jeroen\", \"Ooms\", role = c(\"aut\", \"cre\"), email = \"jeroenooms@gmail.com\",\n    comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"Oliver\", \"Keyes\", role = \"ctb\"))",
         "Description": "Bindings to OpenSSL libssl and libcrypto, plus custom SSH key parsers.\n    Supports RSA, DSA and EC curves P-256, P-384, P-521, and curve25519. Cryptographic\n    signatures can either be created and verified manually or via x509 certificates. \n    AES can be used in cbc, ctr or gcm mode for symmetric encryption; RSA for asymmetric\n    (public key) encryption or EC for Diffie Hellman. High-level envelope functions \n    combine RSA and AES for encrypting arbitrary sized data. Other utilities include key\n    generators, hash functions (md5, sha1, sha256, etc), base64 encoder, a secure random\n    number generator, and 'bignum' math methods for manually performing crypto \n    calculations on large multibyte integers.",
         "License": "MIT + file LICENSE",
@@ -1457,12 +1457,12 @@
         "Encoding": "UTF-8",
         "Config/roxygen2/version": "8.0.0",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-06-09 10:51:42 UTC; jeroen",
+        "Packaged": "2026-11-01 10:34:10 UTC; jeroen",
         "Author": "Jeroen Ooms [aut, cre] (ORCID: <https://orcid.org/0000-0002-4035-0289>),\n  Oliver Keyes [ctb]",
         "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-06-09 13:30:02 UTC",
-        "Built": "R 4.6.0; x86_64-pc-linux-gnu; 2026-06-10 11:47:39 UTC; unix"
+        "Date/Publication": "2026-11-02 17:20:02 UTC",
+        "Built": "R 4.6.2; x86_64-pc-linux-gnu; 2026-11-04 07:49:30 UTC; unix"
       }
     },
     "otel": {
@@ -2457,7 +2457,7 @@
       "checksum": "9fe9c9e2eb8dd01264ba8b0266627005"
     },
     "app.R": {
-      "checksum": "472cd67fd29ec6f96f0e0be6d6f2e3bd"
+      "checksum": "e5af93e8a6aeedcfb41a04fdd495d498"
     },
     "data/country_code.rda": {
       "checksum": "29ea74c5bb2599fdf9e1adff29fdb066"
@@ -2481,7 +2481,7 @@
       "checksum": "b1d508e9b849d84ad81f77f2f3975393"
     },
     "DESCRIPTION": {
-      "checksum": "25e4daa44e1e1de762f3b1d354cae0f4"
+      "checksum": "544a41970fc4576a97a77d2166790395"
     },
     "inst/app/www/analytics.css": {
       "checksum": "0a6ab1534102f21f4866c6252cc51f7a"
@@ -2490,19 +2490,25 @@
       "checksum": "d70745cc1e51281b3e849cc90734326a"
     },
     "inst/app/www/dark_mode.css": {
-      "checksum": "ebdb00544fb7d475aa9b63813ed4bf79"
+      "checksum": "865fcb51e11ad13603041a4047d9afcd"
     },
     "inst/app/www/dark_mode.js": {
       "checksum": "e16e3896176e9800d9a7ec9a699ea874"
     },
+    "inst/app/www/dropdowns.css": {
+      "checksum": "201befb041924a453af5a027d4beb254"
+    },
     "inst/app/www/favicon.ico": {
-      "checksum": "81560d1b906a530c87fa0acbb2f5cca4"
+      "checksum": "a71f34baf41fe161313fb9ae5b4175fe"
+    },
+    "inst/app/www/favicon.svg": {
+      "checksum": "868941d7699f0c4751c3c335187d1f10"
     },
     "inst/golem-config.yml": {
       "checksum": "d1b96b5e17fe908f15f4d2471b5bc381"
     },
     "NAMESPACE": {
-      "checksum": "b8bb8acea4931eea271500e26703589d"
+      "checksum": "de038f2d42c2b794ee337feb9e2d26d1"
     },
     "R/_disable_autoload.R": {
       "checksum": "1178c335d6c11555fd1c4ec6098dfee6"
@@ -2511,10 +2517,10 @@
       "checksum": "da41d30e52b48a554300cc4e5c302d31"
     },
     "R/app_server.R": {
-      "checksum": "7a129850ae75d6d89cd0de7b7afc344f"
+      "checksum": "6fa32c1e2acc77f1311b0b0a5e1f7615"
     },
     "R/app_ui.R": {
-      "checksum": "26dcdc9fdc8a2501eb5b187703bb88b5"
+      "checksum": "bf148ed15a47f17c2cc66c63777220f5"
     },
     "R/data.R": {
       "checksum": "8e3449c56e282669529a5bd7e07153fc"
@@ -2523,7 +2529,10 @@
       "checksum": "1110ec6760b4b52fbb2f05e21077889d"
     },
     "R/fct_plots.R": {
-      "checksum": "89efbbbe2a1a0cdb42dd60f2c73f1acf"
+      "checksum": "05537cd40bb28aa35ee7fdbb6e6b7db2"
+    },
+    "R/mod_about.R": {
+      "checksum": "4503fca127bf34b2c159b13d88e490f1"
     },
     "R/mod_bar.R": {
       "checksum": "c3edc6e2a68689bb26890d199fa663dc"
@@ -2532,16 +2541,16 @@
       "checksum": "66073d786115b27f427d4f0962ef9ce8"
     },
     "R/mod_country_comp.R": {
-      "checksum": "4d52e00bab7bc26406f3e649a312ab8a"
+      "checksum": "388859d038e57c859e8ba1bb8412ef4f"
     },
     "R/mod_index_table.R": {
       "checksum": "2865051169b22930a47d189414e5e360"
     },
     "R/mod_indicator_comp.R": {
-      "checksum": "312a71e366b7273fdec29aca2c9c21f2"
+      "checksum": "bd17542ad0c6123639348b1448231ebf"
     },
     "R/mod_map.R": {
-      "checksum": "22db529fdeb1406b2578959ebea8d30c"
+      "checksum": "61b9083b44b5f1fa328a09bedc7cf31b"
     },
     "R/mod_pyramid.R": {
       "checksum": "85b76f000fdc691e2904c2047bac161d"
@@ -2556,7 +2565,7 @@
       "checksum": "608d0f13dac4bc67f214c0ec82cd9152"
     },
     "R/utils_helpers.R": {
-      "checksum": "0d4c81648be0f20433ab2c18c40766c3"
+      "checksum": "24d3532f1637e2238e3218b08aed2a3a"
     }
   },
   "users": null
