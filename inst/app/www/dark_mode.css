@@ -138,6 +138,12 @@ html.dark-mode .js-plotly-plot .updatemenu-item-rect {
   fill: #2b2b2b !important;
   stroke: #555 !important;
 }
+/* the Play / Pause / Stop button under the mouse: plotly tints it its own fixed light color
+   (#F4FAFF), which the rule above hid, so the button did not react; the dark hover color of the
+   dropdowns instead */
+html.dark-mode .js-plotly-plot .updatemenu-item-rect[style*="fill: rgb(244, 250, 255)"] {
+  fill: #3d4b5c !important;
+}
 html.dark-mode .js-plotly-plot .slider-rail-rect {
   fill: #444 !important;
 }
