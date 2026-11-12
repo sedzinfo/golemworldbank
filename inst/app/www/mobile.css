@@ -1,0 +1,71 @@
+/* Phones. On a desktop (wider than 767px and not a short touch screen) nothing here
+   applies: the layout of app_ui() stays as it is there, with the charts filling the
+   window and a tab that is longer than the window scrolling by itself. Added to the
+   page automatically, like every CSS file of this folder. The inline style of
+   app_ui() comes after this file, hence the "html body" in front of its selectors. */
+
+/* Phones (portrait, where the navbar collapses behind its toggle) and phones held
+   sideways (short touch screens): the whole page scrolls, instead of the tab inside a
+   window-high box. The charts still fill the screen when the inputs leave room, and
+   never get smaller than 300px; the footer is reached by scrolling the page.
+   100dvh is the height of the visible area, without the browser bars (100vh is the
+   fallback for older browsers). */
+@media (max-width: 767px), (max-height: 500px) and (pointer: coarse) {
+  html body {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  html body .tab-content > .tab-pane.active {
+    overflow: visible;
+  }
+  /* a wide table scrolls sideways by itself, not the page (or its search box) */
+  html body .tab-pane table.dataTable {
+    display: block;
+    overflow-x: auto;
+  }
+  /* Cookie settings and Privacy links big enough for a finger */
+  html body .analytics-footer {
+    padding: 0;
+  }
+  html body .analytics-footer a {
+    display: inline-block;
+    padding: 10px 8px;
+  }
+}
+
+/* Phones in portrait: the menu of the navbar toggle */
+@media (max-width: 767px) {
+  /* menu entries 40px high, for a finger (the compact desktop navbar has 25px) */
+  html body .navbar-nav > li > a {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  /* the open menu shows all its entries, without a scroll box of its own */
+  html body .navbar-collapse {
+    max-height: none;
+  }
+  /* the toggle button 40px high */
+  html body .navbar-toggle {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+/* Phones held sideways (short touch screens, where the navbar does not collapse):
+   navbar entries 40px high for a finger, and charts as high as the screen (less a
+   little), so that a chart is seen whole once the page is scrolled to it. */
+@media (max-height: 500px) and (pointer: coarse) {
+  html body .navbar-nav > li > a {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  html body .tab-pane .plotly.html-widget-output {
+    min-height: 300px;
+    min-height: calc(100dvh - 40px);
+  }
+}
