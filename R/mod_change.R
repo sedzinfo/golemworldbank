@@ -24,8 +24,8 @@ mod_change_ui <- function(id) {
         selected = "Greece",
         width = "100%"
       )),
-      column(2, selectInput(ns("year1_change"), label = "From", choices = years, selected = "2000", width = "100%")),
-      column(2, selectInput(ns("year2_change"), label = "To", choices = years, selected = "2020", width = "100%")),
+      column(2, selectInput(ns("year1_change"), label = "From", choices = years, selected = "2024", width = "100%")),
+      column(2, selectInput(ns("year2_change"), label = "To", choices = years, selected = "2025", width = "100%")),
       column(4,
         checkboxInput(ns("rates_change"), "Include growth rates (annual %, % change)", value = FALSE),
         checkboxInput(ns("sign_change"), "Include indicators that changed sign", value = FALSE)
