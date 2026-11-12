@@ -12,6 +12,10 @@ Source:
 Zacharatos D (2026). *golemworldbank: World Bank Indicators Explorer*. R
 package version 0.0.1, <https://sedzinfo.github.io/golemworldbank/>.
 
-@Manual{, title = {golemworldbank: World Bank Indicators Explorer},
-author = {Dimitrios Zacharatos}, year = {2026}, note = {R package
-version 0.0.1}, url = {https://sedzinfo.github.io/golemworldbank/}, }
+    @Manual{,
+      title = {golemworldbank: World Bank Indicators Explorer},
+      author = {Dimitrios Zacharatos},
+      year = {2026},
+      note = {R package version 0.0.1},
+      url = {https://sedzinfo.github.io/golemworldbank/},
+    }
