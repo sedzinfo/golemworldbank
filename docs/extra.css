@@ -64,3 +64,24 @@ footer a {
     justify-self: center;
   }
 }
+
+/* phones and small tablets (below Bootstrap's lg breakpoint, where the navbar collapses):
+   bigger tap targets: ~43px menu items; the footer links get vertical padding,
+   which on inline links enlarges the tap area without moving the text */
+@media (max-width: 991.98px) {
+  .navbar-collapse .nav-link {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+  footer a {
+    padding: .5rem 0;
+  }
+}
+
+/* phones in portrait: the 1000px plots above are taller than the screen and plotly
+   takes the touch drags, so the page could not be scrolled past them */
+@media (max-width: 767.98px) {
+  .template-reference-topic .html-widget.plotly {
+    height: 70vh !important;
+  }
+}
