@@ -24,13 +24,9 @@
     display: block;
     overflow-x: auto;
   }
-  /* Cookie settings and Privacy links big enough for a finger */
+  /* the footer: no padding of its own, as its links get theirs, for a finger (apps.css) */
   html body .analytics-footer {
     padding: 0;
-  }
-  html body .analytics-footer a {
-    display: inline-block;
-    padding: 10px 8px;
   }
 }
 

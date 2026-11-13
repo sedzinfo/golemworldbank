@@ -2482,12 +2482,6 @@
     "DESCRIPTION": {
       "checksum": "544a41970fc4576a97a77d2166790395"
     },
-    "inst/app/www/dark_mode.css": {
-      "checksum": "da623f8e040c569feefada39d9817ac1"
-    },
-    "inst/app/www/dropdowns.css": {
-      "checksum": "201befb041924a453af5a027d4beb254"
-    },
     "inst/app/www/favicon.ico": {
       "checksum": "a71f34baf41fe161313fb9ae5b4175fe"
     },
@@ -2495,7 +2489,7 @@
       "checksum": "868941d7699f0c4751c3c335187d1f10"
     },
     "inst/app/www/mobile.css": {
-      "checksum": "87c5c2d77647ed4000dcfe3d70753187"
+      "checksum": "44646eafb4666d47e1957f38c073a60a"
     },
     "inst/app/www/mobile.js": {
       "checksum": "fa59984a4a4afce16f345c5b52a5b85b"
@@ -2516,7 +2510,7 @@
       "checksum": "6fa32c1e2acc77f1311b0b0a5e1f7615"
     },
     "R/app_ui.R": {
-      "checksum": "80c16b077b4294bea3255c19603b8af4"
+      "checksum": "ec67a5768695d4e20b971cbbfd44cd5a"
     },
     "R/data.R": {
       "checksum": "8e3449c56e282669529a5bd7e07153fc"
@@ -2558,7 +2552,7 @@
       "checksum": "1121e71e9d46502117072710a8fac408"
     },
     "R/utils_analytics.R": {
-      "checksum": "0817498edf3707e379f326a39c3a4ee6"
+      "checksum": "1a51e6deccca73a66c4ac458c01bae7a"
     },
     "R/utils_helpers.R": {
       "checksum": "24d3532f1637e2238e3218b08aed2a3a"

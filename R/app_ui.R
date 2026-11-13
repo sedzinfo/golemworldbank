@@ -78,11 +78,11 @@ app_meta <- list(
 #' @title Add external resources to the application
 #' @description Adds the description and Open Graph tags of `app_meta`, the
 #' favicon and every CSS and JS file of `inst/app/www` to
-#' the head of the page, such as the style of the dark mode (`dark_mode.css`);
-#' a file put in that folder is added without any change here. The script of
-#' the dark mode (`dark_mode.js`) is shared by the apps: it comes from
-#' sedzinfo.github.io (`shared_url`), as do the files of the analytics
-#' (`analytics_resources()`).
+#' the head of the page (the layout of the charts on phones, `mobile.css`);
+#' a file put in that folder is added without any change here. The stylesheet
+#' (`shared_css()`) and the dark mode (`dark_mode.js`) are shared by the apps:
+#' they come from sedzinfo.github.io (`shared_url`), as do the files of the
+#' analytics (`analytics_resources()`).
 #' @return A `head` tag.
 #' @import shiny
 #' @importFrom golem add_resource_path favicon bundle_resources
@@ -104,6 +104,7 @@ golem_add_external_resources <- function() {
     tags$meta(property = "og:image", content = app_meta$image),
     tags$meta(name = "twitter:card", content = "summary_large_image"),
     favicon(),
+    shared_css(),
     bundle_resources(
       path = app_sys("app/www"),
       app_title = "golemworldbank"
