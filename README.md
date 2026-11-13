@@ -19,6 +19,15 @@ install_github("sedzinfo/golemworldbank")
 
 Note: `install_github()` may fail for this repository because package data files are tracked with Git LFS and GitHub source tarballs can contain LFS pointer files instead of binary `.rda` data.
 
+The source tarball of the [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest) is built with the data, so it installs without Git LFS. It is rebuilt from `main` on every change, together with the PDF manual:
+
+```r
+install.packages(
+  "https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz",
+  repos = NULL, type = "source"
+)
+```
+
 # Alternative installation
 Since the data range from 1960 onwards and there are thousands of indicators, we use git large file storage. Since the last update where the data file became larger than 100mb git will not accept directly so large files. As a result the traditional installation may not work.
 Use one of the following reliable options:

@@ -7,14 +7,14 @@
 analytics_resources()
 }
 \value{
-A \code{script} tag for the head of the page.
+A \code{tagList} for the head of the page.
 }
 \description{
 Loads the cookie banner shared with the sites of sedzinfo.github.io, which
-loads Google Analytics only after the visitor accepts. The script that
-reports the tabs as pages (\code{inst/app/www/analytics.js}) and the style of the
-banner (\code{analytics.css}) are always in the page, but send nothing without
-the banner.
+loads Google Analytics only after the visitor accepts, and two files shared
+by the apps: the style of the banner on Bootstrap 3, which lacks most of the
+Bootstrap 5 classes of the banner (\code{analytics.css}), and the script that
+reports the tabs as pages (\code{analytics.js}).
 }
 \examples{
 golemworldbank:::analytics_resources()

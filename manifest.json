@@ -2450,7 +2450,7 @@
   },
   "files": {
     ".gitattributes": {
-      "checksum": "55cb323b6b4a8c1512e8073d70795a8e"
+      "checksum": "7e867c70eed70ef874feb08ec7ed2011"
     },
     ".Rbuildignore": {
       "checksum": "9fe9c9e2eb8dd01264ba8b0266627005"
@@ -2482,17 +2482,8 @@
     "DESCRIPTION": {
       "checksum": "544a41970fc4576a97a77d2166790395"
     },
-    "inst/app/www/analytics.css": {
-      "checksum": "0a6ab1534102f21f4866c6252cc51f7a"
-    },
-    "inst/app/www/analytics.js": {
-      "checksum": "d70745cc1e51281b3e849cc90734326a"
-    },
     "inst/app/www/dark_mode.css": {
       "checksum": "da623f8e040c569feefada39d9817ac1"
-    },
-    "inst/app/www/dark_mode.js": {
-      "checksum": "e16e3896176e9800d9a7ec9a699ea874"
     },
     "inst/app/www/dropdowns.css": {
       "checksum": "201befb041924a453af5a027d4beb254"
@@ -2507,7 +2498,7 @@
       "checksum": "87c5c2d77647ed4000dcfe3d70753187"
     },
     "inst/app/www/mobile.js": {
-      "checksum": "2d62c1ac6dc2ae7b64d765cebe140dd2"
+      "checksum": "fa59984a4a4afce16f345c5b52a5b85b"
     },
     "inst/golem-config.yml": {
       "checksum": "d1b96b5e17fe908f15f4d2471b5bc381"
@@ -2525,7 +2516,7 @@
       "checksum": "6fa32c1e2acc77f1311b0b0a5e1f7615"
     },
     "R/app_ui.R": {
-      "checksum": "bf148ed15a47f17c2cc66c63777220f5"
+      "checksum": "80c16b077b4294bea3255c19603b8af4"
     },
     "R/data.R": {
       "checksum": "8e3449c56e282669529a5bd7e07153fc"
@@ -2567,7 +2558,7 @@
       "checksum": "1121e71e9d46502117072710a8fac408"
     },
     "R/utils_analytics.R": {
-      "checksum": "608d0f13dac4bc67f214c0ec82cd9152"
+      "checksum": "0817498edf3707e379f326a39c3a4ee6"
     },
     "R/utils_helpers.R": {
       "checksum": "24d3532f1637e2238e3218b08aed2a3a"
