@@ -10,7 +10,7 @@ consent_script <- "https://sedzinfo.github.io/consent.js"
 #' Address of the files shared by the Shiny apps, on sedzinfo.github.io
 #'
 #' The scripts and stylesheets that several apps use (the Google Analytics events, the
-#' style of the cookie banner on Bootstrap 3, the dark mode) are kept once,
+#' style of the cookie banner on Bootstrap 3, the dark mode, the layout) are kept once,
 #' in the shiny folder of the sedzinfo.github.io repository, and each app loads
 #' them from there: a fix reaches every app without deploying it again.
 #'
@@ -28,6 +28,23 @@ shared_url <- "https://sedzinfo.github.io/shiny/"
 #' @noRd
 shared_css <- function() {
   tags$link(rel = "stylesheet", href = paste0(shared_url, "apps.css"))
+}
+##########################################################################################
+#
+##########################################################################################
+#' The layout shared with golemeurostat
+#'
+#' \code{layout.css}: a compact navbar, and tabs that fill the window, with charts that stretch
+#' to its bottom; on phones, a page that scrolls, with entries big enough for a finger.
+#' \code{layout.js}: the charts laid out for a phone. Both from sedzinfo.github.io
+#' (\code{shared_url}), for the head of the page, after \code{shared_css()}.
+#'
+#' @noRd
+shared_layout <- function() {
+  tagList(
+    tags$link(rel = "stylesheet", href = paste0(shared_url, "layout.css")),
+    tags$script(src = paste0(shared_url, "layout.js"))
+  )
 }
 ##########################################################################################
 # 
