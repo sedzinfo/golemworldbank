@@ -154,6 +154,7 @@ plot_pyramid <- function(mfi_population, country, font_style) {
     plotly::animation_opts(frame = 100, transition = 100, easing = "linear", redraw = TRUE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE) %>%
+    jump_slider() %>%
     keep_legend_clicks()
 }
 ##########################################################################################
@@ -236,7 +237,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE)
 
-  p <- plotly::plotly_build(p)
+  p <- jump_slider(p)
   # the frame's year, big and gray in the bottom right corner (the shortest bars)
   year_label <- function(year) {
     list(list(text = year, xref = "paper", yref = "paper", x = 1, y = 0, xanchor = "right", yanchor = "bottom",
@@ -304,7 +305,8 @@ plot_map <- function(mfi, indicator, font_style) {
     ) %>%
     plotly::animation_opts(frame = 100, transition = 100, easing = "linear", redraw = TRUE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
-    plotly::config(responsive = TRUE)
+    plotly::config(responsive = TRUE) %>%
+    jump_slider()
 }
 ##########################################################################################
 # 
@@ -381,6 +383,7 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
     plotly::animation_opts(frame = 500, easing = "linear", redraw = FALSE, mode = "afterall") %>%
     plotly::layout(updatemenus = animation_buttons(levels(temp$Year)[1])) %>%
     plotly::config(responsive = TRUE) %>%
+    jump_slider() %>%
     keep_legend_clicks()
 }
 ##########################################################################################

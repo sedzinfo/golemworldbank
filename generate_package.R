@@ -30,6 +30,8 @@ system("R CMD Rd2pdf . --force --no-preview --output=golemworldbank.pdf")
 if (.Platform$OS.type == "windows") shell.exec("golemworldbank.pdf") else system("evince golemworldbank.pdf")
 system("R CMD build . --resave-data")
 
+# rsconnect::writeManifest(appDir = ".", appPrimaryDoc = "app.R")
+
 golemworldbank::run_app()
 
 

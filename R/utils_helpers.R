@@ -93,6 +93,33 @@ animation_buttons <- function(first_frame) {
 ##########################################################################################
 #
 ##########################################################################################
+#' @title Make the year slider of an animated chart jump to the year
+#' @description plotly gives the steps of the slider the options of Play (frames
+#' of up to a second, played one after the other), so a drag across 30 years
+#' queued 30 frames and the chart lagged until they had all played. The steps
+#' now go straight to their year; Play keeps its own speed.
+#' @param p A `plotly` object with frames.
+#' @return The built `plotly` object.
+#' @noRd
+jump_slider <- function(p) {
+  p <- plotly::plotly_build(p)
+  if (length(p$x$layout$sliders) == 0) {
+    return(p)
+  }
+  p$x$layout$sliders[[1]]$steps <- lapply(p$x$layout$sliders[[1]]$steps, function(step) {
+    redraw <- step$args[[2]]$frame$redraw
+    step$args[[2]] <- list(
+      mode = "immediate",
+      frame = list(duration = 0, redraw = if (is.null(redraw)) TRUE else redraw),
+      transition = list(duration = 0)
+    )
+    step
+  })
+  p
+}
+##########################################################################################
+#
+##########################################################################################
 #' @title Keep the legend clicks of an animated plotly chart
 #' @description plotly writes `visible` into every trace of every animation frame, so a
 #' trace hidden with a click on the legend comes back on the next frame. This
