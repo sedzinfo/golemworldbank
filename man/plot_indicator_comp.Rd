@@ -29,7 +29,7 @@ are left out.
 }
 \examples{
 plot_indicator_comp(
-  mfi,
+  mfi_table(),
   country = "Greece",
   indicators = c("Population, female", "Population, male"),
   font_style = font_style

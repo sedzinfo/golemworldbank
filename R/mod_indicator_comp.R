@@ -23,7 +23,7 @@ mod_indicator_comp_ui <- function(id) {
     ),
     selectizeInput(ns("country_indicator_comp"),
       label = "Country",
-      choices = sort(unique(mfi$`Country Name`)),
+      choices = sort(unique(mfi_table()$`Country Name`)),
       selected = c("Greece"),
       width = "100%"
     ),

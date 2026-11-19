@@ -129,6 +129,11 @@ mfi$Region<-NULL
 mfi$Year<-droplevels(mfi$Year)
 row.names(mfi)<-NULL
 
+# The names of the countries and indicators as codes (factors): the file is about 60 MB
+# instead of 109 MB, small enough for GitHub without Git LFS, and loads faster.
+# mfi_table() turns them back into text for the app.
+for(col in c("Country Code","Country Name","Indicator Name"))
+  mfi[[col]]<-factor(mfi[[col]],levels=unique(mfi[[col]]))
 save(mfi,file=paste0(directory,"data/mfi.rda"),version=3)
 save(country_code,file=paste0(directory,"data/country_code.rda"),version=3)
 save(mfi_population,file=paste0(directory,"data/mfi_population.rda"),version=3)

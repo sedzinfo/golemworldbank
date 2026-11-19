@@ -3,7 +3,8 @@
 ##########################################################################################
 #' @title The application server-side logic
 #' @description Starts the server of each tab's module, giving it the packaged datasets
-#' it needs ([mfi], [mfi_population], [country_code], [indicator_info]).
+#' it needs ([mfi] as [mfi_table()] gives it, [mfi_population], [country_code],
+#' [indicator_info]).
 #' @param input,output,session Internal parameters for `{shiny}`.
 #'   DO NOT REMOVE.
 #' @noRd
@@ -12,6 +13,8 @@
 #' shiny::shinyApp(ui = app_ui, server = app_server)
 #' }
 app_server <- function(input, output, session) {
+  # mfi with the names of its countries and indicators as text (the package stores them as codes)
+  mfi <- mfi_table()
   # left from an earlier version: no script in the page sends input$dimension
   # or handles the scaleUI message, so this never runs
   mod_country_comp_server("country_comp", mfi)

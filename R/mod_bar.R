@@ -30,7 +30,7 @@ mod_bar_ui <- function(id) {
     # the country whose bar is drawn red
     column(3, selectizeInput(ns("country_bar"),
       label = NULL,
-      choices = sort(unique(as.character(mfi$`Country Name`))),
+      choices = sort(unique(as.character(mfi_table()$`Country Name`))),
       selected = "Greece",
       width = "100%"
     ))),

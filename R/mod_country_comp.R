@@ -16,7 +16,7 @@ mod_country_comp_ui <- function(id) {
   tagList(
     selectizeInput(ns("multiple_country_comp"),
       label = "Country",
-      choices = sort(unique(as.character(mfi$`Country Name`))),
+      choices = sort(unique(as.character(mfi_table()$`Country Name`))),
       selected = c("Greece", "Bulgaria"),
       multiple = TRUE,
       width = "100%"

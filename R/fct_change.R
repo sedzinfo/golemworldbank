@@ -40,7 +40,7 @@
 #'   the country has no data in either year.
 #' @export
 #' @examples
-#' res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
+#' res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
 #' head(res$increased)
 #' head(res$decreased)
 indicator_change <- function(mfi, country, year1, year2, include_rates = FALSE,
@@ -97,7 +97,7 @@ indicator_change <- function(mfi, country, year1, year2, include_rates = FALSE,
 #' @return A `DT::datatable` htmlwidget.
 #' @export
 #' @examples
-#' res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
+#' res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
 #' render_change_table(res$increased)
 render_change_table <- function(tab) {
   # display-only formatting: the cells keep their numbers, so sorting is numeric

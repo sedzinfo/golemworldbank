@@ -42,6 +42,7 @@ reference:
       - indicator_info
       - mfi
       - mfi_population
+      - mfi_table
 
   - title: "UI"
     desc: "Internal functions not meant to run independently"

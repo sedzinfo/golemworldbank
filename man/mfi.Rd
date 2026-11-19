@@ -7,9 +7,9 @@
 \format{
 A data frame with 7,505,749 rows and 5 columns:
 \describe{
-\item{Country Code}{Three-letter World Bank code of the country, e.g. "GRC".}
-\item{Country Name}{Country name, e.g. "Greece".}
-\item{Indicator Name}{Indicator name, e.g. "Population, total".}
+\item{Country Code}{Three-letter World Bank code of the country, e.g. "GRC" (factor).}
+\item{Country Name}{Country name, e.g. "Greece" (factor).}
+\item{Indicator Name}{Indicator name, e.g. "Population, total" (factor).}
 \item{Year}{Year of observation (factor).}
 \item{value}{Value of the indicator for that country and year.}
 }
@@ -26,6 +26,10 @@ per country, indicator and year: 217 countries, 1,497 indicators, the years
 1960 to 2025. Regions and income groups (such as "World") are not included,
 and neither are missing values. This is the data of every tab except the
 Pyramid.
+
+The names of the countries and indicators are stored as codes (factors),
+which keeps the file small enough for GitHub without Git LFS and quick to
+load; \code{\link[=mfi_table]{mfi_table()}} gives the table with them as text, as the app uses it.
 }
 \examples{
 \donttest{

@@ -16,7 +16,7 @@ mod_pyramid_ui <- function(id) {
   tagList(
     selectizeInput(ns("indicator_pyramid_country"),
       label = "",
-      choices = sort(unique(mfi$`Country Name`)),
+      choices = sort(unique(mfi_table()$`Country Name`)),
       selected = "Greece",
       width = "100%"
     ),

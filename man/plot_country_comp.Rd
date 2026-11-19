@@ -27,7 +27,7 @@ Rows with a missing value are left out.
 }
 \examples{
 plot_country_comp(
-  mfi,
+  mfi_table(),
   countries = c("Greece", "Bulgaria"),
   indicator = "Population, total",
   font_style = font_style

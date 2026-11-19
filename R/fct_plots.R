@@ -15,7 +15,7 @@
 #' @export
 #' @examples
 #' plot_country_comp(
-#'   mfi,
+#'   mfi_table(),
 #'   countries = c("Greece", "Bulgaria"),
 #'   indicator = "Population, total",
 #'   font_style = font_style
@@ -68,7 +68,7 @@ plot_country_comp <- function(mfi, countries, indicator, font_style) {
 #' @export
 #' @examples
 #' plot_indicator_comp(
-#'   mfi,
+#'   mfi_table(),
 #'   country = "Greece",
 #'   indicators = c("Population, female", "Population, male"),
 #'   font_style = font_style
@@ -183,7 +183,7 @@ plot_pyramid <- function(mfi_population, country, font_style) {
 #'   positive values.
 #' @export
 #' @examples
-#' plot_bar(mfi, indicator = "GDP (current US$)", font_style = font_style, country = "Greece", top_n = 50)
+#' plot_bar(mfi_table(), indicator = "GDP (current US$)", font_style = font_style, country = "Greece", top_n = 50)
 plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
   temp <- mfi[mfi$`Indicator Name` %in% indicator, ]
   temp <- temp[complete.cases(temp), ]
@@ -271,7 +271,7 @@ plot_bar <- function(mfi, indicator, font_style, top_n = 20, country = NULL) {
 #' @return A `plotly` htmlwidget.
 #' @export
 #' @examples
-#' plot_map(mfi = mfi, indicator = "Population, total", font_style = font_style)
+#' plot_map(mfi = mfi_table(), indicator = "Population, total", font_style = font_style)
 plot_map <- function(mfi, indicator, font_style) {
   g <- list(showframe = FALSE, showcoastlines = TRUE, projection = list(type = "Mercator"))
   temp <- mfi[mfi$`Indicator Name` %in% indicator, ]
@@ -331,7 +331,7 @@ plot_map <- function(mfi, indicator, font_style) {
 #' @export
 #' @examples
 #' plot_cor(
-#'   mfi,
+#'   mfi_table(),
 #'   country_code,
 #'   indicator1 = "Mortality rate, adult, male (per 1,000 male adults)",
 #'   indicator2 = "Mortality rate, infant (per 1,000 live births)",
@@ -400,7 +400,7 @@ plot_cor <- function(mfi, country_code, indicator1, indicator2, font_style) {
 #' @return A `DT::datatable` htmlwidget.
 #' @export
 #' @examples
-#' render_index_table(mfi, indicator_info)
+#' render_index_table(mfi_table(), indicator_info)
 render_index_table <- function(mfi, indicator_info) {
   indicator <- unique(mfi$`Indicator Name`)
   info <- indicator_info[match(indicator, indicator_info$`Indicator Name`), ]

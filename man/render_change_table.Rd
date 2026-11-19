@@ -21,6 +21,6 @@ for a decrease. The table is one long page with compact rows, like the
 Index table.
 }
 \examples{
-res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
+res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
 render_change_table(res$increased)
 }

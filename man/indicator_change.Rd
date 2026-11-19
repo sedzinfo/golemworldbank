@@ -60,7 +60,7 @@ percentage, not a difference in percentage points; the \code{Change} column give
 the plain difference.
 }
 \examples{
-res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
+res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
 head(res$increased)
 head(res$decreased)
 }

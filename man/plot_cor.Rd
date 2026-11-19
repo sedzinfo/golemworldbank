@@ -34,7 +34,7 @@ country-year without both values and the population.
 }
 \examples{
 plot_cor(
-  mfi,
+  mfi_table(),
   country_code,
   indicator1 = "Mortality rate, adult, male (per 1,000 male adults)",
   indicator2 = "Mortality rate, infant (per 1,000 live births)",

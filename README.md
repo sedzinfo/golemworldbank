@@ -17,9 +17,7 @@ library(devtools)
 install_github("sedzinfo/golemworldbank")
 ```
 
-Note: `install_github()` may fail for this repository because package data files are tracked with Git LFS and GitHub source tarballs can contain LFS pointer files instead of binary `.rda` data.
-
-The source tarball of the [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest) is built with the data, so it installs without Git LFS. It is rebuilt from `main` on every change, together with the PDF manual:
+The source tarball of the [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest) installs as well. It is rebuilt from `main` on every change, together with the PDF manual:
 
 ```r
 install.packages(
@@ -29,12 +27,8 @@ install.packages(
 ```
 
 # Alternative installation
-Since the data range from 1960 onwards and there are thousands of indicators, we use git large file storage. Since the last update where the data file became larger than 100mb git will not accept directly so large files. As a result the traditional installation may not work.
-Use one of the following reliable options:
-
-1. Clone the repository with Git LFS enabled and install locally:
+Clone the repository and install locally:
 ```
-git lfs install
 git clone https://github.com/sedzinfo/golemworldbank.git
 ```
 Then in R:
@@ -42,7 +36,7 @@ Then in R:
 devtools::install_local("golemworldbank")
 ```
 
-2. Download the full repository and regenerate package data locally by running `financial_indicators.R` and then `generate_package.R`.
+The package data are normal files in the repository. Only the raw World Bank downloads that `financial_indicators.R` reads (in `data/` and `data-raw/`) are stored with Git LFS: you need them, and Git LFS (see Git LFS Setup below), only to regenerate the data.
 
 # Usage
 ```
@@ -75,18 +69,18 @@ Each feature below is a Shiny module rendered as its own tab in the app:
 
 The package ships four lazy-loaded datasets, sourced from [World Bank Open Data](https://data.worldbank.org):
 
-- `mfi` — long-format indicator values, one row per country/indicator/year (`Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`).
+- `mfi` — long-format indicator values, one row per country/indicator/year (`Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`), with the names of the countries and indicators stored as codes to keep the file small; `mfi_table()` gives it with the names as text, as the app uses it.
 - `mfi_population` — long-format population counts by five-year age group and sex, used by the Pyramid tab.
 - `country_code` — country/region reference metadata (region, income group, and other World Bank classifications), used to join region info in the Scatterplot tab.
 - `indicator_info` — the World Bank topic and definition of every indicator in `mfi`, shown in the Index tab.
 
-Full column-level documentation is available via `?mfi`, `?mfi_population`, `?country_code`, and `?indicator_info`.
+Full column-level documentation is available via `?mfi`, `?mfi_table`, `?mfi_population`, `?country_code`, and `?indicator_info`.
 
 ---
 
 ## Git LFS Setup
 
-Large files (e.g. datasets) are stored using [Git LFS](https://git-lfs.com). Follow the steps below to clone the repository and retrieve them.
+The raw World Bank downloads (the large files in `data/` and `data-raw/` that `financial_indicators.R` reads) are stored using [Git LFS](https://git-lfs.com). You need them only to regenerate the data. Follow the steps below to clone the repository and retrieve them.
 
 ### 1. Install Git LFS (one-time setup)
 

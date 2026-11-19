@@ -22,5 +22,5 @@ its World Bank topic and definition, for the Index tab. The table is one
 long page, which can be searched and sorted.
 }
 \examples{
-render_index_table(mfi, indicator_info)
+render_index_table(mfi_table(), indicator_info)
 }

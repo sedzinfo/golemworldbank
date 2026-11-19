@@ -15,12 +15,12 @@
 #' }
 mod_change_ui <- function(id) {
   ns <- NS(id)
-  years <- sort(unique(as.character(mfi$Year)), decreasing = TRUE)
+  years <- sort(unique(as.character(mfi_table()$Year)), decreasing = TRUE)
   tagList(
     fluidRow(
       column(4, selectizeInput(ns("country_change"),
         label = "Country",
-        choices = sort(unique(as.character(mfi$`Country Name`))),
+        choices = sort(unique(as.character(mfi_table()$`Country Name`))),
         selected = "Greece",
         width = "100%"
       )),
