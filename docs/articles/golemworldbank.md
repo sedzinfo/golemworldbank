@@ -87,13 +87,22 @@ in the data. To list them:
 ``` r
 
 countries <- sort(unique(mfi_table()$`Country Name`))
-head(countries)
-#> [1] "Afghanistan"    "Albania"        "Algeria"        "American Samoa" "Andorra"        "Angola"
+writeLines(head(countries))
+#> Afghanistan
+#> Albania
+#> Algeria
+#> American Samoa
+#> Andorra
+#> Angola
 indicators <- unique(mfi_table()$`Indicator Name`)
-grep("^GDP per capita", indicators, value = TRUE)
-#> [1] "GDP per capita (constant 2015 US$)"                  "GDP per capita (constant LCU)"                       "GDP per capita (current LCU)"                       
-#> [4] "GDP per capita (current US$)"                        "GDP per capita growth (annual %)"                    "GDP per capita, PPP (constant 2021 international $)"
-#> [7] "GDP per capita, PPP (current international $)"
+writeLines(grep("^GDP per capita", indicators, value = TRUE))
+#> GDP per capita (constant 2015 US$)
+#> GDP per capita (constant LCU)
+#> GDP per capita (current LCU)
+#> GDP per capita (current US$)
+#> GDP per capita growth (annual %)
+#> GDP per capita, PPP (constant 2021 international $)
+#> GDP per capita, PPP (current international $)
 ```
 
 `indicator_info` gives the topic and definition of an indicator:

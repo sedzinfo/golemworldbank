@@ -36,8 +36,8 @@ Some indicators are left out of both, because their percent change says little:
 - The indicators whose value was 0 in the first year, where the percent change is not defined. `res$zero_base` lists them.
 
 ```{r left-out}
-res$sign_change
-res$zero_base
+writeLines(res$sign_change)
+writeLines(res$zero_base)
 ```
 
 For an indicator that is itself a percentage, such as "Urban population (% of total population)", the percent change is relative to the old percentage. It is not the difference in percentage points, which is the `Change` column.

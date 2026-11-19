@@ -56,9 +56,9 @@ The functions take the names of the countries and indicators as they are in the 
 
 ```{r names}
 countries <- sort(unique(mfi_table()$`Country Name`))
-head(countries)
+writeLines(head(countries))
 indicators <- unique(mfi_table()$`Indicator Name`)
-grep("^GDP per capita", indicators, value = TRUE)
+writeLines(grep("^GDP per capita", indicators, value = TRUE))
 ```
 
 `indicator_info` gives the topic and definition of an indicator:

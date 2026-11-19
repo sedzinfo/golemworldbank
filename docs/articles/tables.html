@@ -114,13 +114,18 @@ percent change is not defined. <code>res$zero_base</code> lists
 them.</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">res</span><span class="op">$</span><span class="va">sign_change</span></span>
-<span><span class="co">#&gt; [1] "Discrepancy in expenditure estimate of GDP (current LCU)"  "Foreign direct investment, net (BoP, current US$)"         "Foreign direct investment, net inflows (% of GDP)"        </span></span>
-<span><span class="co">#&gt; [4] "Foreign direct investment, net inflows (BoP, current US$)" "Net errors and omissions (BoP, current US$)"               "Portfolio equity, net inflows (BoP, current US$)"         </span></span>
-<span><span class="co">#&gt; [7] "Portfolio investment, net (BoP, current US$)"</span></span>
-<span><span class="va">res</span><span class="op">$</span><span class="va">zero_base</span></span>
-<span><span class="co">#&gt; [1] "Cause of death, by other COVID-19 pandemic-related outcomes (% of total)" "Discrepancy in expenditure estimate of GDP (constant LCU)"               </span></span>
-<span><span class="co">#&gt; [3] "Electricity production from nuclear sources (% of total)"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">sign_change</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Discrepancy in expenditure estimate of GDP (current LCU)</span></span>
+<span><span class="co">#&gt; Foreign direct investment, net (BoP, current US$)</span></span>
+<span><span class="co">#&gt; Foreign direct investment, net inflows (% of GDP)</span></span>
+<span><span class="co">#&gt; Foreign direct investment, net inflows (BoP, current US$)</span></span>
+<span><span class="co">#&gt; Net errors and omissions (BoP, current US$)</span></span>
+<span><span class="co">#&gt; Portfolio equity, net inflows (BoP, current US$)</span></span>
+<span><span class="co">#&gt; Portfolio investment, net (BoP, current US$)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">zero_base</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Cause of death, by other COVID-19 pandemic-related outcomes (% of total)</span></span>
+<span><span class="co">#&gt; Discrepancy in expenditure estimate of GDP (constant LCU)</span></span>
+<span><span class="co">#&gt; Electricity production from nuclear sources (% of total)</span></span></code></pre></div>
 <p>For an indicator that is itself a percentage, such as “Urban
 population (% of total population)”, the percent change is relative to
 the old percentage. It is not the difference in percentage points, which

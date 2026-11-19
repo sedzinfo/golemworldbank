@@ -56,13 +56,18 @@ little:
 
 ``` r
 
-res$sign_change
-#> [1] "Discrepancy in expenditure estimate of GDP (current LCU)"  "Foreign direct investment, net (BoP, current US$)"         "Foreign direct investment, net inflows (% of GDP)"        
-#> [4] "Foreign direct investment, net inflows (BoP, current US$)" "Net errors and omissions (BoP, current US$)"               "Portfolio equity, net inflows (BoP, current US$)"         
-#> [7] "Portfolio investment, net (BoP, current US$)"
-res$zero_base
-#> [1] "Cause of death, by other COVID-19 pandemic-related outcomes (% of total)" "Discrepancy in expenditure estimate of GDP (constant LCU)"               
-#> [3] "Electricity production from nuclear sources (% of total)"
+writeLines(res$sign_change)
+#> Discrepancy in expenditure estimate of GDP (current LCU)
+#> Foreign direct investment, net (BoP, current US$)
+#> Foreign direct investment, net inflows (% of GDP)
+#> Foreign direct investment, net inflows (BoP, current US$)
+#> Net errors and omissions (BoP, current US$)
+#> Portfolio equity, net inflows (BoP, current US$)
+#> Portfolio investment, net (BoP, current US$)
+writeLines(res$zero_base)
+#> Cause of death, by other COVID-19 pandemic-related outcomes (% of total)
+#> Discrepancy in expenditure estimate of GDP (constant LCU)
+#> Electricity production from nuclear sources (% of total)
 ```
 
 For an indicator that is itself a percentage, such as “Urban population
