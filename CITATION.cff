@@ -1,0 +1,21 @@
+# How to cite this package. GitHub shows it as "Cite this repository"; Zenodo uses it for the DOI of each release.
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "golemworldbank: World Bank Indicators Explorer"
+abstract: "A Shiny application, built as a golem package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views."
+authors:
+  - family-names: "Zacharatos"
+    given-names: "Dimitrios"
+    orcid: "https://orcid.org/0000-0003-1789-8294"
+license: GPL-3.0-only
+repository-code: "https://github.com/sedzinfo/golemworldbank"
+url: "https://sedzinfo.github.io/golemworldbank/"
+keywords:
+  - "golem"
+  - "shiny"
+  - "data-visualization"
+  - "open-data"
+  - "plotly"
+  - "world-bank"
+  - "world-development-indicators"
