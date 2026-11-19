@@ -6,6 +6,12 @@ years 1960 to 2025. Regions and income groups (such as "World") are not
 included, and neither are missing values. This is the data of every tab
 except the Pyramid.
 
+The names of the countries and indicators are stored as codes (factors),
+which keeps the file small enough for GitHub without Git LFS and quick
+to load;
+[`mfi_table()`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)
+gives the table with them as text, as the app uses it.
+
 ## Usage
 
 ``` r
@@ -18,15 +24,15 @@ A data frame with 7,505,749 rows and 5 columns:
 
 - Country Code:
 
-  Three-letter World Bank code of the country, e.g. "GRC".
+  Three-letter World Bank code of the country, e.g. "GRC" (factor).
 
 - Country Name:
 
-  Country name, e.g. "Greece".
+  Country name, e.g. "Greece" (factor).
 
 - Indicator Name:
 
-  Indicator name, e.g. "Population, total".
+  Indicator name, e.g. "Population, total" (factor).
 
 - Year:
 

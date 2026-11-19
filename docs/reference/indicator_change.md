@@ -72,7 +72,7 @@ error when the country has no data in either year.
 ## Examples
 
 ``` r
-res <- indicator_change(mfi, country = "Greece", year1 = 2000, year2 = 2020)
+res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
 head(res$increased)
 #>                                                                             Indicator         2000         2020       Change Change %
 #> 1     International tourism, expenditures for passenger transport items (current US$) 6.000000e+06 6.020000e+08 5.960000e+08  9933.33

@@ -12,6 +12,8 @@
   World Bank indicator values
 - [`mfi_population`](https://sedzinfo.github.io/golemworldbank/reference/mfi_population.md)
   : Population by age group and sex
+- [`mfi_table()`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)
+  : World Bank indicator values, with the names as text
 
 ## UI
 
