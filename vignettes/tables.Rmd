@@ -1,5 +1,6 @@
 ---
 title: "Changes and the indicator index"
+description: "Which World Bank indicators rose and fell for a country between two years, and the index of every indicator with its definition, as tables in R."
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Changes and the indicator index}

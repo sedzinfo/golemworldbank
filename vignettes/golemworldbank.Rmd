@@ -1,5 +1,6 @@
 ---
 title: "Indicator charts in R"
+description: "Find countries and World Bank indicators in R and compare them with interactive plotly line charts, the same as the golemworldbank app."
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Indicator charts in R}

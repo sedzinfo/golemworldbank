@@ -1,5 +1,6 @@
 ---
 title: "Animated charts"
+description: "Animated World Bank charts in R that play through the years: a population pyramid, a bar chart race, a bubble chart and a map."
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Animated charts}
