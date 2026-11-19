@@ -10,3 +10,7 @@ rsconnect/
 /golemworldbank.pdf
 rsconnect/shinyapps.io/sedzinfo/golemworldbank.dcf
 rsconnect/shinyapps.io/sedzinfo/golemworldbank.dcf
+
+# built vignettes, left by devtools::build_vignettes()
+/doc/
+/Meta/

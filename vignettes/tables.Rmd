@@ -1,0 +1,87 @@
+---
+title: "Changes and the indicator index"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Changes and the indicator index}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", out.width = "100%", fig.width = 7, fig.height = 5)
+```
+
+The Change (%) tab of the [golemworldbank app](https://sedzinfo.shinyapps.io/golemworldbank/) lists the indicators that rose and fell for a country between two years, and the Index tab lists every indicator with its definition. In R, `indicator_change()` makes the comparison, `render_change_table()` shows its tables and `render_index_table()` shows the index. The tables are [DT](https://rstudio.github.io/DT/) tables, which can be searched and sorted.
+
+```{r library}
+library(golemworldbank)
+```
+
+## What changed between two years
+
+`indicator_change()` compares every indicator that a country has a value for in both years. The percent change is `(value2 - value1) / |value1| * 100`, the change relative to the value of the first year:
+
+```{r change}
+res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
+nrow(res$increased)
+nrow(res$decreased)
+```
+
+`res$increased` and `res$decreased` have a row per indicator, with its values in the two years, the change and the percent change, the largest change first. Indicators that did not change are in neither. When the country has no data in either year, `indicator_change()` stops with an error.
+
+Some indicators are left out of both, because their percent change says little:
+
+- The rates of change, such as "GDP growth (annual %)" or "Inflation, consumer prices (annual %)", whose names contain "annual %", "% change" or "growth". A percent change of a growth rate means little. `include_rates = TRUE` keeps them.
+- The indicators whose value changed sign, such as net inflows that went from -8 million to +6.7 billion, which would read as +82,000%. `include_sign_change = TRUE` keeps them, and `res$sign_change` lists them either way.
+- The indicators whose value was 0 in the first year, where the percent change is not defined. `res$zero_base` lists them.
+
+```{r left-out}
+res$sign_change
+res$zero_base
+```
+
+For an indicator that is itself a percentage, such as "Urban population (% of total population)", the percent change is relative to the old percentage. It is not the difference in percentage points, which is the `Change` column.
+
+## Change tables
+
+`render_change_table()` shows one of the two tables. The values and the change are shown to 3 significant digits, such as 6.02M, while sorting still uses the full numbers. The percent change is in bold, green for an increase and red for a decrease. The tables are long, so here they show only their first 10 rows, the largest changes:
+
+<!-- the tables scroll sideways on a narrow screen instead of running over the side bar -->
+::: {style="overflow-x: auto;"}
+```{r increased}
+render_change_table(head(res$increased, 10))
+```
+:::
+
+::: {style="overflow-x: auto;"}
+```{r decreased}
+render_change_table(head(res$decreased, 10))
+```
+:::
+
+`render_change_table(res$increased)` shows the whole table on one long page, as the app does.
+
+## The indicator index
+
+`render_index_table()` lists the indicators of the data you give it, in the order they first appear there, with their World Bank topic and definition from `indicator_info`. The Index tab gives it the whole of `mfi_table()`, which lists all 1,497 indicators on one long page:
+
+```{r index-all, eval = FALSE}
+render_index_table(mfi_table(), indicator_info)
+```
+
+Here it gets only the rows of the indicators whose names start with "GDP per capita":
+
+::: {style="overflow-x: auto;"}
+```{r index}
+per_capita <- subset(mfi_table(), startsWith(`Indicator Name`, "GDP per capita"))
+render_index_table(per_capita, indicator_info)
+```
+:::
+
+## Save a table
+
+`htmlwidgets::saveWidget()` saves any of the tables as a web page:
+
+```{r save, eval = FALSE}
+htmlwidgets::saveWidget(render_change_table(res$increased), "increased.html")
+```

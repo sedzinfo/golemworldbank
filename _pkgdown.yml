@@ -88,6 +88,14 @@ reference:
       - format_value
       - keep_legend_clicks
   
+# the vignettes, which r-universe shows too, in the order to read them
+articles:
+  - title: Charts in R
+    navbar: ~
+    contents:
+      - golemworldbank
+      - animated
+      - tables
 
 footer:
   structure:

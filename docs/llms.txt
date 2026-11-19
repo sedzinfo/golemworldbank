@@ -290,3 +290,13 @@ Internal functions not meant to run independently
 - [`keep_legend_clicks()`](https://sedzinfo.github.io/golemworldbank/reference/keep_legend_clicks.md)
   : Keep the legend clicks of an animated plotly chart
 
+# Articles
+
+### Charts in R
+
+- [Indicator charts in
+  R](https://sedzinfo.github.io/golemworldbank/articles/golemworldbank.md):
+- [Animated
+  charts](https://sedzinfo.github.io/golemworldbank/articles/animated.md):
+- [Changes and the indicator
+  index](https://sedzinfo.github.io/golemworldbank/articles/tables.md):
