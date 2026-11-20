@@ -1,72 +1,10 @@
 # WDI Worldbank Visualizations
 
-**[Open the live app](https://sedzinfo.shinyapps.io/golemworldbank/)** · [Website](https://sedzinfo.github.io/golemworldbank/)
+**[Open the live app](https://sedzinfo.shinyapps.io/golemworldbank/)** · [Help pages](https://sedzinfo.github.io/golemworldbank/reference/)
+
+## What it does
 
 A Shiny application, built as a [golem](https://thinkr-open.github.io/golem/) package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views.
-
-## Installation
-
-### Prerequisites
-
-1. **Install R**: https://cran.r-project.org/
-2. **Install RStudio** (optional but recommended): https://posit.co/downloads/
-
-### Package Installation
-
-Open RStudio (or an R console) and run:
-
-```r
-install.packages(
-  "golemworldbank",
-  repos = c("https://sedzinfo.r-universe.dev", "https://cloud.r-project.org")
-)
-```
-
-[R-universe](https://sedzinfo.r-universe.dev/golemworldbank) builds golemworldbank from this repository, and CRAN provides the packages it needs.
-
-To install from GitHub instead:
-
-```r
-# Install devtools if you haven't already
-install.packages("devtools")
-# Install golemworldbank from GitHub
-devtools::install_github("sedzinfo/golemworldbank")
-```
-
-Or install the source tarball of the [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest), which is rebuilt from `main` on every change, together with the PDF manual:
-
-```r
-install.packages(
-  "https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz",
-  repos = NULL, type = "source"
-)
-```
-
-## Alternative installation
-Clone the repository and install locally:
-```
-git clone https://github.com/sedzinfo/golemworldbank.git
-```
-Then in R:
-```
-devtools::install_local("golemworldbank")
-```
-
-The package data are normal files in the repository. Only the raw World Bank downloads that `financial_indicators.R` reads (in `data/` and `data-raw/`) are stored with Git LFS: you need them, and Git LFS (see Git LFS Setup below), only to regenerate the data.
-
-## Usage
-```
-library(golemworldbank)
-run_app()
-```
-
-## Update data
-
-In order to update the data:
-1. run the financial_indicators.R script
-2. run the generate_package.R script
-
-The data updates almost yearly so there is no need for frequent updates
 
 ## Features
 
@@ -81,68 +19,89 @@ Each feature below is a Shiny module rendered as its own tab in the app:
 - 📋 **Index**: searchable table listing every indicator name available in the data
 - ℹ️ **About**: what the app shows, the source and license of the data, and the acknowledgments
 
-## Data
+## Installation
 
-The package ships four lazy-loaded datasets, sourced from [World Bank Open Data](https://data.worldbank.org):
+### 1. Install R
 
-- `mfi` — long-format indicator values, one row per country/indicator/year (`Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`), with the names of the countries and indicators stored as codes to keep the file small; `mfi_table()` gives it with the names as text, as the app uses it.
-- `mfi_population` — long-format population counts by five-year age group and sex, used by the Pyramid tab.
-- `country_code` — country/region reference metadata (region, income group, and other World Bank classifications), used to join region info in the Scatterplot tab.
-- `indicator_info` — the World Bank topic and definition of every indicator in `mfi`, shown in the Index tab.
+Download R from [CRAN](https://cran.r-project.org/), for Windows, macOS or Linux, and run the installer.
 
-Full column-level documentation is available via `?mfi`, `?mfi_table`, `?mfi_population`, `?country_code`, and `?indicator_info`.
+### 2. Install RStudio or Positron
 
----
+An editor makes R easier to use. It is optional, and both are free, from Posit:
 
-## Git LFS Setup
+- [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+- [Positron](https://positron.posit.co/download.html), which also runs Python
 
-The raw World Bank downloads (the large files in `data/` and `data-raw/` that `financial_indicators.R` reads) are stored using [Git LFS](https://git-lfs.com). You need them only to regenerate the data. Follow the steps below to clone the repository and retrieve them.
+### 3. Install golemworldbank
 
-### 1. Install Git LFS (one-time setup)
+Run one of these in RStudio, Positron or the R console. Each one also installs the packages golemworldbank needs.
 
-**Ubuntu/Debian:**
+#### From R-universe (recommended)
+
+```r
+install.packages(
+  "golemworldbank",
+  repos = c("https://sedzinfo.r-universe.dev", "https://cloud.r-project.org")
+)
+```
+
+[R-universe](https://sedzinfo.r-universe.dev/golemworldbank) builds golemworldbank from this repository after every change, ready to install on Windows, macOS and Linux, and CRAN provides the packages it needs.
+
+#### From GitHub
+
+```r
+install.packages("pak")   # once
+pak::pak("sedzinfo/golemworldbank")
+```
+
+#### From the release tarball
+
+The [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest) has the source tarball and the PDF manual, rebuilt from `main` on every change:
+
+```r
+install.packages("pak")   # once
+pak::pak("url::https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz")
+```
+
+#### From a clone of the repository, with Git LFS
+
+The package data are normal files in the repository. Only the raw World Bank downloads
+that `financial_indicators.R` reads (in `data/` and `data-raw/`) are stored with
+[Git LFS](https://git-lfs.com): you need them, and Git LFS, only to regenerate the data
+(see [Update data](#update-data)). Without Git LFS, the clone and the installation below
+still work, and those files stay small pointer files.
+
+**1. Install [Git](https://git-scm.com/downloads) and Git LFS**, once per computer. Git for Windows includes Git LFS; on macOS run `brew install git-lfs`, on Ubuntu or Debian `sudo apt install git-lfs`, or use the installer from [git-lfs.com](https://git-lfs.com). Then turn it on:
+
 ```bash
-sudo apt install git-lfs
 git lfs install
 ```
 
-**Mac:**
-```bash
-brew install git-lfs
-git lfs install
-```
-
-**Windows:**
-
-Download and run the installer from https://git-lfs.com, then:
-```bash
-git lfs install
-```
-
-### 2. Clone the repository
+**2. Clone the repository and download the LFS files:**
 
 ```bash
 git clone https://github.com/sedzinfo/golemworldbank.git
 cd golemworldbank
-```
-
-### 3. Pull the LFS files
-
-```bash
 git lfs pull
 ```
 
-> **Note:** If you cloned the repository *before* installing Git LFS and large files appear as small pointer files, run:
-> ```bash
-> git lfs install
-> git lfs pull
-> ```
+`git lfs ls-files` lists the files in Git LFS. If you cloned before installing Git LFS, they are small pointer files: run `git lfs install` and `git lfs pull` to download them.
 
-To verify that LFS files downloaded correctly:
-```bash
-git lfs ls-files
+**3. Install the package from the clone:**
+
+```r
+install.packages("pak")   # once
+pak::local_install("path/to/golemworldbank")
 ```
 
+To update it later, run `git pull` and `git lfs pull` in the clone, and install again.
+
+## Usage
+
+```
+library(golemworldbank)
+run_app()
+```
 
 ## Screenshots
 
@@ -154,6 +113,25 @@ git lfs ls-files
 ![Choropleth tab](man/figures/worldbank6.png)
 ![Change (%) tab](man/figures/worldbank7.png)
 ![Index tab](man/figures/worldbank8.png)
+
+## Update data
+
+In order to update the data:
+1. run the financial_indicators.R script
+2. run the generate_package.R script
+
+The data updates almost yearly so there is no need for frequent updates
+
+## Data
+
+The package ships four lazy-loaded datasets, sourced from [World Bank Open Data](https://data.worldbank.org):
+
+- `mfi` — long-format indicator values, one row per country/indicator/year (`Country Code`, `Country Name`, `Indicator Name`, `Year`, `value`), with the names of the countries and indicators stored as codes to keep the file small; `mfi_table()` gives it with the names as text, as the app uses it.
+- `mfi_population` — long-format population counts by five-year age group and sex, used by the Pyramid tab.
+- `country_code` — country/region reference metadata (region, income group, and other World Bank classifications), used to join region info in the Scatterplot tab.
+- `indicator_info` — the World Bank topic and definition of every indicator in `mfi`, shown in the Index tab.
+
+Full column-level documentation is available via `?mfi`, `?mfi_table`, `?mfi_population`, `?country_code`, and `?indicator_info`.
 
 ---
 

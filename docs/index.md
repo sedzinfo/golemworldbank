@@ -1,69 +1,15 @@
 # WDI Worldbank Visualizations
 
 **[Open the live app](https://sedzinfo.shinyapps.io/golemworldbank/)** ·
-[Website](https://sedzinfo.github.io/golemworldbank/)
+[Help pages](https://sedzinfo.github.io/golemworldbank/reference/)
+
+## What it does
 
 A Shiny application, built as a
 [golem](https://thinkr-open.github.io/golem/) package, for exploring
 World Bank development indicators through interactive country
 comparison, indicator comparison, population pyramid, ranked bar chart,
 correlation scatter, and choropleth map views.
-
-## Installation
-
-### Prerequisites
-
-1.  **Install R**: <https://cran.r-project.org/>
-2.  **Install RStudio** (optional but recommended):
-    <https://posit.co/downloads/>
-
-### Package Installation
-
-Open RStudio (or an R console) and run:
-
-[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(`` `` ``"golemworldbank"``,`` `` repos ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"https://sedzinfo.r-universe.dev"``, ``"https://cloud.r-project.org"``)`` ``)`
-
-[R-universe](https://sedzinfo.r-universe.dev/golemworldbank) builds
-golemworldbank from this repository, and CRAN provides the packages it
-needs.
-
-To install from GitHub instead:
-
-`# Install devtools if you haven't already`` `[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"devtools"``)`` ``# Install golemworldbank from GitHub`` ``devtools``::`[`install_github`](https://devtools.r-lib.org/reference/install-deprecated.html)`(``"sedzinfo/golemworldbank"``)`
-
-Or install the source tarball of the [latest
-release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest),
-which is rebuilt from `main` on every change, together with the PDF
-manual:
-
-[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(`` `` ``"https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz"``,`` `` repos ``=`` ``NULL``, type ``=`` ``"source"`` ``)`
-
-## Alternative installation
-
-Clone the repository and install locally:
-
-    git clone https://github.com/sedzinfo/golemworldbank.git
-
-Then in R:
-
-    devtools::install_local("golemworldbank")
-
-The package data are normal files in the repository. Only the raw World
-Bank downloads that `financial_indicators.R` reads (in `data/` and
-`data-raw/`) are stored with Git LFS: you need them, and Git LFS (see
-Git LFS Setup below), only to regenerate the data.
-
-## Usage
-
-    library(golemworldbank)
-    run_app()
-
-## Update data
-
-In order to update the data: 1. run the financial_indicators.R script 2.
-run the generate_package.R script
-
-The data updates almost yearly so there is no need for frequent updates
 
 ## Features
 
@@ -85,6 +31,109 @@ Each feature below is a Shiny module rendered as its own tab in the app:
   in the data
 - ℹ️ **About**: what the app shows, the source and license of the data,
   and the acknowledgments
+
+## Installation
+
+### 1. Install R
+
+Download R from [CRAN](https://cran.r-project.org/), for Windows, macOS
+or Linux, and run the installer.
+
+### 2. Install RStudio or Positron
+
+An editor makes R easier to use. It is optional, and both are free, from
+Posit:
+
+- [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+- [Positron](https://positron.posit.co/download.html), which also runs
+  Python
+
+### 3. Install golemworldbank
+
+Run one of these in RStudio, Positron or the R console. Each one also
+installs the packages golemworldbank needs.
+
+#### From R-universe (recommended)
+
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(`` `` ``"golemworldbank"``,`` `` repos ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"https://sedzinfo.r-universe.dev"``, ``"https://cloud.r-project.org"``)`` ``)`
+
+[R-universe](https://sedzinfo.r-universe.dev/golemworldbank) builds
+golemworldbank from this repository after every change, ready to install
+on Windows, macOS and Linux, and CRAN provides the packages it needs.
+
+#### From GitHub
+
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"pak"``)`` ``# once`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"sedzinfo/golemworldbank"``)`
+
+#### From the release tarball
+
+The [latest
+release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest)
+has the source tarball and the PDF manual, rebuilt from `main` on every
+change:
+
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"pak"``)`` ``# once`` ``pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"url::https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz"``)`
+
+#### From a clone of the repository, with Git LFS
+
+The package data are normal files in the repository. Only the raw World
+Bank downloads that `financial_indicators.R` reads (in `data/` and
+`data-raw/`) are stored with [Git LFS](https://git-lfs.com): you need
+them, and Git LFS, only to regenerate the data (see [Update
+data](#update-data)). Without Git LFS, the clone and the installation
+below still work, and those files stay small pointer files.
+
+**1. Install [Git](https://git-scm.com/downloads) and Git LFS**, once
+per computer. Git for Windows includes Git LFS; on macOS run
+`brew install git-lfs`, on Ubuntu or Debian `sudo apt install git-lfs`,
+or use the installer from [git-lfs.com](https://git-lfs.com). Then turn
+it on:
+
+``` bash
+git lfs install
+```
+
+**2. Clone the repository and download the LFS files:**
+
+``` bash
+git clone https://github.com/sedzinfo/golemworldbank.git
+cd golemworldbank
+git lfs pull
+```
+
+`git lfs ls-files` lists the files in Git LFS. If you cloned before
+installing Git LFS, they are small pointer files: run `git lfs install`
+and `git lfs pull` to download them.
+
+**3. Install the package from the clone:**
+
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"pak"``)`` ``# once`` ``pak``::`[`local_install`](https://pak.r-lib.org/reference/local_install.html)`(``"path/to/golemworldbank"``)`
+
+To update it later, run `git pull` and `git lfs pull` in the clone, and
+install again.
+
+## Usage
+
+    library(golemworldbank)
+    run_app()
+
+## Screenshots
+
+![Country Comparison tab](reference/figures/worldbank1.png)![Indicator
+Comparison tab](reference/figures/worldbank2.png)![Pyramid
+tab](reference/figures/worldbank3.png)![Barplot
+tab](reference/figures/worldbank4.png)![Scatterplot
+tab](reference/figures/worldbank5.png)![Choropleth
+tab](reference/figures/worldbank6.png)![Change (%)
+tab](reference/figures/worldbank7.png)![Index
+tab](reference/figures/worldbank8.png)
+
+## Update data
+
+In order to update the data: 1. run the financial_indicators.R script 2.
+run the generate_package.R script
+
+The data updates almost yearly so there is no need for frequent updates
 
 ## Data
 
@@ -112,77 +161,6 @@ Full column-level documentation is available via
 [`?country_code`](https://sedzinfo.github.io/golemworldbank/reference/country_code.md),
 and
 [`?indicator_info`](https://sedzinfo.github.io/golemworldbank/reference/indicator_info.md).
-
-------------------------------------------------------------------------
-
-## Git LFS Setup
-
-The raw World Bank downloads (the large files in `data/` and `data-raw/`
-that `financial_indicators.R` reads) are stored using [Git
-LFS](https://git-lfs.com). You need them only to regenerate the data.
-Follow the steps below to clone the repository and retrieve them.
-
-### 1. Install Git LFS (one-time setup)
-
-**Ubuntu/Debian:**
-
-``` bash
-sudo apt install git-lfs
-git lfs install
-```
-
-**Mac:**
-
-``` bash
-brew install git-lfs
-git lfs install
-```
-
-**Windows:**
-
-Download and run the installer from <https://git-lfs.com>, then:
-
-``` bash
-git lfs install
-```
-
-### 2. Clone the repository
-
-``` bash
-git clone https://github.com/sedzinfo/golemworldbank.git
-cd golemworldbank
-```
-
-### 3. Pull the LFS files
-
-``` bash
-git lfs pull
-```
-
-> **Note:** If you cloned the repository *before* installing Git LFS and
-> large files appear as small pointer files, run:
->
-> ``` bash
-> git lfs install
-> git lfs pull
-> ```
-
-To verify that LFS files downloaded correctly:
-
-``` bash
-git lfs ls-files
-```
-
-## Screenshots
-
-![Country Comparison tab](reference/figures/worldbank1.png)![Indicator
-Comparison tab](reference/figures/worldbank2.png)![Pyramid
-tab](reference/figures/worldbank3.png)![Barplot
-tab](reference/figures/worldbank4.png)![Scatterplot
-tab](reference/figures/worldbank5.png)![Choropleth
-tab](reference/figures/worldbank6.png)![Change (%)
-tab](reference/figures/worldbank7.png)![Index
-tab](reference/figures/worldbank8.png)
 
 ------------------------------------------------------------------------
 

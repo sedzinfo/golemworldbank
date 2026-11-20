@@ -59,67 +59,11 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="wdi-worldbank-visualizations">WDI Worldbank Visualizations<a class="anchor" aria-label="anchor" href="#wdi-worldbank-visualizations"></a>
 </h1></div>
-<p><strong><a href="https://sedzinfo.shinyapps.io/golemworldbank/" class="external-link">Open the live app</a></strong> · <a href="https://sedzinfo.github.io/golemworldbank/">Website</a></p>
+<p><strong><a href="https://sedzinfo.shinyapps.io/golemworldbank/" class="external-link">Open the live app</a></strong> · <a href="https://sedzinfo.github.io/golemworldbank/reference/">Help pages</a></p>
+<div class="section level2">
+<h2 id="what-it-does">What it does<a class="anchor" aria-label="anchor" href="#what-it-does"></a>
+</h2>
 <p>A Shiny application, built as a <a href="https://thinkr-open.github.io/golem/" class="external-link">golem</a> package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views.</p>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<div class="section level3">
-<h3 id="prerequisites">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
-</h3>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Install R</strong>: <a href="https://cran.r-project.org/" class="external-link uri">https://cran.r-project.org/</a>
-</li>
-<li>
-<strong>Install RStudio</strong> (optional but recommended): <a href="https://posit.co/downloads/" class="external-link uri">https://posit.co/downloads/</a>
-</li>
-</ol>
-</div>
-<div class="section level3">
-<h3 id="package-installation">Package Installation<a class="anchor" aria-label="anchor" href="#package-installation"></a>
-</h3>
-<p>Open RStudio (or an R console) and run:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
-<span>  <span class="st">"golemworldbank"</span>,</span>
-<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://sedzinfo.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p><a href="https://sedzinfo.r-universe.dev/golemworldbank" class="external-link">R-universe</a> builds golemworldbank from this repository, and CRAN provides the packages it needs.</p>
-<p>To install from GitHub instead:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install devtools if you haven't already</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
-<span><span class="co"># Install golemworldbank from GitHub</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/install-deprecated.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"sedzinfo/golemworldbank"</span><span class="op">)</span></span></code></pre></div>
-<p>Or install the source tarball of the <a href="https://github.com/sedzinfo/golemworldbank/releases/tag/latest" class="external-link">latest release</a>, which is rebuilt from <code>main</code> on every change, together with the PDF manual:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
-<span>  <span class="st">"https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz"</span>,</span>
-<span>  repos <span class="op">=</span> <span class="cn">NULL</span>, type <span class="op">=</span> <span class="st">"source"</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="alternative-installation">Alternative installation<a class="anchor" aria-label="anchor" href="#alternative-installation"></a>
-</h2>
-<p>Clone the repository and install locally:</p>
-<pre><code>git clone https://github.com/sedzinfo/golemworldbank.git</code></pre>
-<p>Then in R:</p>
-<pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/install-deprecated.html" class="external-link">install_local</a></span><span class="op">(</span><span class="st">"golemworldbank"</span><span class="op">)</span></span></code></pre>
-<p>The package data are normal files in the repository. Only the raw World Bank downloads that <code>financial_indicators.R</code> reads (in <code>data/</code> and <code>data-raw/</code>) are stored with Git LFS: you need them, and Git LFS (see Git LFS Setup below), only to regenerate the data.</p>
-</div>
-<div class="section level2">
-<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h2>
-<pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sedzinfo.github.io/golemworldbank/">golemworldbank</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/run_app.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="section level2">
-<h2 id="update-data">Update data<a class="anchor" aria-label="anchor" href="#update-data"></a>
-</h2>
-<p>In order to update the data: 1. run the financial_indicators.R script 2. run the generate_package.R script</p>
-<p>The data updates almost yearly so there is no need for frequent updates</p>
 </div>
 <div class="section level2">
 <h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
@@ -137,6 +81,89 @@
 </ul>
 </div>
 <div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="section level3">
+<h3 id="id_1-install-r">1. Install R<a class="anchor" aria-label="anchor" href="#id_1-install-r"></a>
+</h3>
+<p>Download R from <a href="https://cran.r-project.org/" class="external-link">CRAN</a>, for Windows, macOS or Linux, and run the installer.</p>
+</div>
+<div class="section level3">
+<h3 id="id_2-install-rstudio-or-positron">2. Install RStudio or Positron<a class="anchor" aria-label="anchor" href="#id_2-install-rstudio-or-positron"></a>
+</h3>
+<p>An editor makes R easier to use. It is optional, and both are free, from Posit:</p>
+<ul>
+<li><a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio Desktop</a></li>
+<li>
+<a href="https://positron.posit.co/download.html" class="external-link">Positron</a>, which also runs Python</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="id_3-install-golemworldbank">3. Install golemworldbank<a class="anchor" aria-label="anchor" href="#id_3-install-golemworldbank"></a>
+</h3>
+<p>Run one of these in RStudio, Positron or the R console. Each one also installs the packages golemworldbank needs.</p>
+<div class="section level4">
+<h4 id="from-r-universe-recommended">From R-universe (recommended)<a class="anchor" aria-label="anchor" href="#from-r-universe-recommended"></a>
+</h4>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
+<span>  <span class="st">"golemworldbank"</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://sedzinfo.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p><a href="https://sedzinfo.r-universe.dev/golemworldbank" class="external-link">R-universe</a> builds golemworldbank from this repository after every change, ready to install on Windows, macOS and Linux, and CRAN provides the packages it needs.</p>
+</div>
+<div class="section level4">
+<h4 id="from-github">From GitHub<a class="anchor" aria-label="anchor" href="#from-github"></a>
+</h4>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span>   <span class="co"># once</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"sedzinfo/golemworldbank"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="from-the-release-tarball">From the release tarball<a class="anchor" aria-label="anchor" href="#from-the-release-tarball"></a>
+</h4>
+<p>The <a href="https://github.com/sedzinfo/golemworldbank/releases/tag/latest" class="external-link">latest release</a> has the source tarball and the PDF manual, rebuilt from <code>main</code> on every change:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span>   <span class="co"># once</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"url::https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="from-a-clone-of-the-repository-with-git-lfs">From a clone of the repository, with Git LFS<a class="anchor" aria-label="anchor" href="#from-a-clone-of-the-repository-with-git-lfs"></a>
+</h4>
+<p>The package data are normal files in the repository. Only the raw World Bank downloads that <code>financial_indicators.R</code> reads (in <code>data/</code> and <code>data-raw/</code>) are stored with <a href="https://git-lfs.com" class="external-link">Git LFS</a>: you need them, and Git LFS, only to regenerate the data (see <a href="#update-data">Update data</a>). Without Git LFS, the clone and the installation below still work, and those files stay small pointer files.</p>
+<p><strong>1. Install <a href="https://git-scm.com/downloads" class="external-link">Git</a> and Git LFS</strong>, once per computer. Git for Windows includes Git LFS; on macOS run <code>brew install git-lfs</code>, on Ubuntu or Debian <code>sudo apt install git-lfs</code>, or use the installer from <a href="https://git-lfs.com" class="external-link">git-lfs.com</a>. Then turn it on:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">git</span> lfs install</span></code></pre></div>
+<p><strong>2. Clone the repository and download the LFS files:</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sedzinfo/golemworldbank.git</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="bu">cd</span> golemworldbank</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">git</span> lfs pull</span></code></pre></div>
+<p><code>git lfs ls-files</code> lists the files in Git LFS. If you cloned before installing Git LFS, they are small pointer files: run <code>git lfs install</code> and <code>git lfs pull</code> to download them.</p>
+<p><strong>3. Install the package from the clone:</strong></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span>   <span class="co"># once</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/local_install.html" class="external-link">local_install</a></span><span class="op">(</span><span class="st">"path/to/golemworldbank"</span><span class="op">)</span></span></code></pre></div>
+<p>To update it later, run <code>git pull</code> and <code>git lfs pull</code> in the clone, and install again.</p>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
+<pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://sedzinfo.github.io/golemworldbank/">golemworldbank</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/run_app.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="screenshots">Screenshots<a class="anchor" aria-label="anchor" href="#screenshots"></a>
+</h2>
+<p><img src="reference/figures/worldbank1.png" alt="Country Comparison tab"><img src="reference/figures/worldbank2.png" alt="Indicator Comparison tab"><img src="reference/figures/worldbank3.png" alt="Pyramid tab"><img src="reference/figures/worldbank4.png" alt="Barplot tab"><img src="reference/figures/worldbank5.png" alt="Scatterplot tab"><img src="reference/figures/worldbank6.png" alt="Choropleth tab"><img src="reference/figures/worldbank7.png" alt="Change (%) tab"><img src="reference/figures/worldbank8.png" alt="Index tab"></p>
+</div>
+<div class="section level2">
+<h2 id="update-data">Update data<a class="anchor" aria-label="anchor" href="#update-data"></a>
+</h2>
+<p>In order to update the data: 1. run the financial_indicators.R script 2. run the generate_package.R script</p>
+<p>The data updates almost yearly so there is no need for frequent updates</p>
+</div>
+<div class="section level2">
 <h2 id="data">Data<a class="anchor" aria-label="anchor" href="#data"></a>
 </h2>
 <p>The package ships four lazy-loaded datasets, sourced from <a href="https://data.worldbank.org" class="external-link">World Bank Open Data</a>:</p>
@@ -151,48 +178,6 @@
 <code>indicator_info</code> — the World Bank topic and definition of every indicator in <code>mfi</code>, shown in the Index tab.</li>
 </ul>
 <p>Full column-level documentation is available via <code><a href="reference/mfi.html">?mfi</a></code>, <code><a href="reference/mfi_table.html">?mfi_table</a></code>, <code><a href="reference/mfi_population.html">?mfi_population</a></code>, <code><a href="reference/country_code.html">?country_code</a></code>, and <code><a href="reference/indicator_info.html">?indicator_info</a></code>.</p>
-<hr>
-</div>
-<div class="section level2">
-<h2 id="git-lfs-setup">Git LFS Setup<a class="anchor" aria-label="anchor" href="#git-lfs-setup"></a>
-</h2>
-<p>The raw World Bank downloads (the large files in <code>data/</code> and <code>data-raw/</code> that <code>financial_indicators.R</code> reads) are stored using <a href="https://git-lfs.com" class="external-link">Git LFS</a>. You need them only to regenerate the data. Follow the steps below to clone the repository and retrieve them.</p>
-<div class="section level3">
-<h3 id="id_1-install-git-lfs-one-time-setup">1. Install Git LFS (one-time setup)<a class="anchor" aria-label="anchor" href="#id_1-install-git-lfs-one-time-setup"></a>
-</h3>
-<p><strong>Ubuntu/Debian:</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">sudo</span> apt install git-lfs</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">git</span> lfs install</span></code></pre></div>
-<p><strong>Mac:</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">brew</span> install git-lfs</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">git</span> lfs install</span></code></pre></div>
-<p><strong>Windows:</strong></p>
-<p>Download and run the installer from <a href="https://git-lfs.com" class="external-link uri">https://git-lfs.com</a>, then:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">git</span> lfs install</span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="id_2-clone-the-repository">2. Clone the repository<a class="anchor" aria-label="anchor" href="#id_2-clone-the-repository"></a>
-</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/sedzinfo/golemworldbank.git</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="bu">cd</span> golemworldbank</span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="id_3-pull-the-lfs-files">3. Pull the LFS files<a class="anchor" aria-label="anchor" href="#id_3-pull-the-lfs-files"></a>
-</h3>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">git</span> lfs pull</span></code></pre></div>
-<blockquote>
-<p><strong>Note:</strong> If you cloned the repository <em>before</em> installing Git LFS and large files appear as small pointer files, run:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">git</span> lfs install</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">git</span> lfs pull</span></code></pre></div>
-</blockquote>
-<p>To verify that LFS files downloaded correctly:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">git</span> lfs ls-files</span></code></pre></div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="screenshots">Screenshots<a class="anchor" aria-label="anchor" href="#screenshots"></a>
-</h2>
-<p><img src="reference/figures/worldbank1.png" alt="Country Comparison tab"><img src="reference/figures/worldbank2.png" alt="Indicator Comparison tab"><img src="reference/figures/worldbank3.png" alt="Pyramid tab"><img src="reference/figures/worldbank4.png" alt="Barplot tab"><img src="reference/figures/worldbank5.png" alt="Scatterplot tab"><img src="reference/figures/worldbank6.png" alt="Choropleth tab"><img src="reference/figures/worldbank7.png" alt="Change (%) tab"><img src="reference/figures/worldbank8.png" alt="Index tab"></p>
 <hr>
 <p><a href="https://sedzinfo.r-universe.dev/golemworldbank" class="external-link"><img src="https://sedzinfo.r-universe.dev/golemworldbank/badges/version" alt="R-universe"></a> <img src="https://img.shields.io/github/stars/sedzinfo/golemworldbank" alt="Stars"><img src="https://img.shields.io/github/watchers/sedzinfo/golemworldbank" alt="Watchers"><img src="https://img.shields.io/github/repo-size/sedzinfo/golemworldbank" alt="Repo Size"><img src="https://img.shields.io/github/issues/sedzinfo/golemworldbank" alt="Open Issues"><img src="https://img.shields.io/github/forks/sedzinfo/golemworldbank" alt="Forks"><img src="https://img.shields.io/github/last-commit/sedzinfo/golemworldbank" alt="Last Commit"><img src="https://img.shields.io/github/contributors/sedzinfo/golemworldbank" alt="Contributors"><img src="https://img.shields.io/github/license/sedzinfo/golemworldbank" alt="License"><img src="https://img.shields.io/github/actions/workflow/status/sedzinfo/golemworldbank/build-tarball.yml" alt="Workflow Status"><img src="https://github.com/sedzinfo/golemworldbank/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></p>
 </div>
