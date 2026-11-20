@@ -1,11 +1,11 @@
-pandoc: '3.10'
+pandoc: 3.10.1
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   animated: animated.html
   golemworldbank: golemworldbank.html
   tables: tables.html
-last_built: 2026-11-19T14:06Z
+last_built: 2026-11-20T09:18Z
 urls:
   reference: https://sedzinfo.github.io/golemworldbank/reference
   article: https://sedzinfo.github.io/golemworldbank/articles

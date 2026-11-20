@@ -9,36 +9,36 @@ World Bank development indicators through interactive country
 comparison, indicator comparison, population pyramid, ranked bar chart,
 correlation scatter, and choropleth map views.
 
-# Installation Instructions
+## Installation
 
-## install R
+### Prerequisites
 
-installation instructions can be found here:
-<https://cran.r-project.org/>\
-\## install RStudio IDE (optional but a good idea)\
-installation instructions can be found here:
-<https://posit.co/downloads/>
+1.  **Install R**: <https://cran.r-project.org/>
+2.  **Install RStudio** (optional but recommended):
+    <https://posit.co/downloads/>
 
-open RStudio and type in the console:
+### Package Installation
 
-    install.packages("devtools")
-    library(devtools)
-    install_github("sedzinfo/golemworldbank")
+Open RStudio (or an R console) and run:
 
-The source tarball of the [latest
-release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest)
-installs as well. It is rebuilt from `main` on every change, together
-with the PDF manual:
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(`` `` ``"golemworldbank"``,`` `` repos ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"https://sedzinfo.r-universe.dev"``, ``"https://cloud.r-project.org"``)`` ``)`
 
-``` r
+[R-universe](https://sedzinfo.r-universe.dev/golemworldbank) builds
+golemworldbank from this repository, and CRAN provides the packages it
+needs.
 
-install.packages(
-  "https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz",
-  repos = NULL, type = "source"
-)
-```
+To install from GitHub instead:
 
-# Alternative installation
+`# Install devtools if you haven't already`` `[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"devtools"``)`` ``# Install golemworldbank from GitHub`` ``devtools``::`[`install_github`](https://devtools.r-lib.org/reference/install-deprecated.html)`(``"sedzinfo/golemworldbank"``)`
+
+Or install the source tarball of the [latest
+release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest),
+which is rebuilt from `main` on every change, together with the PDF
+manual:
+
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(`` `` ``"https://github.com/sedzinfo/golemworldbank/releases/download/latest/golemworldbank_0.0.1.tar.gz"``,`` `` repos ``=`` ``NULL``, type ``=`` ``"source"`` ``)`
+
+## Alternative installation
 
 Clone the repository and install locally:
 
@@ -53,12 +53,12 @@ Bank downloads that `financial_indicators.R` reads (in `data/` and
 `data-raw/`) are stored with Git LFS: you need them, and Git LFS (see
 Git LFS Setup below), only to regenerate the data.
 
-# Usage
+## Usage
 
     library(golemworldbank)
     run_app()
 
-# Update data
+## Update data
 
 In order to update the data: 1. run the financial_indicators.R script 2.
 run the generate_package.R script
@@ -173,7 +173,7 @@ To verify that LFS files downloaded correctly:
 git lfs ls-files
 ```
 
-# Screenshots
+## Screenshots
 
 ![Country Comparison tab](reference/figures/worldbank1.png)![Indicator
 Comparison tab](reference/figures/worldbank2.png)![Pyramid
@@ -186,6 +186,7 @@ tab](reference/figures/worldbank8.png)
 
 ------------------------------------------------------------------------
 
+[![R-universe](https://sedzinfo.r-universe.dev/golemworldbank/badges/version)](https://sedzinfo.r-universe.dev/golemworldbank)
 ![Stars](https://img.shields.io/github/stars/sedzinfo/golemworldbank)![Watchers](https://img.shields.io/github/watchers/sedzinfo/golemworldbank)![Repo
 Size](https://img.shields.io/github/repo-size/sedzinfo/golemworldbank)![Open
 Issues](https://img.shields.io/github/issues/sedzinfo/golemworldbank)![Forks](https://img.shields.io/github/forks/sedzinfo/golemworldbank)![Last

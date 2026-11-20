@@ -18,24 +18,14 @@ shows the tables of the Change (%) and Index tabs.
 
 ## Install and load the package
 
-``` r
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"golemworldbank"``,`` `` repos ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"https://sedzinfo.r-universe.dev"``, ``"https://cloud.r-project.org"``)``)`
 
-install.packages("golemworldbank",
-  repos = c("https://sedzinfo.r-universe.dev", "https://cloud.r-project.org"))
-```
-
-``` r
-
-library(golemworldbank)
-```
+[`library`](https://rdrr.io/r/base/library.html)`(`[`golemworldbank`](https://sedzinfo.github.io/golemworldbank/)`)`
 
 [`run_app()`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)
 starts the app itself on your computer:
 
-``` r
-
-run_app()
-```
+[`run_app`](https://sedzinfo.github.io/golemworldbank/reference/run_app.md)`(``)`
 
 ## The data
 
@@ -48,19 +38,7 @@ Missing values are not in it, and neither are regions and income groups
 such as “World”. For example, the last years of the population of
 Greece:
 
-``` r
-
-greece <- subset(mfi_table(), `Country Name` == "Greece" &
-                   `Indicator Name` == "Population, total")
-tail(greece)
-#>         Country Code Country Name    Indicator Name Year    value
-#> 6675414          GRC       Greece Population, total 2020 10698599
-#> 6856141          GRC       Greece Population, total 2021 10570130
-#> 7028682          GRC       Greece Population, total 2022 10437805
-#> 7192041          GRC       Greece Population, total 2023 10407351
-#> 7340692          GRC       Greece Population, total 2024 10405134
-#> 7454480          GRC       Greece Population, total 2025 10413962
-```
+`greece`` ``<-`` `[`subset`](https://rdrr.io/r/base/subset.html)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``, ``` `Country Name` ``` ``==`` ``"Greece"`` ``&`` `` ``` `Indicator Name` ``` ``==`` ``"Population, total"``)`` `[`tail`](https://rdrr.io/r/utils/head.html)`(``greece``)`` ``#> Country Code Country Name Indicator Name Year value`` ``#> 6675414 GRC Greece Population, total 2020 10698599`` ``#> 6856141 GRC Greece Population, total 2021 10570130`` ``#> 7028682 GRC Greece Population, total 2022 10437805`` ``#> 7192041 GRC Greece Population, total 2023 10407351`` ``#> 7340692 GRC Greece Population, total 2024 10405134`` ``#> 7454480 GRC Greece Population, total 2025 10413962`
 
 The package stores this table as the dataset `mfi`, with the names of
 the countries and indicators as codes, which keeps its file small.
@@ -84,39 +62,11 @@ Three more datasets come with the package:
 The functions take the names of the countries and indicators as they are
 in the data. To list them:
 
-``` r
-
-countries <- sort(unique(mfi_table()$`Country Name`))
-writeLines(head(countries))
-#> Afghanistan
-#> Albania
-#> Algeria
-#> American Samoa
-#> Andorra
-#> Angola
-indicators <- unique(mfi_table()$`Indicator Name`)
-writeLines(grep("^GDP per capita", indicators, value = TRUE))
-#> GDP per capita (constant 2015 US$)
-#> GDP per capita (constant LCU)
-#> GDP per capita (current LCU)
-#> GDP per capita (current US$)
-#> GDP per capita growth (annual %)
-#> GDP per capita, PPP (constant 2021 international $)
-#> GDP per capita, PPP (current international $)
-```
+`countries`` ``<-`` `[`sort`](https://rdrr.io/r/base/sort.html)`(`[`unique`](https://rdrr.io/r/base/unique.html)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``$``` `Country Name` ```)``)`` `[`writeLines`](https://rdrr.io/r/base/writeLines.html)`(`[`head`](https://rdrr.io/r/utils/head.html)`(``countries``)``)`` ``#> Afghanistan`` ``#> Albania`` ``#> Algeria`` ``#> American Samoa`` ``#> Andorra`` ``#> Angola`` ``indicators`` ``<-`` `[`unique`](https://rdrr.io/r/base/unique.html)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``$``` `Indicator Name` ```)`` `[`writeLines`](https://rdrr.io/r/base/writeLines.html)`(`[`grep`](https://rdrr.io/r/base/grep.html)`(``"^GDP per capita"``, ``indicators``, value ``=`` ``TRUE``)``)`` ``#> GDP per capita (constant 2015 US$)`` ``#> GDP per capita (constant LCU)`` ``#> GDP per capita (current LCU)`` ``#> GDP per capita (current US$)`` ``#> GDP per capita growth (annual %)`` ``#> GDP per capita, PPP (constant 2021 international $)`` ``#> GDP per capita, PPP (current international $)`
 
 `indicator_info` gives the topic and definition of an indicator:
 
-``` r
-
-info <- indicator_info[indicator_info$`Indicator Name` == "Population, total", ]
-info$Topic
-#> [1] "Health: Population: Structure"
-writeLines(strwrap(info$Definition, 70))
-#> Total population is based on the de facto definition of population,
-#> which counts all residents regardless of legal status or citizenship.
-#> The values shown are midyear estimates.
-```
+`info`` ``<-`` ``indicator_info``[``indicator_info``$``` `Indicator Name` ``` ``==`` ``"Population, total"``, ``]`` ``info``$``Topic`` ``#> [1] "Health: Population: Structure"`` `[`writeLines`](https://rdrr.io/r/base/writeLines.html)`(`[`strwrap`](https://rdrr.io/r/base/strwrap.html)`(``info``$``Definition``, ``70``)``)`` ``#> Total population is based on the de facto definition of population,`` ``#> which counts all residents regardless of legal status or citizenship.`` ``#> The values shown are midyear estimates.`
 
 [Changes and the indicator
 index](https://sedzinfo.github.io/golemworldbank/articles/tables.md)
@@ -129,15 +79,7 @@ draws one indicator over the years, with a line per country, as the
 Country Comparison tab does. Hover over a point for its country,
 indicator, year and value:
 
-``` r
-
-plot_country_comp(
-  mfi_table(),
-  countries = c("Greece", "Bulgaria"),
-  indicator = "Population, total",
-  font_style = font_style
-)
-```
+[`plot_country_comp`](https://sedzinfo.github.io/golemworldbank/reference/plot_country_comp.md)`(`` `` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` countries ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"Greece"``, ``"Bulgaria"``)``,`` `` indicator ``=`` ``"Population, total"``,`` `` font_style ``=`` ``font_style`` ``)`
 
 A click on a country in the legend hides or shows its line.
 
@@ -149,15 +91,7 @@ the Indicator Comparison tab does. The indicators share one y axis, so
 they compare well only when they have the same unit and a similar scale,
 such as the female and the male population:
 
-``` r
-
-plot_indicator_comp(
-  mfi_table(),
-  country = "Greece",
-  indicators = c("Population, female", "Population, male"),
-  font_style = font_style
-)
-```
+[`plot_indicator_comp`](https://sedzinfo.github.io/golemworldbank/reference/plot_indicator_comp.md)`(`` `` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` country ``=`` ``"Greece"``,`` `` indicators ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"Population, female"``, ``"Population, male"``)``,`` `` font_style ``=`` ``font_style`` ``)`
 
 ## The font
 
@@ -166,15 +100,7 @@ Every chart takes a `font_style`: the font of its text, which goes to
 is the font of the app: 20 px, bold and dark gray. For another font,
 pass a list of your own, such as a smaller size:
 
-``` r
-
-plot_country_comp(
-  mfi_table(),
-  countries = c("Greece", "Bulgaria", "Romania"),
-  indicator = "GDP per capita (current US$)",
-  font_style = list(size = 12)
-)
-```
+[`plot_country_comp`](https://sedzinfo.github.io/golemworldbank/reference/plot_country_comp.md)`(`` `` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` countries ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"Greece"``, ``"Bulgaria"``, ``"Romania"``)``,`` `` indicator ``=`` ``"GDP per capita (current US$)"``,`` `` font_style ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``size ``=`` ``12``)`` ``)`
 
 ## Save or change a chart
 
@@ -182,29 +108,12 @@ The charts are plotly objects, so the functions of the plotly and
 htmlwidgets packages work on them. To save a chart as a web page that
 opens in any browser:
 
-``` r
-
-chart <- plot_country_comp(
-  mfi_table(),
-  countries = c("Greece", "Bulgaria"),
-  indicator = "Population, total",
-  font_style = font_style
-)
-htmlwidgets::saveWidget(chart, "population.html")
-```
+`chart`` ``<-`` `[`plot_country_comp`](https://sedzinfo.github.io/golemworldbank/reference/plot_country_comp.md)`(`` `` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` countries ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"Greece"``, ``"Bulgaria"``)``,`` `` indicator ``=`` ``"Population, total"``,`` `` font_style ``=`` ``font_style`` ``)`` ``htmlwidgets``::`[`saveWidget`](https://rdrr.io/pkg/htmlwidgets/man/saveWidget.html)`(``chart``, ``"population.html"``)`
 
 To change the layout, for example the title:
 
-``` r
-
-plotly::layout(chart, title = "Population of Greece and Bulgaria")
-```
+`plotly``::``layout``(``chart``, title ``=`` ``"Population of Greece and Bulgaria"``)`
 
 The package exports the pipe `%>%`, so the changes can also be chained:
 
-``` r
-
-chart %>%
-  plotly::layout(title = "Population of Greece and Bulgaria") %>%
-  htmlwidgets::saveWidget("population.html")
-```
+`chart`` `[`%>%`](https://sedzinfo.github.io/golemworldbank/reference/pipe.md)` `` ``plotly``::``layout``(``title ``=`` ``"Population of Greece and Bulgaria"``)`` `[`%>%`](https://sedzinfo.github.io/golemworldbank/reference/pipe.md)` `` ``htmlwidgets``::`[`saveWidget`](https://rdrr.io/pkg/htmlwidgets/man/saveWidget.html)`(``"population.html"``)`

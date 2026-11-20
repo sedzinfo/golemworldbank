@@ -12,10 +12,7 @@ shows its tables and
 shows the index. The tables are [DT](https://rstudio.github.io/DT/)
 tables, which can be searched and sorted.
 
-``` r
-
-library(golemworldbank)
-```
+[`library`](https://rdrr.io/r/base/library.html)`(`[`golemworldbank`](https://sedzinfo.github.io/golemworldbank/)`)`
 
 ## What changed between two years
 
@@ -24,14 +21,7 @@ compares every indicator that a country has a value for in both years.
 The percent change is `(value2 - value1) / |value1| * 100`, the change
 relative to the value of the first year:
 
-``` r
-
-res <- indicator_change(mfi_table(), country = "Greece", year1 = 2000, year2 = 2020)
-nrow(res$increased)
-#> [1] 388
-nrow(res$decreased)
-#> [1] 368
-```
+`res`` ``<-`` `[`indicator_change`](https://sedzinfo.github.io/golemworldbank/reference/indicator_change.md)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``, country ``=`` ``"Greece"``, year1 ``=`` ``2000``, year2 ``=`` ``2020``)`` `[`nrow`](https://rdrr.io/r/base/nrow.html)`(``res``$``increased``)`` ``#> [1] 388`` `[`nrow`](https://rdrr.io/r/base/nrow.html)`(``res``$``decreased``)`` ``#> [1] 368`
 
 `res$increased` and `res$decreased` have a row per indicator, with its
 values in the two years, the change and the percent change, the largest
@@ -54,21 +44,7 @@ little:
 - The indicators whose value was 0 in the first year, where the percent
   change is not defined. `res$zero_base` lists them.
 
-``` r
-
-writeLines(res$sign_change)
-#> Discrepancy in expenditure estimate of GDP (current LCU)
-#> Foreign direct investment, net (BoP, current US$)
-#> Foreign direct investment, net inflows (% of GDP)
-#> Foreign direct investment, net inflows (BoP, current US$)
-#> Net errors and omissions (BoP, current US$)
-#> Portfolio equity, net inflows (BoP, current US$)
-#> Portfolio investment, net (BoP, current US$)
-writeLines(res$zero_base)
-#> Cause of death, by other COVID-19 pandemic-related outcomes (% of total)
-#> Discrepancy in expenditure estimate of GDP (constant LCU)
-#> Electricity production from nuclear sources (% of total)
-```
+[`writeLines`](https://rdrr.io/r/base/writeLines.html)`(``res``$``sign_change``)`` ``#> Discrepancy in expenditure estimate of GDP (current LCU)`` ``#> Foreign direct investment, net (BoP, current US$)`` ``#> Foreign direct investment, net inflows (% of GDP)`` ``#> Foreign direct investment, net inflows (BoP, current US$)`` ``#> Net errors and omissions (BoP, current US$)`` ``#> Portfolio equity, net inflows (BoP, current US$)`` ``#> Portfolio investment, net (BoP, current US$)`` `[`writeLines`](https://rdrr.io/r/base/writeLines.html)`(``res``$``zero_base``)`` ``#> Cause of death, by other COVID-19 pandemic-related outcomes (% of total)`` ``#> Discrepancy in expenditure estimate of GDP (constant LCU)`` ``#> Electricity production from nuclear sources (% of total)`
 
 For an indicator that is itself a percentage, such as “Urban population
 (% of total population)”, the percent change is relative to the old
@@ -84,15 +60,9 @@ numbers. The percent change is in bold, green for an increase and red
 for a decrease. The tables are long, so here they show only their first
 10 rows, the largest changes:
 
-``` r
+[`render_change_table`](https://sedzinfo.github.io/golemworldbank/reference/render_change_table.md)`(`[`head`](https://rdrr.io/r/utils/head.html)`(``res``$``increased``, ``10``)``)`
 
-render_change_table(head(res$increased, 10))
-```
-
-``` r
-
-render_change_table(head(res$decreased, 10))
-```
+[`render_change_table`](https://sedzinfo.github.io/golemworldbank/reference/render_change_table.md)`(`[`head`](https://rdrr.io/r/utils/head.html)`(``res``$``decreased``, ``10``)``)`
 
 `render_change_table(res$increased)` shows the whole table on one long
 page, as the app does.
@@ -106,26 +76,16 @@ appear there, with their World Bank topic and definition from
 [`mfi_table()`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md),
 which lists all 1,497 indicators on one long page:
 
-``` r
-
-render_index_table(mfi_table(), indicator_info)
-```
+[`render_index_table`](https://sedzinfo.github.io/golemworldbank/reference/render_index_table.md)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``, ``indicator_info``)`
 
 Here it gets only the rows of the indicators whose names start with “GDP
 per capita”:
 
-``` r
-
-per_capita <- subset(mfi_table(), startsWith(`Indicator Name`, "GDP per capita"))
-render_index_table(per_capita, indicator_info)
-```
+`per_capita`` ``<-`` `[`subset`](https://rdrr.io/r/base/subset.html)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``, `[`startsWith`](https://rdrr.io/r/base/startsWith.html)`(``` `Indicator Name` ```, ``"GDP per capita"``)``)`` `[`render_index_table`](https://sedzinfo.github.io/golemworldbank/reference/render_index_table.md)`(``per_capita``, ``indicator_info``)`
 
 ## Save a table
 
 [`htmlwidgets::saveWidget()`](https://rdrr.io/pkg/htmlwidgets/man/saveWidget.html)
 saves any of the tables as a web page:
 
-``` r
-
-htmlwidgets::saveWidget(render_change_table(res$increased), "increased.html")
-```
+`htmlwidgets``::`[`saveWidget`](https://rdrr.io/pkg/htmlwidgets/man/saveWidget.html)`(`[`render_change_table`](https://sedzinfo.github.io/golemworldbank/reference/render_change_table.md)`(``res``$``increased``)``, ``"increased.html"``)`

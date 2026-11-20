@@ -16,10 +16,7 @@ The app draws its charts across the whole window with `font_style`, a 20
 px font. This page is narrower, so its charts are drawn with a 12 px
 font, `font_style = list(size = 12)`.
 
-``` r
-
-library(golemworldbank)
-```
+[`library`](https://rdrr.io/r/base/library.html)`(`[`golemworldbank`](https://sedzinfo.github.io/golemworldbank/)`)`
 
 ## Play the years
 
@@ -35,10 +32,7 @@ draws, for one country, the share of each five-year age group in the
 male population, to the left, and in the female population, to the
 right. Its data is `mfi_population`:
 
-``` r
-
-plot_pyramid(mfi_population, country = "Greece", font_style = list(size = 12))
-```
+[`plot_pyramid`](https://sedzinfo.github.io/golemworldbank/reference/plot_pyramid.md)`(``mfi_population``, country ``=`` ``"Greece"``, font_style ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``size ``=`` ``12``)``)`
 
 The male bars are drawn with negative values, so that the two sexes
 stand back to back, but the labels on the bars and the axis show them
@@ -55,16 +49,7 @@ value, to 3 significant digits, and the year is printed large and gray
 in the bottom right corner. The bar of `country` is red, so you can
 follow it through the race:
 
-``` r
-
-plot_bar(
-  mfi_table(),
-  indicator = "GDP (current US$)",
-  font_style = list(size = 12),
-  country = "Greece",
-  top_n = 50
-)
-```
+[`plot_bar`](https://sedzinfo.github.io/golemworldbank/reference/plot_bar.md)`(`` `` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` indicator ``=`` ``"GDP (current US$)"``,`` `` font_style ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``size ``=`` ``12``)``,`` `` country ``=`` ``"Greece"``,`` `` top_n ``=`` ``50`` ``)`
 
 A country’s missing years between two years with a value are filled by
 linear interpolation, so that it does not drop out of the race for a
@@ -78,11 +63,7 @@ The values on the bars come from
 which you can use for labels of your own. It abbreviates numbers to 3
 significant digits with k, M, B and T:
 
-``` r
-
-format_value(c(0.0752, 950, 1520, 6020000, -5720000000, 29200000000000))
-#> [1] "0.0752" "950"    "1.52k"  "6.02M"  "-5.72B" "29.2T"
-```
+[`format_value`](https://sedzinfo.github.io/golemworldbank/reference/format_value.md)`(`[`c`](https://rdrr.io/r/base/c.html)`(``0.0752``, ``950``, ``1520``, ``6020000``, ``-``5720000000``, ``29200000000000``)``)`` ``#> [1] "0.0752" "950" "1.52k" "6.02M" "-5.72B" "29.2T"`
 
 ## Bubble chart
 
@@ -99,17 +80,7 @@ it above the chart. In a wide window,
 [`plot_cor()`](https://sedzinfo.github.io/golemworldbank/reference/plot_cor.md)
 alone is enough.
 
-``` r
-
-plot_cor(
-  mfi_table(),
-  country_code,
-  indicator1 = "Mortality rate, adult, male (per 1,000 male adults)",
-  indicator2 = "Mortality rate, infant (per 1,000 live births)",
-  font_style = list(size = 12)
-) %>%
-  plotly::layout(legend = list(orientation = "h", y = 1.02, yanchor = "bottom"))
-```
+[`plot_cor`](https://sedzinfo.github.io/golemworldbank/reference/plot_cor.md)`(`` `` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` ``country_code``,`` `` indicator1 ``=`` ``"Mortality rate, adult, male (per 1,000 male adults)"``,`` `` indicator2 ``=`` ``"Mortality rate, infant (per 1,000 live births)"``,`` `` font_style ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``size ``=`` ``12``)`` ``)`` `[`%>%`](https://sedzinfo.github.io/golemworldbank/reference/pipe.md)` `` ``plotly``::``layout``(``legend ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``orientation ``=`` ``"h"``, y ``=`` ``1.02``, yanchor ``=`` ``"bottom"``)``)`
 
 A country is in a year’s frame only when it has both values and its
 population in that year. Its region is found by matching its name to the
@@ -123,14 +94,7 @@ and they stay hidden while the years play.
 colors every country of a world map by the value of one indicator. The
 countries are placed by their three-letter `Country Code`:
 
-``` r
-
-plot_map(
-  mfi = mfi_table(),
-  indicator = "Population, total",
-  font_style = list(size = 12)
-)
-```
+[`plot_map`](https://sedzinfo.github.io/golemworldbank/reference/plot_map.md)`(`` `` mfi ``=`` `[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``,`` `` indicator ``=`` ``"Population, total"``,`` `` font_style ``=`` `[`list`](https://rdrr.io/r/base/list.html)`(``size ``=`` ``12``)`` ``)`
 
 All the years share one color scale, from the lowest to the highest
 value of any year, so the colors of two years can be compared.
@@ -145,21 +109,10 @@ Both work on any animated plotly chart. Give
 [`animation_buttons()`](https://sedzinfo.github.io/golemworldbank/reference/animation_buttons.md)
 the name of the first frame, which Stop goes back to:
 
-``` r
-
-d <- data.frame(x = 1:3, y = c(2, 4, 3), year = c("1960", "1961", "1962"))
-p <- plotly::plot_ly(d, x = ~x, y = ~y, frame = ~year,
-                     type = "scatter", mode = "markers")
-p <- plotly::layout(p, updatemenus = animation_buttons("1960"))
-keep_legend_clicks(p)
-```
+`d`` ``<-`` `[`data.frame`](https://rdrr.io/r/base/data.frame.html)`(``x ``=`` ``1``:``3``, y ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``2``, ``4``, ``3``)``, year ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"1960"``, ``"1961"``, ``"1962"``)``)`` ``p`` ``<-`` ``plotly``::`[`plot_ly`](https://rdrr.io/pkg/plotly/man/plot_ly.html)`(``d``, x ``=`` ``~``x``, y ``=`` ``~``y``, frame ``=`` ``~``year``,`` `` type ``=`` ``"scatter"``, mode ``=`` ``"markers"``)`` ``p`` ``<-`` ``plotly``::``layout``(``p``, updatemenus ``=`` `[`animation_buttons`](https://sedzinfo.github.io/golemworldbank/reference/animation_buttons.md)`(``"1960"``)``)`` `[`keep_legend_clicks`](https://sedzinfo.github.io/golemworldbank/reference/keep_legend_clicks.md)`(``p``)`
 
 Like the line charts, the animated charts are plotly objects, so
 [`htmlwidgets::saveWidget()`](https://rdrr.io/pkg/htmlwidgets/man/saveWidget.html)
 saves any of them as a web page:
 
-``` r
-
-map <- plot_map(mfi_table(), "Population, total", font_style)
-htmlwidgets::saveWidget(map, "map.html")
-```
+`map`` ``<-`` `[`plot_map`](https://sedzinfo.github.io/golemworldbank/reference/plot_map.md)`(`[`mfi_table`](https://sedzinfo.github.io/golemworldbank/reference/mfi_table.md)`(``)``, ``"Population, total"``, ``font_style``)`` ``htmlwidgets``::`[`saveWidget`](https://rdrr.io/pkg/htmlwidgets/man/saveWidget.html)`(``map``, ``"map.html"``)`
