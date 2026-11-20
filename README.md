@@ -4,22 +4,36 @@
 
 A Shiny application, built as a [golem](https://thinkr-open.github.io/golem/) package, for exploring World Bank development indicators through interactive country comparison, indicator comparison, population pyramid, ranked bar chart, correlation scatter, and choropleth map views.
 
-# Installation Instructions
-## install R
-installation instructions can be found here: https://cran.r-project.org/
+## Installation
 
-## install RStudio IDE (optional but a good idea)
+### Prerequisites
 
-installation instructions can be found here: https://posit.co/downloads/
+1. **Install R**: https://cran.r-project.org/
+2. **Install RStudio** (optional but recommended): https://posit.co/downloads/
 
-open RStudio and type in the console:
+### Package Installation
+
+Open RStudio (or an R console) and run:
+
+```r
+install.packages(
+  "golemworldbank",
+  repos = c("https://sedzinfo.r-universe.dev", "https://cloud.r-project.org")
+)
 ```
+
+[R-universe](https://sedzinfo.r-universe.dev/golemworldbank) builds golemworldbank from this repository, and CRAN provides the packages it needs.
+
+To install from GitHub instead:
+
+```r
+# Install devtools if you haven't already
 install.packages("devtools")
-library(devtools)
-install_github("sedzinfo/golemworldbank")
+# Install golemworldbank from GitHub
+devtools::install_github("sedzinfo/golemworldbank")
 ```
 
-The source tarball of the [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest) installs as well. It is rebuilt from `main` on every change, together with the PDF manual:
+Or install the source tarball of the [latest release](https://github.com/sedzinfo/golemworldbank/releases/tag/latest), which is rebuilt from `main` on every change, together with the PDF manual:
 
 ```r
 install.packages(
@@ -28,7 +42,7 @@ install.packages(
 )
 ```
 
-# Alternative installation
+## Alternative installation
 Clone the repository and install locally:
 ```
 git clone https://github.com/sedzinfo/golemworldbank.git
@@ -40,13 +54,13 @@ devtools::install_local("golemworldbank")
 
 The package data are normal files in the repository. Only the raw World Bank downloads that `financial_indicators.R` reads (in `data/` and `data-raw/`) are stored with Git LFS: you need them, and Git LFS (see Git LFS Setup below), only to regenerate the data.
 
-# Usage
+## Usage
 ```
 library(golemworldbank)
 run_app()
 ```
 
-# Update data
+## Update data
 
 In order to update the data:
 1. run the financial_indicators.R script
@@ -130,7 +144,7 @@ git lfs ls-files
 ```
 
 
-# Screenshots
+## Screenshots
 
 ![Country Comparison tab](man/figures/worldbank1.png)
 ![Indicator Comparison tab](man/figures/worldbank2.png)
@@ -143,6 +157,7 @@ git lfs ls-files
 
 ---
 
+[![R-universe](https://sedzinfo.r-universe.dev/golemworldbank/badges/version)](https://sedzinfo.r-universe.dev/golemworldbank)
 ![Stars](https://img.shields.io/github/stars/sedzinfo/golemworldbank)
 ![Watchers](https://img.shields.io/github/watchers/sedzinfo/golemworldbank)
 ![Repo Size](https://img.shields.io/github/repo-size/sedzinfo/golemworldbank)
